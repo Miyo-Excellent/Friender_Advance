@@ -8,16 +8,16 @@ const isDevelopment = process.env.NODE_ENV !== 'production';
 export default () => {
   const plugins = [
     new ExtractTextPlugin({
-      filename: '../../public/css/styles.css'
+      filename: '../../public/css/style.css'
     })
   ];
 
-  if(isDevelopment) {
+  if (isDevelopment) {
     plugins.push(
       new webpack.HotModuleReplacementPlugin(),
       new webpack.NoEmitOnErrorsPlugin()
     );
-
-    return plugins;
   }
+
+  return plugins;
 };

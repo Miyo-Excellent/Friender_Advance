@@ -6,8 +6,8 @@ const isDevelopment = process.env.NODE_ENV !== 'production';
 
 export default type => {
   const rules = [
-    {// JAVASCRIPT
-      test: /\.(js|jsx)$/,
+    {
+      test: /\.js$/,
       use: 'babel-loader',
       exclude: /node_modules/
     },
@@ -53,19 +53,19 @@ export default type => {
         }
       ]
     }
-  ]
+  ];
 
-  if (!isDevelopment && type === 'server') {
+  if (!isDevelopment || type === 'server') {
     rules.push({
       test: /\.scss$/,
       use: ExtractTextPlugin.extract({
-        fallback: 'styles-loader',
+        fallback: 'style-loader',
         use: [
           {
             loader: 'css-loader',
             options: {
               import: true,
-              localIdentName: '[name]__[local]__[hash:base64:5]',
+              localIdentName: '[name]__[local]',
               minimize: true,
               modules: true,
               root: '.',
@@ -87,6 +87,12 @@ export default type => {
       test: /\.scss$/,
       use: [
         {
+          loader: 'style-loader',
+          options: {
+            sourceMap: false
+          }
+        },
+        {
           loader: 'css-loader',
           options: {
             import: true,
@@ -105,6 +111,9 @@ export default type => {
           }
         }
       ]
-    })
+    });
   }
+
+  return rules;
 };
+

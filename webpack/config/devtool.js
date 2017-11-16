@@ -1,6 +1,1 @@
-// Environment
-const isDevelopment = process.env.NODE_ENV !== 'production';
-
-export default () => isDevelopment
-  ? 'eval-source-map'
-  : 'eval';
+export default () => 'eval-source-map';

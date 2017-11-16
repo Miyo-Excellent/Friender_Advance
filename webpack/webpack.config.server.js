@@ -2,13 +2,15 @@
 import webpackMerge from 'webpack-merge';
 
 // Webpack Configuration
-import commonConfig from 'webpack.config.common';
+import commonConfig from './webpack.config.common';
+
+// Configuration
 import { context, entry, externals, name, output, plugins, target } from './config';
 
 // Type of Configuration
-const type = 'clinet';
+const type = 'server';
 
-export default webpackMerge(commonConfig, {
+export default webpackMerge(commonConfig(type), {
   context: context(type),
   entry: entry(type),
   externals: externals(type),

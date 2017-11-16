@@ -1,1 +1,1 @@
-export default () => ['.js', '.jsx', '.json', '.css', '.scss'];
+export default () => ['.js', '.jsx', '.json', '.css'];

@@ -2,5 +2,5 @@
 import path from 'path';
 
 export default type => type === 'server'
-  ? path.relative(__dirname, '../../src/server')
-  : path.relative(__dirname, '../../src/app');
+  ? path.resolve(__dirname, '../../src/server')
+  : path.resolve(__dirname, '../../src/app');

@@ -8,7 +8,7 @@ export default type => {
 
   const entry = {
     main: []
-  }
+  };
 
   if (isDevelopment) {
     entry.main.push(
@@ -17,7 +17,7 @@ export default type => {
     );
   }
 
-  entry.main.push('./client');
+  entry.main.push('./client.js');
 
   return entry;
-}
+};
