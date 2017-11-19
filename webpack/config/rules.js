@@ -6,7 +6,7 @@ const isDevelopment = process.env.NODE_ENV !== 'production';
 
 export default type => {
   const rules = [
-    {
+    {//-- JAVASCRIPT
       test: /\.js$/,
       use: 'babel-loader',
       exclude: /node_modules/
@@ -59,7 +59,12 @@ export default type => {
     rules.push({
       test: /\.scss$/,
       use: ExtractTextPlugin.extract({
-        fallback: 'style-loader',
+        fallback: {
+          loader: 'style-loader',
+          options: {
+            sourceMap: true
+          }
+        },
         use: [
           {
             loader: 'css-loader',

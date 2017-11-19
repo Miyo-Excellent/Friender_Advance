@@ -1,18 +1,18 @@
 export default function html(options) {
   const {
     app = 'main',
-    // vendor = 'vendor',
+    vendor = 'vendor',
     charset = 'utf-8',
     title = 'Friender',
     description = 'Friender está pesando como una plataforma web que consiste en brindar opciones de empleo a sus usuarios, de forma dinámica, directa y seria, evitando protocolos e intermediarios.',
     scalable = 'yes',
     themeColor = 'black',
-    favicon = 'icon.png',
-    appleFavicon = 'apple-icon.png',
+    favicon = './images/logo/logo.ico',
+    appleFavicon = './images/logo/logo.ico',
     stylesheet = '/css/style.css',
     rootElement = 'root',
-    markup
-    // initialState = {}
+    markup,
+    initialState = {}
   } = options;
 
   return `
@@ -39,14 +39,12 @@ export default function html(options) {
         <div id="${rootElement}">${markup}</div>
 
 
+        <script>
+          window.initialState = ${JSON.stringify(initialState)};
+        </script>
+        <script src="/app/${vendor}.bundle.js"></script>
         <script src="/app/${app}.bundle.js"></script>
         </body>
         </html>
         `;
-  /*
-  <script>
-    window.initialState = ${JSON.stringify(initialState)};
-  </script>
-  <script src="/app/${vendor}.bundle.js"></script>
-  */
 }
