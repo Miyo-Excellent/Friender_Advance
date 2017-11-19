@@ -6,6 +6,10 @@ import { connect } from 'react-redux';
 import styles from './scss/Home.scss';
 
 const Home = ({ commits, newCommit }) => {
+  const funCommit = () => {
+    const commit = document.querySelector('#newCommit').value;
+    newCommit(commit);
+  };
   return (
     <div className={styles.home}>
       <h1>Home</h1>
@@ -20,10 +24,7 @@ const Home = ({ commits, newCommit }) => {
         ))}
       </div>
       <input type="text" placeholder="new Commit" id="newCommit" />
-      <button onClick={() => {
-        const commit = document.querySelector('#newCommit').value;
-        newCommit(commit);
-      }}>Send</button>
+      <button onClick={funCommit()}>Send</button>
     </div>
   );
 };
