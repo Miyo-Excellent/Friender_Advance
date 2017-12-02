@@ -10,7 +10,7 @@ import {
   isPlayStation
 } from "../shared/utils/device";
 import morgan from 'morgan';
-import open from 'open';
+// import open from 'open';
 import path from 'path';
 import serveFavicon from 'serve-favicon';
 import remotedev from 'remotedev-server';
@@ -19,10 +19,10 @@ import webpackDevMiddleware from 'webpack-dev-middleware';
 import webpackHotMiddleware from 'webpack-hot-middleware';
 import webpackHotServerMiddleware from 'webpack-hot-server-middleware';
 // Router
-import routes from './routes';
+// import routes from './routes';
 
 // API
-import api from './api';
+// import api from './api';
 
 // Webpack Configuration
 import webpackConfig from '../../webpack.config';

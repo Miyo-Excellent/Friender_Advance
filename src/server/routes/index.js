@@ -2,5 +2,6 @@
 import express from "express";
 
 export default (req, res, next) => {
-  // const routes = express.Router();
+  const routes = express.Router();
+  return routes;
 };

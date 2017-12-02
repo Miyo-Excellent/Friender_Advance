@@ -36,6 +36,7 @@ const Controller = ({ BackStep, Complete, NextStep, UserData }) => {
     const okEmail = /[a-zA-Z0-9]{3,24}\@([a-zA-Z0-9]{3,8}\.){1,3}[a-zA-Z0-9]{3,8}/;
     const okLastname = /[a-zA-Z0-9]{3,}/;
     const okName = /[a-zA-Z0-9]{3,}/;
+    const okNIT = /[0-9]{3}(\-|\_|\\|\/|\.)[0-9]{3}(\-|\_|\\|\/|\.)[0-9](\-|\_|\\|\/|\.)[a-ZA-Z]{1}/;
     const okMunincipality =
       address.munincipality !== "index" || address.munincipality !== "";
     const okPhone = /3[0-9]{2}[0-9]{6}/;
@@ -46,16 +47,17 @@ const Controller = ({ BackStep, Complete, NextStep, UserData }) => {
       Complete();
     } else {
       if (
-        okEmail &&
-        okLastname &&
-        okName &&
-        okMunincipality &&
-        okPhone &&
-        okPassword &&
-        okProvince &&
-        okTypeOfCompany
+        okEmail.test(email) &&
+        okLastname.test(lastname) &&
+        (okName.test(name) && okName.test(nickname)) &&
+        okNIT.test(nit) &&
+        okMunincipality.test(munincipality) &&
+        okPhone.test(phone) &&
+        okPassword.test(password) &&
+        okProvince.test(province) &&
+        okTypeOfCompany.test(typeOfCompany)
       ) {
-        console.log('New User');
+        console.log("New User");
         Complete();
       }
     }

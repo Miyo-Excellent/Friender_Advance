@@ -1,9 +1,9 @@
 // Dependencies
-import React from 'react';
-import { connect } from 'react-redux';
+import React from "react";
+import { connect } from "react-redux";
 
 // Styles
-import styles from './scss/Step.scss';
+import styles from "./scss/Step.scss";
 
 const Controller = ({ step }) => {
   const whoStep = Step => {
@@ -17,17 +17,17 @@ const Controller = ({ step }) => {
           </li>
           <li className={styles.item}>
             <div className={styles.content}>
-              <span className={styles.emply}></span>
+              <span className={styles.emply} />
             </div>
           </li>
           <li className={styles.item}>
             <div className={styles.content}>
-              <span className={styles.emply}></span>
+              <span className={styles.emply} />
             </div>
           </li>
           <li className={styles.item}>
             <div className={styles.content}>
-              <span className={styles.emply}></span>
+              <span className={styles.emply} />
             </div>
           </li>
           <li className={styles.item}>
@@ -37,17 +37,17 @@ const Controller = ({ step }) => {
           </li>
           <li className={styles.item}>
             <div className={styles.content}>
-              <span className={styles.emply}></span>
+              <span className={styles.emply} />
             </div>
           </li>
           <li className={styles.item}>
             <div className={styles.content}>
-              <span className={styles.emply}></span>
+              <span className={styles.emply} />
             </div>
           </li>
           <li className={styles.item}>
             <div className={styles.content}>
-              <span className={styles.emply}></span>
+              <span className={styles.emply} />
             </div>
           </li>
           <li className={styles.item}>
@@ -67,17 +67,17 @@ const Controller = ({ step }) => {
           </li>
           <li className={styles.item}>
             <div className={styles.content}>
-              <span className={styles.completed}></span>
+              <span className={styles.completed} />
             </div>
           </li>
           <li className={styles.item}>
             <div className={styles.content}>
-              <span className={styles.completed}></span>
+              <span className={styles.completed} />
             </div>
           </li>
           <li className={styles.item}>
             <div className={styles.content}>
-              <span className={styles.completed}></span>
+              <span className={styles.completed} />
             </div>
           </li>
           <li className={styles.item}>
@@ -87,17 +87,17 @@ const Controller = ({ step }) => {
           </li>
           <li className={styles.item}>
             <div className={styles.content}>
-              <span className={styles.emply}></span>
+              <span className={styles.emply} />
             </div>
           </li>
           <li className={styles.item}>
             <div className={styles.content}>
-              <span className={styles.emply}></span>
+              <span className={styles.emply} />
             </div>
           </li>
           <li className={styles.item}>
             <div className={styles.content}>
-              <span className={styles.emply}></span>
+              <span className={styles.emply} />
             </div>
           </li>
           <li className={styles.item}>
@@ -117,17 +117,17 @@ const Controller = ({ step }) => {
           </li>
           <li className={styles.item}>
             <div className={styles.content}>
-              <span className={styles.completed}></span>
+              <span className={styles.completed} />
             </div>
           </li>
           <li className={styles.item}>
             <div className={styles.content}>
-              <span className={styles.completed}></span>
+              <span className={styles.completed} />
             </div>
           </li>
           <li className={styles.item}>
             <div className={styles.content}>
-              <span className={styles.completed}></span>
+              <span className={styles.completed} />
             </div>
           </li>
           <li className={styles.item}>
@@ -137,17 +137,17 @@ const Controller = ({ step }) => {
           </li>
           <li className={styles.item}>
             <div className={styles.content}>
-              <span className={styles.completed}></span>
+              <span className={styles.completed} />
             </div>
           </li>
           <li className={styles.item}>
             <div className={styles.content}>
-              <span className={styles.completed}></span>
+              <span className={styles.completed} />
             </div>
           </li>
           <li className={styles.item}>
             <div className={styles.content}>
-              <span className={styles.completed}></span>
+              <span className={styles.completed} />
             </div>
           </li>
           <li className={styles.item}>
@@ -159,16 +159,13 @@ const Controller = ({ step }) => {
       );
     }
   };
-  return (
-    <div className={styles.step}>{whoStep(step)}</div>
-  );
+  return <div className={styles.step}>{whoStep(step)}</div>;
 };
 
 const mapStateToProps = state => ({
   step: state.register.userData.step
 });
 
-const mapDispatchToProps = dispatch => ({
-});
+const mapDispatchToProps = dispatch => ({});
 
 export default connect(mapStateToProps, mapDispatchToProps)(Controller);
