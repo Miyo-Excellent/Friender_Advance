@@ -11,7 +11,8 @@ import configureStoreProduction from './configureStoreProduction';
 // Environment
 const isDevelopment = process.env.NODE_ENV !== 'production';
 
-export default function configureStore(initialState) {
+export default function configureStore(initialState = {}) {
+
   // Middlewares
   const middleware = [
     thunk
@@ -19,13 +20,13 @@ export default function configureStore(initialState) {
 
   if (isDevelopment) {
     return createStore(
-      rootReducer,
+      rootReducer(),
       initialState,
       configureStoreDevelopment(middleware)
     );
   } else {
     return createStore(
-      rootReducer,
+      rootReducer(),
       initialState,
       configureStoreProduction(middleware)
     );

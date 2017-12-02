@@ -1,20 +1,33 @@
 // Dependencies
-import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+import { connect } from "react-redux";
+import React from "react";
 
-import styles from './scss/User.scss';
+// Views
+import Company from "./views/Company";
+import People from "./views/People";
 
-class User extends Component {
-  render() {
-    return (
-      <div className={styles.user}>
-        <h1>User</h1>
-        <ul>
-          <li><Link to="/">Home</Link></li>
-        </ul>
-      </div>
+// Styles
+import styles from "./scss/User.scss";
+
+const User = ({ devices, user }) => {
+  const { isMobile } = devices;
+  const { type } = user;
+
+  const howType = Type => Type === "people" ? <People /> : <Company />;
+
+  const View = () =>
+    isMobile ? (
+      <section className={styles.user}>{howType(type)}</section>
+    ) : (
+      <section className={styles.user}>{howType(type)}</section>
     );
-  }
-}
+  return View();
+};
 
-export default User;
+const mapStateToProps = state => ({
+  devices: state.devices,
+  user: state.user
+});
+const mapDispatchToProps = dispatch => ({});
+
+export default connect(mapStateToProps, mapDispatchToProps)(User);

@@ -1,18 +1,18 @@
 export default function html(options) {
   const {
     app = 'main',
-    vendor = 'vendor',
-    charset = 'utf-8',
-    title = 'Friender',
-    description = 'Friender está pesando como una plataforma web que consiste en brindar opciones de empleo a sus usuarios, de forma dinámica, directa y seria, evitando protocolos e intermediarios.',
-    scalable = 'yes',
-    themeColor = 'black',
-    favicon = './images/logo/logo.ico',
     appleFavicon = './images/logo/logo.ico',
-    stylesheet = '/css/style.css',
-    rootElement = 'root',
+    charset = 'utf-8',
+    description = 'Friender está pesando como una plataforma web que consiste en brindar opciones de empleo a sus usuarios, de forma dinámica, directa y seria, evitando protocolos e intermediarios.',
+    favicon = './images/logo/logo.ico',
+    initialState = {},
     markup,
-    initialState = {}
+    rootElement = 'root',
+    scalable = 'yes',
+    stylesheet = '/css/style.css',
+    themeColor = 'black',
+    title = 'Friender',
+    vendor = 'vendor'
   } = options;
 
   return `
@@ -34,9 +34,15 @@ export default function html(options) {
         <link rel="apple-touch-icon-precomposed" href="${appleFavicon}">
         <!-- Styles -->
         <link rel="stylesheet" href="${stylesheet}" />
+        <style>
+          div#root.root {
+            width: 100%;
+            height: 100%;
+          }
+        </style>
       </head>
       <body>
-        <div id="${rootElement}">${markup}</div>
+        <div id="${rootElement}" class="${rootElement}">${markup}</div>
 
 
         <script>

@@ -26,7 +26,7 @@
     "brace-style": 2,
     "callback-return": 2,
     "comma-dangle": [2, "never"],
-    "complexity": [2, 8],
+    "complexity": [2, 50],
     "curly": 2,
     "dot-location": [2, "property"],
     "dot-notation": 2,
@@ -38,7 +38,7 @@
     }],
     "keyword-spacing": 2,
     "max-depth": [2, 6],
-    "max-len": [2, 200, 4],
+    "max-len": [2, 800, 4],
     "max-statements": ["error", 40, {
       "ignoreTopLevelFunctions": true
     }],

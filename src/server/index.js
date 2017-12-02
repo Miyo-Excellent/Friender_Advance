@@ -2,17 +2,27 @@
 import bodyParser from 'body-parser';
 import cookieParser from 'cookie-parser';
 import express from 'express';
+import {
+  isDesktop,
+  isBot,
+  isCurl,
+  isMobile,
+  isPlayStation
+} from "../shared/utils/device";
 import morgan from 'morgan';
 import open from 'open';
 import path from 'path';
 import serveFavicon from 'serve-favicon';
+import remotedev from 'remotedev-server';
 import webpack from 'webpack';
 import webpackDevMiddleware from 'webpack-dev-middleware';
 import webpackHotMiddleware from 'webpack-hot-middleware';
 import webpackHotServerMiddleware from 'webpack-hot-server-middleware';
+// Router
+import routes from './routes';
 
-// Utils
-import { isDesktop, isBot, isCurl, isMobile, isPlayStation } from '../shared/utils/device';
+// API
+import api from './api';
 
 // Webpack Configuration
 import webpackConfig from '../../webpack.config';
@@ -44,6 +54,13 @@ const port = isDeployment ? 80 : process.env.NODE_PORT || 3000;
 //   });
 // }
 
+// Remote Redux Dev Tools
+
+remotedev({
+  hostname: 'localhost',
+  port: 8000
+});
+
 app
   // Favicon Middlewares
   .use(serveFavicon(path.join(__dirname, '../../public/images/logo/logo.ico')))
@@ -59,20 +76,16 @@ app
 
   .use('/', (req, res, next) => {
     // Bots Detection
-    req.isBot = isBot(req.headers['user-agent']);
+    req.isBot = isBot(req.headers["user-agent"]);
     // Curl Detection
-    req.isCurl = isCurl(req.headers['user-agent']);
+    req.isCurl = isCurl(req.headers["user-agent"]);
     // Device Detection
-    req.isMobile = isMobile(req.headers['user-agent']);
+    req.isMobile = isMobile(req.headers["user-agent"]);
     // Desktop Detection
-    req.isDesktop = isDesktop(req.headers['user-agent']);
+    req.isDesktop = isDesktop(req.headers["user-agent"]);
     // Desktop Detection
-    req.isPlayStation = isPlayStation(req.headers['user-agent']);
+    req.isPlayStation = isPlayStation(req.headers["user-agent"]);
     return next(); // Next Middleware
-  })
-  .use('/user', (req, res, next) => {
-    res.send('<h1>Hola Usuario</h1>');
-    return next();
   });
 
 // Only Middlewares for Development Mode
@@ -96,14 +109,26 @@ if (!isDevelopment) {
   }
 }
 
-app
-  // For Server Side Rendering on Developmnent Mode
-  .use(webpackHotServerMiddleware(compiler))
+// For Server Side Rendering on Developmnent Mode
+app.use(webpackHotServerMiddleware(compiler));
 
-  // Listening
-  .listen(port, err => {
-    if (!err && !isAnalyzer) {
-      open(`http://localhost:${port}`);
-      setTimeout(() => console.log(`Aplicación corriendo en: ==> http://localhost:${port}  <== Abrir enlace con (Ctrl + Clic) `), 6500); // eslint-disable-line
-    }
-  });
+
+// Listening
+app.listen(port, err => {
+  if (!err && !isAnalyzer) {
+    // open(`http://localhost:${port}`);
+    setTimeout(() => {
+      console.log(`
+
+
+    =========================================================================================================================
+    |·─··─··─··─··─··─··─··─··─··─··─··─··─··─··─··─··─··─··─··─··─··─··─··─··─··─··─··─··─··─··─··─··─··─··─··─··─··─·─··─·|
+    |·─ Aplicación corriendo en: ==>  http://localhost:${port}  <== Abrir enlace con (Ctrl + Clic) en Windows, Linux, MAC ─·|
+    |·─··─··─··─··─··─··─··─··─··─··─··─··─··─··─··─··─··─··─··─··─··─··─··─··─··─··─··─··─··─··─··─··─··─··─··─··─··─·─··─·|
+    =========================================================================================================================
+
+
+`);
+    }, 12000);
+  }
+});

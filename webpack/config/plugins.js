@@ -38,7 +38,12 @@ export default type => {
   if (isDevelopment) {
     plugins.push(
       new webpack.HotModuleReplacementPlugin(),
-      new webpack.NoEmitOnErrorsPlugin()
+      new webpack.NoEmitOnErrorsPlugin(),
+      new webpack.DefinePlugin({
+        'process.env': {
+          'NODE_ENV': JSON.stringify('development')
+        }
+      })
     );
   } else {
     plugins.push(

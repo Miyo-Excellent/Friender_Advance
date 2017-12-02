@@ -1,18 +1,12 @@
-const initialState = {
-  commits: []
-};
+// Dependencies
+import { combineReducers } from 'redux';
 
-export default function homeReducer(state = initialState, action) {
-  switch (action.type) {
-    case 'NEW_COMMIT':
-      return {
-        ...state,
-        commits: state.commits.concat(action.commit)
-      };
-      break;
+// Locals Reducers
+import navBar from '../components/NavBar/reducer';
 
-    default:
-      return state;
-      break;
-  }
-}
+// Home Initial State
+const initialState = combineReducers({
+  navBar
+});
+
+export default initialState;

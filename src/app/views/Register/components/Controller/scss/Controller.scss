@@ -1,0 +1,80 @@
+.controllers {
+    grid-column: 1;
+    grid-row: 4;
+    margin: 5px 0 0 0;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-around;
+    align-items: center;
+    >*{
+        &:nth-child(1){
+            animation: swipFromUp 650ms linear;
+        }
+        &:nth-child(2){
+            animation: swipFromUp 750ms linear;
+        }
+  }
+.back {
+    width: 150px;
+    .button {
+        width: 100%;
+    }
+}
+.complete,
+.next {
+    width: 150px;
+    .button {
+        width: 100%;
+    }
+}
+.next_full {
+    width: 100%;
+    .button {
+        margin: 0 0 15px 0;
+        width: 80%;
+    }
+}
+.complete,
+.back,
+.next,
+.next_full {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 250ms linear;
+    opacity: 1;
+    .button {
+      height: 90%;
+      padding: 5px 2px;
+      font-size: 1.2em;
+      color: #fff;
+      border: none;
+      border-radius: 2em;
+      background: dodgerblue;
+      cursor: pointer;
+      &:active {
+        background: rgb(173, 215, 232);
+        color: #333;
+      }
+      &:hover {
+        background: rgb(83, 181, 247);
+      }
+    }
+  }
+}
+
+/*
+ * Start Buttons animations
+ */
+ @keyframes swipFromUp {
+     0% {
+        left: -500px;
+        opacity: 0;
+     }
+     100% {
+        opacity: 1;
+     }
+ }
