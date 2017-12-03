@@ -13,13 +13,13 @@ const User = ({ devices, user }) => {
   const { isMobile } = devices;
   const { type } = user;
 
-  const howType = Type => Type === "people" ? <People /> : <Company />;
+  const whatKind = Type => Type === "people" ? <People /> : <Company />;
 
   const View = () =>
     isMobile ? (
-      <section className={styles.user}>{howType(type)}</section>
+      <section className={styles.user}>{whatKind(type)}</section>
     ) : (
-      <section className={styles.user}>{howType(type)}</section>
+      <section className={styles.user}>{whatKind(type)}</section>
     );
   return View();
 };

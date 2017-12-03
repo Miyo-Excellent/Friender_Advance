@@ -1,32 +1,35 @@
 // Dependencies
 import { connect } from "react-redux";
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
 import React from "react";
 
 // Components
 
 // Assets
-import menuMap from './assets/menuMap';
+import menuMap from "./utils/menuMap";
 
 // Styles
-import styles from './scss/Nav.scss';
+import styles from "./scss/Nav.scss";
 
 const Nav = ({ devices, user }) => {
   const { isMobile } = devices;
-  const Mobile = () => (
-    <section className={styles.user_mobile}>
-      <ul>{menuMap(user).map((item, i) => <li key={i} className={styles.nav_Item}> <Link to={item.path}>{item.name}</Link> </li> )}</ul>
-      <img src={user.picture.toString()} alt="Avatar"/>
-    </section>
+  const generator = () => (
+    <ul className={styles.menu}>
+      {menuMap(user, devices).map((item, i) => (
+        <li key={i} className={styles.item}>
+          <Link to={item.path} className={styles.link}>
+            <img src={item.image} alt={item.name} className={styles.image} />
+          </Link>
+        </li>
+      ))}
+    </ul>
   );
 
-  const Desktop = () => (
-    <section className={styles.user}>
-      <ul>{menuMap(user).map((item, i) => <li key={i}> <Link to={item.path}>{item.name}</Link> </li> )}</ul>
-    </section>
-  );
+  const Mobile = () => <nav className={styles.nav_mobile}>{generator()}</nav>;
 
-  const View = () => (isMobile ? Mobile() : Desktop());
+  const Desktop = () => <nav className={styles.nav}>{generator()}</nav>;
+
+  const View = () => isMobile ? Mobile() : Desktop();
   return View();
 };
 

@@ -4,6 +4,7 @@ import React from "react";
 
 // Components
 import Nav from '../components/Nav';
+import Profil from '../components/Profile';
 
 // Styles
 import styles from "./scss/People.scss";
@@ -13,6 +14,7 @@ const People = ({ devices, user }) => {
   const Mobile = () => (
     <section className={styles.user_mobile}>
       <Nav />
+      <Profil />
     </section>
   );
 

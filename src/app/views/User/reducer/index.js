@@ -14,10 +14,20 @@ const initialState = options => {
       munincipality: "medellin"
     },
     email: "email@friender.co",
+    header: 'http://eskipaper.com/images/best-wallpapers-hd-6.jpg',
+    followers: 35457,
+    followins: 2134,
     name: "filanito",
     nickname: "Friender",
     phone: "3000000000",
     picture: 'https://avatars0.githubusercontent.com/u/24364747?s=460&v=4',
+    profession: 'Web-Developer',
+    profil: {
+      aplicated: 2000,
+      interested: 123,
+      evaluated: 789,
+      completed: 456
+    },
     type
   };
 

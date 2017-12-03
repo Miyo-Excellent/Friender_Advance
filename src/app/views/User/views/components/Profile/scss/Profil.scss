@@ -1,0 +1,12 @@
+.profil,
+.profil_mobile {
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: 1fr;
+}
+.profil {
+}
+.profil_mobile {
+    grid-template-rows: auto auto 1fr;
+}

@@ -34,9 +34,9 @@ const Controller = ({ BackStep, Complete, NextStep, UserData }) => {
 
   const complete = () => {
     const okEmail = /[a-zA-Z0-9]{3,24}\@([a-zA-Z0-9]{3,8}\.){1,3}[a-zA-Z0-9]{3,8}/;
-    const okLastname = /[a-zA-Z0-9]{3,}/;
-    const okName = /[a-zA-Z0-9]{3,}/;
-    const okNIT = /[0-9]{3}(\-|\_|\\|\/|\.)[0-9]{3}(\-|\_|\\|\/|\.)[0-9](\-|\_|\\|\/|\.)[a-ZA-Z]{1}/;
+    const okLastname = /[a-zA-Z]{3,}/;
+    const okName = /[a-zA-Z]{3,}/;
+    const okNIT = /[0-9]{3}(-|_|\/|\\)[0-9]{3}(-|_|\/|\\)[0-9]{3}(-|_|\/|\\)[a-zA-Z]{1}/;
     const okMunincipality =
       address.munincipality !== "index" || address.munincipality !== "";
     const okPhone = /3[0-9]{2}[0-9]{6}/;
