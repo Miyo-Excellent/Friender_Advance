@@ -6,8 +6,5 @@
 .user_mobile {
     display: grid;
     grid-template-columns: 1fr;
-    grid-template-rows: 45px auto;
-    img {
-        width: 50px;
-    }
+    grid-template-rows: 1fr;
 }

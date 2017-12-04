@@ -1,99 +1,112 @@
 @import '../../../../../../../../../shared/styles/global';
 .short_info_mobile,
 .short_info {
-  font-size: 16px;
-  grid-column: 1;
-  grid-row: 1;
-  height: $profile-header-module-height;
-  .image_background,
-  .details {
-  }
-  .image_background {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-  }
-  .details {
-    width: 100%;
-    height: $profile-header-module-height / 2;
-    position: absolute;
-    bottom: 0;
-    top: auto;
-    display: grid;
-    grid-template-columns: ($profile-header-module-height / 2) 1fr;
-    grid-auto-rows: $profile-header-module-height / 2;
-    background: rgba(0, 0, 0, 0.384);
-    .pictute,
-    .info {
-      * {
-        color: #fff;
-      }
-    }
-    .info {
-        grid-row: 1;
-        grid-column: 2;
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        grid-template-rows: 1fr 1fr;
-        .followers,
-        .followins {
-            display: flex;
-            flex-flow: column nowrap;
-            justify-content: space-around;
-            align-items: center;
-        }
-        .text {
-            grid-column: 1/3;
-            grid-row: 1;
-            display: flex;
-            flex-flow: row nowrap;
-            justify-content: flex-start;
-            align-items: center;
-            padding: 0 0 0 ($profile-header-module-height / 12);
-            >* {
-                display: block;
-            }
-            .names_title {
-                font-size: 1.3em;
-            }
-            .lastname_title {
-                font-size: 1em;
-            }
-            .profession_title {
-                font-size: .75em;
-            }
-            span {
-                font-size: 1.3em;
-                font-weight: bolder;
-            }
-        }
-        .followers {
-            grid-column: 1;
-            grid-row: 2;
-        }
-        .followins {
-            grid-column: 2;
-            grid-row: 2;
-        }
-    }
-    .pictute {
-      display: flex;
-      flex-flow: row nowrap;
-      justify-content: center;
-      align-items: center;
-      grid-column: 1;
-      grid-row: 1;
-      border-radius: 50%;
-      background: whitesmoke;
-      img {
-        width: 90%;
-        height: 90%;
-        border-radius: 50%;
-      }
-    }
-  }
+
 }
 .short_info_mobile {
+    font-size: 16px;
+    grid-column: 1;
+    grid-row: 1;
+    height: $profile-header-module-height;
+    .image_background,
+    .details {
+    }
+    .image_background {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+    }
+    .details {
+      width: 100%;
+      height: $profile-header-module-height / 2;
+      position: absolute;
+      bottom: 0;
+      top: auto;
+      display: grid;
+      grid-template-columns: ($profile-header-module-height / 2) 1fr;
+      grid-auto-rows: $profile-header-module-height / 2;
+      background: rgba(0, 0, 0, 0.384);
+      .pictute,
+      .info {
+        * {
+          color: #fff;
+        }
+      }
+      .info {
+          grid-row: 1;
+          grid-column: 2;
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          grid-template-rows: 1fr 1fr;
+          .followers,
+          .followins {
+              display: flex;
+              flex-flow: column nowrap;
+              justify-content: space-around;
+              align-items: center;
+          }
+          .text {
+              grid-column: 1/3;
+              grid-row: 1;
+              display: flex;
+              flex-flow: row nowrap;
+              justify-content: flex-start;
+              align-items: center;
+              padding: 0 0 0 ($profile-header-module-height / 12);
+              >* {
+                  display: block;
+              }
+              .names_title {
+                display: flex;
+                flex-flow: row nowrap;
+                justify-content: center;
+                align-items: center;
+                height: 100%;
+                width: auto;
+                text-align: center;
+                font-size: .85em;
+              }
+              .profession_title {
+                display: flex;
+                flex-flow: row nowrap;
+                justify-content: center;
+                align-items: center;
+                font-size: .75em;
+                width: 100%;
+                height: 100%;
+                min-width: 120px;
+                max-width: 140px;
+              }
+              span {
+                  font-size: 1.3em;
+                  font-weight: bolder;
+              }
+          }
+          .followers {
+              grid-column: 1;
+              grid-row: 2;
+          }
+          .followins {
+              grid-column: 2;
+              grid-row: 2;
+          }
+      }
+      .pictute {
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: center;
+        align-items: center;
+        grid-column: 1;
+        grid-row: 1;
+        border-radius: 50%;
+        background: whitesmoke;
+        img {
+          width: 90%;
+          height: 90%;
+          border-radius: 50%;
+        }
+      }
+    }
 }
 .short_info {
 }

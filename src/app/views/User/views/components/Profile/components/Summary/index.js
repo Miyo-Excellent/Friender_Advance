@@ -5,7 +5,7 @@ import React, { Component } from "react";
 // Components
 
 // Utils
-import { summaryMap } from './utils';
+import { summaryMap } from "./utils";
 
 // Styles
 import styles from "./scss/Summary.scss";

@@ -5,6 +5,7 @@ import React from "react";
 // Components
 import ShortInformation from './components/ShortInformation';
 import Summary from './components/Summary';
+import Publish from './components/Publish';
 
 // Styles
 import styles from "./scss/Profil.scss";
@@ -15,6 +16,7 @@ const Profil = ({ devices }) => {
     <section className={styles.profil_mobile}>
       <ShortInformation />
       <Summary />
+      <Publish />
     </section>
   );
 

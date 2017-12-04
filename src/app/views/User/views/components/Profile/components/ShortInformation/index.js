@@ -34,14 +34,12 @@ class ShortInformatio extends Component {
           <div className={styles.info}>
             {!user.profession ? (
               <div className={styles.text}>
-                <h1 className={styles.names_title}>{user.name}</h1>
-                <h2 className={styles.lastname_title}>{user.lastname}</h2>
+                <h1 className={styles.names_title}>{`${user.name} - ${user.lastname}`}</h1>
               </div>
             ) : (
               <div className={styles.text}>
-                <h1 className={styles.names_title}>{user.name}</h1>
-                <h3 className={styles.lastname_title}>{user.lastname}</h3>
-                <span> | </span>
+                <h1 className={styles.names_title}>{`${user.name} - ${user.lastname}`}</h1>
+                <span>|</span>
                 <h2 className={styles.profession_title}>{user.profession}</h2>
               </div>
             )}
