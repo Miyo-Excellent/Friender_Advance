@@ -22,7 +22,7 @@ import webpackHotServerMiddleware from 'webpack-hot-server-middleware';
 // import routes from './routes';
 
 // API
-// import api from './api';
+import api from './api';
 
 // Webpack Configuration
 import webpackConfig from '../../webpack.config';
@@ -54,9 +54,7 @@ const port = isDeployment ? 80 : process.env.NODE_PORT || 3000;
 //   });
 // }
 
-// Remote Redux Dev Tools
-
-remotedev({
+remotedev({ // Remote Redux Dev Tools
   hostname: 'localhost',
   port: 8000
 });
@@ -86,21 +84,21 @@ app
     // Desktop Detection
     req.isPlayStation = isPlayStation(req.headers["user-agent"]);
     return next(); // Next Middleware
-  });
+  })
 
-// Only Middlewares for Development Mode
-if (isDevelopment) {
+  // Run API
+  .use('/api', api);
+
+if (isDevelopment) {// Only Middlewares for Development Mode
   app
     // Hot Module Replacement
     .use(webpackDevMiddleware(compiler))
     .use(webpackHotMiddleware(compiler.compilers.find(compiler => compiler.name === 'client')));
 }
-
 // Client Side Rendering
 app.use(clientRender()); // If a robot makes the request, the clientRender () function will return the next () method.
 
-// Only Middlewares for Production Mode
-if (!isDevelopment) {
+if (!isDevelopment) { // Only Middlewares for Production Mode
   try { // Server Side Rendering
     const serverRender = require('../../dist/server.js').default;
     app.use(serverRender());
@@ -109,12 +107,11 @@ if (!isDevelopment) {
   }
 }
 
-// For Server Side Rendering on Developmnent Mode
-app.use(webpackHotServerMiddleware(compiler));
+app
+  // For Server Side Rendering on Developmnent Mode
+  .use(webpackHotServerMiddleware(compiler));
 
-
-// Listening
-app.listen(port, err => {
+app.listen(port, err => { // Listening
   if (!err && !isAnalyzer) {
     // open(`http://localhost:${port}`);
     setTimeout(() => {
@@ -123,7 +120,7 @@ app.listen(port, err => {
 
     =========================================================================================================================
     |·─··─··─··─··─··─··─··─··─··─··─··─··─··─··─··─··─··─··─··─··─··─··─··─··─··─··─··─··─··─··─··─··─··─··─··─··─··─·─··─·|
-    |·─ Aplicación corriendo en: ==>  http://localhost:${port}  <== Abrir enlace con (Ctrl + Clic) en Windows, Linux, MAC ─·|
+    |·─ Aplicación corriendo en: ==>  http://localhost:${port}  <== Abrir enlace con (Ctrl + Clic) en Windows, Linux, MAC ─··─·|
     |·─··─··─··─··─··─··─··─··─··─··─··─··─··─··─··─··─··─··─··─··─··─··─··─··─··─··─··─··─··─··─··─··─··─··─··─··─··─·─··─·|
     =========================================================================================================================
 

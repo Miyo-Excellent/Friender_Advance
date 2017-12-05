@@ -1,0 +1,37 @@
+.add_service_container_mobile,
+.add_service_container {
+    grid-column: 1;
+    grid-row: 1;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+    .input_title {
+        grid-column: 1;
+        grid-row: 1;
+        display: flex;
+        flex-flow: column nowrap;
+        justify-content: center;
+        align-items: center;
+        h3 {
+            background: dodgerblue;
+            color: #fff;
+            padding: 5px 15px;
+            width: 75%;
+            height: 100%;
+            border-radius: 2em;
+            display: flex;
+            flex-flow: column nowrap;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            transition: background 100ms linear;
+            &:active {
+                background: crimson;
+            }
+        }
+    }
+}
+.add_service_container_mobile {
+}
+.add_service_container {
+}

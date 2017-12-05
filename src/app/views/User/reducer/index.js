@@ -25,43 +25,13 @@ const initialState = options => {
     profession: "Web-Developer",
     profil: {
       aplicated: 2000,
-      interested: 123,
+      completed: 456,
+      editing: false,
       evaluated: 789,
-      completed: 456
+      interested: 123
     },
     posts: {
-      services: [
-        {
-          img:
-            "http://www.zhangshidai.com/cheats/resources/logoquiz/mcdonalds.png",
-          califacation: 3,
-          honorary: "1200000",
-          title: "MC Donalds",
-          about: "Sellers",
-          description:
-            "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptate vel labore quasi veritatis exercitationem laborum quo voluptatem numquam, alias mollitia vitae. Neque cupiditate cumque recusandae!"
-        },
-        {
-          img:
-            "https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Google_Earth_Logo.svg/2000px-Google_Earth_Logo.svg.png",
-          califacation: 5,
-          honorary: "2200000",
-          title: "Google",
-          about: "Forjando el fut...",
-          description:
-            "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptate vel labore quasi veritatis exercitationem laborum quo voluptatem numquam, alias mollitia vitae. Neque cupiditate cumque recusandae!"
-        },
-        {
-          img:
-            "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fb/Facebook_icon_2013.svg/2000px-Facebook_icon_2013.svg.png",
-          califacation: 4,
-          honorary: "3600000",
-          title: "Facebook",
-          about: "back-end develo...",
-          description:
-            "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptate vel labore quasi veritatis exercitationem laborum quo voluptatem numquam, alias mollitia vitae. Neque cupiditate cumque recusandae!"
-        }
-      ]
+      services: []
     },
     type
   };
@@ -81,8 +51,18 @@ const initialState = options => {
 };
 
 export default function homeReducer(state = initialState({}), action) {
-  switch (action.tyle) {
-    case "USER_DATA_NAME":
+  switch (action.type) {
+    case "CHANGE_EDITNG": {
+      return {
+        ...state,
+        profil: {
+          ...state.profil,
+          editing: !state.profil.editing
+        }
+      };
+      break;
+    }
+    case "USER_DATA_NAME": {
       return {
         ...state,
         userData: {
@@ -91,7 +71,8 @@ export default function homeReducer(state = initialState({}), action) {
         }
       };
       break;
-    case "USER_DATA_LASTNAME":
+    }
+    case "USER_DATA_LASTNAME": {
       return {
         ...state,
         userData: {
@@ -100,19 +81,22 @@ export default function homeReducer(state = initialState({}), action) {
         }
       };
       break;
-
-    case "LOAD_SERVICES_POSTS":
+    }
+    case "LOAD_SERVICES_POSTS": {
+      console.log(action.data);
       return {
         ...state,
         posts: {
           ...state.posts,
-          services: state.posts.services.concat()
+          // services: state.posts.services.concat(...action.data)
+          services: action.data
         }
       };
       break;
-
-    default:
+    }
+    default: {
       return state;
       break;
+    }
   }
 }

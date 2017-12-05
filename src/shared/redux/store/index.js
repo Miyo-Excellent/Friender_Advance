@@ -1,5 +1,6 @@
 // Dependencies
 import { createStore } from 'redux';
+import logger from 'redux-logger';
 import thunk from 'redux-thunk';
 
 // Root Reducer
@@ -15,7 +16,8 @@ export default function configureStore(initialState = {}) {
 
   // Middlewares
   const middleware = [
-    thunk
+    thunk,
+    logger
   ];
 
   if (isDevelopment) {
