@@ -1,37 +1,336 @@
+$scroll-color: rgb(252, 252, 252);
+$scroll-bg-color: rgb(0, 132, 255);
 .add_service_container_mobile,
 .add_service_container {
+  grid-column: 1;
+  grid-row: 1;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
+  .newService {
     grid-column: 1;
     grid-row: 1;
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: 1fr;
-    .input_title {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+    h3 {
+      background: dodgerblue;
+      color: #fff;
+      padding: 5px 15px;
+      width: 75%;
+      height: 100%;
+      border-radius: 2em;
+      display: flex;
+      flex-flow: column nowrap;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+      transition: background 100ms linear;
+      &:active {
+        background: crimson;
+      }
+    }
+    .editing {
+      grid-column: 1;
+      grid-row: 1;
+      display: grid;
+      grid-template-columns: 1fr;
+      grid-template-rows: 40px 185px 50px auto auto;
+      grid-gap: 5px;
+      padding: 5px;
+      border-radius: 5px;
+      background: #eee;
+      .title,
+      .description,
+      span,
+      .tags,
+      .config {
         grid-column: 1;
+      }
+      .title {
         grid-row: 1;
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: center;
+        align-items: center;
+        input {
+          padding: 0 15px;
+          font-size: 1.1em;
+          font-weight: bolder;
+          border: none;
+          background: #fff;
+          border-radius:5px;
+          width: 100%;
+          height: 90%;
+          transition: background linear 250ms;
+          &:focus {
+            background: #333;
+            color: #eee;
+          }
+        }
+      }
+      .description {
+        grid-row: 2;
+        padding: 5px;
+        border-radius: 5px;
+        background: #ddd;
         display: flex;
         flex-flow: column nowrap;
         justify-content: center;
         align-items: center;
-        h3 {
-            background: dodgerblue;
-            color: #fff;
-            padding: 5px 15px;
-            width: 75%;
+        textarea {
+          overflow-y: scroll;
+          padding: 5px 20px 5px 5px;
+          resize: none;
+          font-size: 1em;
+          border: none;
+          background: #eee;
+          border-radius: 5px;
+          font-size: 0.95em;
+          font-weight: bolder;
+          width: 100%;
+          height: 100%;
+          transition: background linear 250ms;
+          &:focus {
+            background: #333;
+            color: #eee;
+          }
+        }
+      }
+      span {
+        grid-row: 3;
+        display: block;
+        text-align: center;
+        line-height: 23px;
+        font-size: 1.1em;
+        color: #eee;
+        background: #333;
+        border-radius: 5px;
+        strong {
+          color: dodgerblue;
+          font-size: 1.12em;
+          animation: changeColor 2s linear infinite alternate;
+        }
+        @keyframes changeColor {
+          from {
+            color: dodgerblue;
+          }
+          to {
+            color: skyblue;
+          }
+        }
+      }
+      .tags {
+        grid-row: 4;
+        display: grid;
+        grid-template-columns: 35px 45px 1fr 75px;
+        grid-template-rows: 1fr 30px;
+        grid-gap: 3px;
+        padding: 5px;
+        .add,
+        .addButton,
+        .tagList {
+        }
+        .add {
+          grid-column: 1/4;
+          grid-row: 1;
+          display: grid;
+          grid-template-columns: 35px 1fr;
+          grid-template-rows: 35px;
+          grid-gap: 3px;
+          .image,
+          .inputBox {
             height: 100%;
-            border-radius: 2em;
             display: flex;
-            flex-flow: column nowrap;
+            flex-flow: row nowrap;
             justify-content: center;
             align-items: center;
-            cursor: pointer;
-            transition: background 100ms linear;
-            &:active {
-                background: crimson;
+            > * {
+              width: 100%;
             }
+          }
+          .image {
+            height: 100%;
+            img {
+              width: 100%;
+            }
+          }
+          .inputBox {
+            input {
+              width: 90%;
+              height: 85%;
+              padding: 0 15px;
+              font-size: 1.1em;
+              font-weight: bolder;
+              border: none;
+              background: #ddd;
+              border-radius: 5px;
+              transition: background linear 250ms;
+              &:focus {
+                background: #333;
+                color: #eee;
+              }
+            }
+          }
         }
+        .addButton {
+          grid-column: 4;
+          grid-row: 1;
+          display: flex;
+          flex-flow: column nowrap;
+          justify-content: center;
+          align-items: center;
+          button {
+            background: #888;
+            border: 2px solid #666;
+            color: #fff;
+            border-radius: 5px;
+            font-size: 1em;
+            font-weight: bolder;
+            width: 95%;
+            height: 70%;
+            transition: background 100ms linear;
+            &:hover {
+              background: #666;
+              border: 2px solid #444;
+            }
+          }
+        }
+        .tagList {
+          grid-column: 1/5;
+          grid-row: 2;
+          background: #fff;
+          border-radius: 5px;
+          .list {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-flow: row nowrap;
+            justify-content: space-around;
+            align-items: center;
+            .item,
+            li,
+            li.item {
+              width: auto;
+              height: 20px;
+              background: dodgerblue;
+              display: flex;
+              flex-flow: row nowrap;
+              justify-content: center;
+              align-items: center;
+              padding: 2px 6px;
+              border-radius: 5px;
+            }
+          }
+        }
+      }
+      .config {
+        grid-row: 5;
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: 40px 40px 40px 86px;
+        grid-gap: 5px;
+        padding: 5px 0;
+        background: #ccc;
+        border-radius: 5px;
+        > * {
+          display: flex;
+          flex-flow: column nowrap;
+          justify-content: space-around;
+          align-items: center;
+        }
+        .inputBox {
+          grid-column: 1;
+          &:nth-child(1) {
+            grid-row: 1;
+          }
+          &:nth-child(2) {
+            grid-row: 2;
+          }
+          &:nth-child(3) {
+            grid-row: 3;
+          }
+          input {
+            width: 90%;
+            height: 85%;
+            padding: 0 15px;
+            font-size: 1.1em;
+            font-weight: bolder;
+            border: none;
+            background: #fff;
+            color: #333;
+            border-radius: 5px;
+            transition: background linear 250ms;
+            &:focus {
+              background: #333;
+              color: #fff;
+            }
+          }
+        }
+        .selectBox {
+          grid-column: 1;
+          grid-row: 4;
+          width: 90%;
+          display: grid;
+          grid-template-columns: 1fr;
+          grid-template-rows: 1fr 1fr 1fr;
+          grid-gap: 5px;
+          margin: auto;
+          .item {
+            display: flex;
+            flex-flow: column nowrap;
+            justify-content: space-around;
+            align-items: center;
+            grid-column: 1;
+            &:nth-child(1) {
+              grid-row: 1;
+            }
+            &:nth-child(2) {
+              grid-row: 2;
+            }
+            &:nth-child(3) {
+              grid-row: 3;
+            }
+            input {
+              width: 100%;
+              height: 100%;
+              padding: 0 15px;
+              font-size: 1.1em;
+              font-weight: bolder;
+              border: none;
+              background: #eee;
+              border-radius: 5px;
+              transition: background linear 250ms;
+              &:focus {
+                background: #333;
+                color: #eee;
+              }
+            }
+            select {
+              width: 100%;
+              height: 100%;
+              padding: 0 15px;
+              font-size: 1.1em;
+              font-weight: bolder;
+              border: none;
+              background: #fff;
+              color: #333;
+              border-radius: 5px;
+              &:hover {
+                background: #fff;
+                color: #333;
+              }
+            }
+          }
+        }
+      }
     }
+  }
 }
+
 .add_service_container_mobile {
 }
+
 .add_service_container {
 }

@@ -31,7 +31,20 @@ const initialState = options => {
       interested: 123
     },
     posts: {
-      services: []
+      services: [],
+      newServiceConfig: [],
+      AddNewService: {
+        address: {
+          privince: "",
+          munincipality: ""
+        },
+        category: "",
+        description: "",
+        direction: "",
+        tags: [],
+        title: "",
+        value: 0
+      }
     },
     type
   };
@@ -52,6 +65,116 @@ const initialState = options => {
 
 export default function homeReducer(state = initialState({}), action) {
   switch (action.type) {
+    case "ADD_DESCRIPTION": {
+      return {
+        ...state,
+        posts: {
+          ...state.posts,
+          AddNewService: {
+            ...state.posts.AddNewService,
+            description: action.description
+          }
+        }
+      };
+      break;
+    }
+    case "ADD_DIRECTION": {
+      return {
+        ...state,
+        posts: {
+          ...state.posts,
+          AddNewService: {
+            ...state.posts.AddNewService,
+            category: action.category
+          }
+        }
+      };
+      break;
+    }
+    case "ADD_CATEGORY": {
+      return {
+        ...state,
+        posts: {
+          ...state.posts,
+          AddNewService: {
+            ...state.posts.AddNewService,
+            category: action.category
+          }
+        }
+      };
+      break;
+    }
+    case "ADD_MUNINCIPALITY": {
+      return {
+        ...state,
+        posts: {
+          ...state.posts,
+          AddNewService: {
+            ...state.posts.AddNewService,
+            address: {
+              ...state.posts.AddNewService.address,
+              munincipality: action.munincipality
+            }
+          }
+        }
+      };
+      break;
+    }
+    case "ADD_PROVINCE": {
+      return {
+        ...state,
+        posts: {
+          ...state.posts,
+          AddNewService: {
+            ...state.posts.AddNewService,
+            address: {
+              ...state.posts.AddNewService.address,
+              privince: action.privince
+            }
+          }
+        }
+      };
+      break;
+    }
+    case "ADD_TAG": {
+      return {
+        ...state,
+        posts: {
+          ...state.posts,
+          AddNewService: {
+            ...state.posts.AddNewService,
+            tags: state.posts.AddNewService.tags.concat(action.tag)
+          }
+        }
+      };
+      break;
+    }
+    case "ADD_TITLE": {
+      return {
+        ...state,
+        posts: {
+          ...state.posts,
+          AddNewService: {
+            ...state.posts.AddNewService,
+            title: action.title
+          }
+        }
+      };
+      break;
+    }
+    case "ADD_VALUE": {
+      return {
+        ...state,
+        posts: {
+          ...state.posts,
+          AddNewService: {
+            ...state.posts.AddNewService,
+            value: action.value
+          }
+        }
+      };
+      break;
+    }
     case "CHANGE_EDITNG": {
       return {
         ...state,
@@ -83,13 +206,21 @@ export default function homeReducer(state = initialState({}), action) {
       break;
     }
     case "LOAD_SERVICES_POSTS": {
-      console.log(action.data);
       return {
         ...state,
         posts: {
           ...state.posts,
-          // services: state.posts.services.concat(...action.data)
           services: action.data
+        }
+      };
+      break;
+    }
+    case "LOAD_NEW_SERVICES_CONFIG": {
+      return {
+        ...state,
+        posts: {
+          ...state.posts,
+          newServiceConfig: action.data
         }
       };
       break;

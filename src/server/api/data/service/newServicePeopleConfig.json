@@ -1,0 +1,52 @@
+[
+  {
+    "name": "category",
+    "options": ["engineer"],
+    "SpanishOptions": ["Ingenieria"],
+    "spanishName": "Categoria",
+    "type": "select",
+    "value": ""
+  },
+  {
+    "name": "value",
+    "spanishName": "Valor",
+    "type": "input",
+    "value": ""
+  },
+  {
+    "name": "schedule",
+    "options": ["earlyMorning", "efternoon", "night"],
+    "spanishName": "Horario",
+    "spanishOptions": ["Madrugada", "Día", "Noche"],
+    "type": "select",
+    "value": ""
+  },
+  {
+    "values": [
+      {
+        "name": "province",
+        "spanishName": "Provincia",
+        "options": ["Antioquia"],
+        "type": "select",
+        "value": ""
+      },
+      {
+        "name": "minincipality",
+        "spanishName": "Municipio",
+        "options": ["Medellin"],
+        "type": "select",
+        "value": ""
+      },
+      {
+        "name": "direction",
+        "spanishName": "Dirección",
+        "type": "input",
+        "value": ""
+      }
+    ],
+    "name": "address",
+    "multiple": true,
+    "spanishName": "Ubicación",
+    "type": "select"
+  }
+]
