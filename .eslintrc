@@ -40,7 +40,7 @@
     "keyword-spacing": 2,
     "max-depth": [2, 6],
     "max-len": [2, 800, 4],
-    "max-statements": ["error", 40, {
+    "max-statements": ["error", 80, {
       "ignoreTopLevelFunctions": true
     }],
     "no-alert": 2,

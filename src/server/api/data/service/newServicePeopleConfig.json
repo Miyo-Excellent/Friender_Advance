@@ -1,8 +1,8 @@
 [
   {
     "name": "category",
-    "options": ["engineer"],
-    "SpanishOptions": ["Ingenieria"],
+    "options": ["categories", "engineer"],
+    "spanishOptions": ["Categorias", "Ingenieria"],
     "spanishName": "Categoria",
     "type": "select",
     "value": ""
@@ -14,26 +14,18 @@
     "value": ""
   },
   {
-    "name": "schedule",
-    "options": ["earlyMorning", "efternoon", "night"],
-    "spanishName": "Horario",
-    "spanishOptions": ["Madrugada", "Día", "Noche"],
-    "type": "select",
-    "value": ""
-  },
-  {
     "values": [
       {
         "name": "province",
         "spanishName": "Provincia",
-        "options": ["Antioquia"],
+        "options": ["Provincia", "Antioquia"],
         "type": "select",
         "value": ""
       },
       {
         "name": "minincipality",
         "spanishName": "Municipio",
-        "options": ["Medellin"],
+        "options": ["Municipio", "Medellin"],
         "type": "select",
         "value": ""
       },
@@ -48,5 +40,25 @@
     "multiple": true,
     "spanishName": "Ubicación",
     "type": "select"
+  },
+  {
+    "fields": [
+      {
+        "name": "from",
+        "spanishName": "Desde",
+        "type": "input"
+      },
+      {
+        "name": "to",
+        "spanishName": "Hasta",
+        "type": "input"
+      }
+    ],
+    "name": "schedule",
+    "options": ["schedule", "earlyMorning", "efternoon", "night"],
+    "spanishName": "Horario",
+    "spanishOptions": ["Horario", "Madrugada", "Día", "Noche"],
+    "type": "box",
+    "value": ""
   }
 ]

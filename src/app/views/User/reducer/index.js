@@ -31,20 +31,33 @@ const initialState = options => {
       interested: 123
     },
     posts: {
-      services: [],
-      newServiceConfig: [],
       AddNewService: {
         address: {
-          privince: "",
-          munincipality: ""
+          munincipality: "",
+          privince: ""
         },
         category: "",
         description: "",
         direction: "",
+        schedule: {
+          from: {
+            hour: 8,
+            minutes: 30,
+            system: 'am'
+          },
+          to: {
+            hour: 5,
+            minutes: 30,
+            system: 'pm'
+          }
+        },
         tags: [],
         title: "",
         value: 0
-      }
+      },
+      editing: false,
+      newServiceConfig: [],
+      services: []
     },
     type
   };
@@ -85,7 +98,7 @@ export default function homeReducer(state = initialState({}), action) {
           ...state.posts,
           AddNewService: {
             ...state.posts.AddNewService,
-            category: action.category
+            direction: action.direction
           }
         }
       };
@@ -149,6 +162,120 @@ export default function homeReducer(state = initialState({}), action) {
       };
       break;
     }
+    case "ADD_SCHEDULE_FROM_HOUR": {
+      return {
+        ...state,
+        posts: {
+          ...state.posts,
+          AddNewService: {
+            ...state.posts.AddNewService,
+            schedule: {
+              ...state.posts.AddNewService.schedule,
+              from: {
+                ...state.posts.AddNewService.schedule.from,
+                hour: action.hour
+              }
+            }
+          }
+        }
+      };
+      break;
+    }
+    case "ADD_SCHEDULE_FROM_MINUTES": {
+      return {
+        ...state,
+        posts: {
+          ...state.posts,
+          AddNewService: {
+            ...state.posts.AddNewService,
+            schedule: {
+              ...state.posts.AddNewService.schedule,
+              from: {
+                ...state.posts.AddNewService.schedule.from,
+                minutes: action.minutes
+              }
+            }
+          }
+        }
+      };
+      break;
+    }
+    case "ADD_SCHEDULE_FROM_SYSTEM": {
+      return {
+        ...state,
+        posts: {
+          ...state.posts,
+          AddNewService: {
+            ...state.posts.AddNewService,
+            schedule: {
+              ...state.posts.AddNewService.schedule,
+              from: {
+                ...state.posts.AddNewService.schedule.from,
+                system: action.system
+              }
+            }
+          }
+        }
+      };
+      break;
+    }
+    case "ADD_SCHEDULE_TO_HOUR": {
+      return {
+        ...state,
+        posts: {
+          ...state.posts,
+          AddNewService: {
+            ...state.posts.AddNewService,
+            schedule: {
+              ...state.posts.AddNewService.schedule,
+              to: {
+                ...state.posts.AddNewService.schedule.to,
+                hour: action.hour
+              }
+            }
+          }
+        }
+      };
+      break;
+    }
+    case "ADD_SCHEDULE_TO_MINUTES": {
+      return {
+        ...state,
+        posts: {
+          ...state.posts,
+          AddNewService: {
+            ...state.posts.AddNewService,
+            schedule: {
+              ...state.posts.AddNewService.schedule,
+              to: {
+                ...state.posts.AddNewService.schedule.to,
+                minutes: action.minutes
+              }
+            }
+          }
+        }
+      };
+      break;
+    }
+    case "ADD_SCHEDULE_TO_SYSTEM": {
+      return {
+        ...state,
+        posts: {
+          ...state.posts,
+          AddNewService: {
+            ...state.posts.AddNewService,
+            schedule: {
+              ...state.posts.AddNewService.schedule,
+              to: {
+                ...state.posts.AddNewService.schedule.to,
+                system: action.system
+              }
+            }
+          }
+        }
+      };
+      break;
+    }
     case "ADD_TITLE": {
       return {
         ...state,
@@ -175,7 +302,20 @@ export default function homeReducer(state = initialState({}), action) {
       };
       break;
     }
-    case "CHANGE_EDITNG": {
+    case "DELETE_TAG": {
+      return {
+        ...state,
+        posts: {
+          ...state.posts,
+          AddNewService: {
+            ...state.posts.AddNewService,
+            tags: state.posts.AddNewService.tags.filter(oldTag => oldTag !== action.tag)
+          }
+        }
+      };
+      break;
+    }
+    case "CHANGE_EDITNG_STATE": {
       return {
         ...state,
         profil: {
