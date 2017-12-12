@@ -20,35 +20,35 @@
 
 > El usuario PREMIUM o el usuario pago tendrá el beneficio de subir su nivel de notoriedad para que de esta forma sus servicios sean más cotizado y más vendidos en la plataforma.
 
-#### [Lista Completa de los Profesionales Aceptados por la Plataforma Friender](https://github.com/Miyo-Excellent/Friender_Advance/blob/friender/CATEGORIES.md)
+#### [Lista Completa de los Profesionales Aceptados por la Plataforma Friender](https://github.com/Miyo-Excellent/Friender_Advance/blob/friender/CATEGORIES.MD)
 
 ## ¿Qué información pide el registro?
 > La información requerida para los usuarios es la siguiente:
 + Personas:
-· Apellido.
-· Clave principal de la cuenta del usuario.
-· Correo electrónico.
-· Días de la semana que labora (EJ: de lunes a viernes).
-· Fecha de nacimiento (día, mes, año).
-· ID de usuario (EJ: @tienda_la14).
-· Hora en las que está disponible (EJ: de 8:00 AM – 7:30 PM).
-· Nombre.
-· Numero de celular, teléfono o número de contacto (opcional).
-· Profesión (todas las profesiones mencionadas anteriormente).
-· Residencia (país, provincia, municipio).
-· Ubicación (país, provincia, municipio).
+  - Apellido.
+  - Clave principal de la cuenta del usuario.
+  - Correo electrónico.
+  - Días de la semana que labora (EJ: de lunes a viernes).
+  - Fecha de nacimiento (día, mes, año).
+  - ID de usuario (EJ: @tienda_la14).
+  - Hora en las que está disponible (EJ: de 8:00 AM – 7:30 PM).
+  - Nombre.
+  - Numero de celular, teléfono o número de contacto (opcional).
+  - Profesión (todas las profesiones mencionadas anteriormente).
+  - Residencia (país, provincia, municipio).
+  - Ubicación (país, provincia, municipio).
 + Empresas:
-· Clave principal de la cuenta del usuario.
-· Correo electrónico.
-· Días de la semana que labora (EJ: de lunes a viernes).
-· Fundación (Día, mes, año).
-· ID de usuario (EJ: @tienda_la14).
-· Lugar de fundación (país, provincia y municipio).
-· NIT (Nombre de identificación tributaria).
-· Nombre o razón social (Nombre de usuario o perfil).
-· Numero de celular, teléfono o número de contacto.
-· Tipo de empresa. Solo abran dos tipos (Sucursal, Sede Principal).
-· Ubicación (País, provincia, municipio). [OJO: LOS PROFESIONALES DEBEN ABRIR PRIMERO UNA CUENTA FREE Y POSTERIORMENTE MIGRAR A PRO]
+  - Clave principal de la cuenta del usuario.
+  - Correo electrónico.
+  - Días de la semana que labora (EJ: de lunes a viernes).
+  - Fundación (Día, mes, año).
+  - ID de usuario (EJ: @tienda_la14).
+  - Lugar de fundación (país, provincia y municipio).
+  - NIT (Nombre de identificación tributaria).
+  - Nombre o razón social (Nombre de usuario o perfil).
+  - Numero de celular, teléfono o número de contacto.
+  - Tipo de empresa. Solo abran dos tipos (Sucursal, Sede Principal).
+  - Ubicación (País, provincia, municipio). [OJO: LOS PROFESIONALES DEBEN ABRIR PRIMERO UNA CUENTA FREE Y POSTERIORMENTE MIGRAR A PRO]
 
 ## ¿Cómo se desarrollará el proyecto?
 > **Tecnologías a utilizar:**
