@@ -11,11 +11,11 @@ ______
 ![React Development Tool](https://cloud.githubusercontent.com/assets/7957859/18002950/aacb82fc-6b93-11e6-9ae9-609862c18302.png)
 ______
 ##### React Development Tools Vista del Chart.
-![React Development Tool 1](https://github.com/Miyo-Excellent/Friender_Advance/blob/Friender/info/images/test/reduxDevTool/reduxDevTool.JPG)
+![React Development Tool 1](https://github.com/Miyo-Excellent/Friender_Advance/blob/friender/info/images/test/reduxDevTool/reduxDevTool.JPG)
 ______
 ##### React Development Tools Vista del Inspector.
-![React Development Tool 2](https://github.com/Miyo-Excellent/Friender_Advance/blob/Friender/info/images/test/reduxDevTool/reduxDevTool2.JPG)
+![React Development Tool 2](https://github.com/Miyo-Excellent/Friender_Advance/blob/friender/info/images/test/reduxDevTool/reduxDevTool2.JPG)
 ______
 ##### React Development Tools Vista del Monitor de Log's.
-![React Development Tool 3](https://github.com/Miyo-Excellent/Friender_Advance/blob/Friender/info/images/test/reduxDevTool/reduxDevTool3.JPG)
+![React Development Tool 3](https://github.com/Miyo-Excellent/Friender_Advance/blob/friender/info/images/test/reduxDevTool/reduxDevTool3.JPG)
 ______

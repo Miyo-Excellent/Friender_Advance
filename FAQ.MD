@@ -62,7 +62,7 @@
 ## ¿Qué tipo de servidor se utilizará para este proyecto?
 > De preferencia un servidor **VPS** basado en **Nginx**.
 
-##¿Qué estrategia de desarrollo se aplicará?
+## ¿Qué estrategia de desarrollo se aplicará?
 > Será mediante **MVC** (Modelo-Vista-Controlador).
 >> Se manejará las metodologías **LEAN**, **Rest** y **SCRUM**. • Será una **SPA** (Sigle Page Aplication).
 
@@ -72,21 +72,21 @@
 >> Se tendrá en consideración de primera instancia la semántica de los documentos, de esta manera se ganará posicionamiento en los buscadores.
 
 ## Orden de módulos a desarrollar (Inicialmente).
-1. --- Info Page.
-2. --- Registro.
-3. --- Inicio / Home.
-4. --- Empresas
-5. --- Perfil.
-6. --- Editar Perfil.
-7. --- Compartir Articulo.
-8. --- Lista De Conectados.
-9. --- Servicios.
-10. --- Mensajes.
-11. --- Me Gusta, Favorito, Comentar, De Artículo.
-12. --- Módulo De Categorías (Profesionales).
-13. --- Reportar Articulo.
-14. --- Chat.
-15. --- Configuraciones.
+1. ─ Info Page.
+2. ─ Registro.
+3. ─ Inicio / Home.
+4. ─ Empresas
+5. ─ Perfil.
+6. ─ Editar Perfil.
+7. ─ Compartir Articulo.
+8. ─ Lista De Conectados.
+9. ─ Servicios.
+10. ─ Mensajes.
+11. ─ Me Gusta, Favorito, Comentar, De Artículo.
+12. ─ Módulo De Categorías (Profesionales).
+13. ─ Reportar Articulo.
+14. ─ Chat.
+15. ─ Configuraciones.
 
 ## ¿Cómo estará compuesto el registro de un usuario?
 > Estará basado en una típica vista de registro (si, no está registrado se le notificará al usuario que se registre para hacer las acciones deseadas como comprar o publicar).
