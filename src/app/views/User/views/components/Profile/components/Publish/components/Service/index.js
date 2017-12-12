@@ -29,7 +29,6 @@ const Service = ({ devices, service }) => {
             <div className={styles.user_name}>
               <h4>{service.title}</h4>
             </div>
-            <span>|</span>
             <div className={styles.about}>
               <h5>{service.about}</h5>
             </div>

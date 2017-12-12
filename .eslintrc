@@ -38,7 +38,7 @@
       "SwitchCase": 1
     }],
     "keyword-spacing": 2,
-    "max-depth": [2, 6],
+    "max-depth": [2, 12],
     "max-len": [2, 800, 4],
     "max-statements": ["error", 80, {
       "ignoreTopLevelFunctions": true

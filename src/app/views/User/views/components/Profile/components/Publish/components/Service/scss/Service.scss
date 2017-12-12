@@ -122,9 +122,9 @@ $service-height: 100px;
       .title {
         grid-column: 1;
         grid-row: 1;
-        height: 30px;
+        padding: 2px 0;
         display: flex;
-        flex-flow: row nowrap;
+        flex-flow: column nowrap;
         justify-content: center;
         align-items: center;
         * {
@@ -137,16 +137,13 @@ $service-height: 100px;
         .about {
           h5 {
             font-size: 0.8em;
+            text-align: center;
           }
         }
         .user_name {
           h4 {
             font-size: 1em;
           }
-        }
-        span {
-          font-weight: bolder;
-          font-size: 1.1em;
         }
       }
       .description {

@@ -1,5 +1,31 @@
 // Dependencies
 
+// Services default config
+const NEW_SERVICE_STATE = {
+  address: {
+    munincipality: "",
+    province: ""
+  },
+  category: "",
+  description: "",
+  direction: "",
+  schedule: {
+    from: {
+      hour: 8,
+      minutes: 30,
+      system: 'am'
+    },
+    to: {
+      hour: 5,
+      minutes: 30,
+      system: 'pm'
+    }
+  },
+  tags: [],
+  title: "",
+  value: 0
+};
+
 // Initial State
 const initialState = options => {
   const {
@@ -9,6 +35,7 @@ const initialState = options => {
     type = "people",
     typeOfCompany = "headquarters"
   } = options;
+
   const commonConfig = {
     address: {
       province: "antioquia",
@@ -31,30 +58,7 @@ const initialState = options => {
       interested: 123
     },
     posts: {
-      AddNewService: {
-        address: {
-          munincipality: "",
-          privince: ""
-        },
-        category: "",
-        description: "",
-        direction: "",
-        schedule: {
-          from: {
-            hour: 8,
-            minutes: 30,
-            system: 'am'
-          },
-          to: {
-            hour: 5,
-            minutes: 30,
-            system: 'pm'
-          }
-        },
-        tags: [],
-        title: "",
-        value: 0
-      },
+      AddNewService: NEW_SERVICE_STATE,
       editing: false,
       newServiceConfig: [],
       services: []
@@ -78,6 +82,19 @@ const initialState = options => {
 
 export default function homeReducer(state = initialState({}), action) {
   switch (action.type) {
+    case "ADD_CATEGORY": {
+      return {
+        ...state,
+        posts: {
+          ...state.posts,
+          AddNewService: {
+            ...state.posts.AddNewService,
+            category: action.category
+          }
+        }
+      };
+      break;
+    }
     case "ADD_DESCRIPTION": {
       return {
         ...state,
@@ -99,19 +116,6 @@ export default function homeReducer(state = initialState({}), action) {
           AddNewService: {
             ...state.posts.AddNewService,
             direction: action.direction
-          }
-        }
-      };
-      break;
-    }
-    case "ADD_CATEGORY": {
-      return {
-        ...state,
-        posts: {
-          ...state.posts,
-          AddNewService: {
-            ...state.posts.AddNewService,
-            category: action.category
           }
         }
       };
@@ -142,21 +146,8 @@ export default function homeReducer(state = initialState({}), action) {
             ...state.posts.AddNewService,
             address: {
               ...state.posts.AddNewService.address,
-              privince: action.privince
+              province: action.province
             }
-          }
-        }
-      };
-      break;
-    }
-    case "ADD_TAG": {
-      return {
-        ...state,
-        posts: {
-          ...state.posts,
-          AddNewService: {
-            ...state.posts.AddNewService,
-            tags: state.posts.AddNewService.tags.concat(action.tag)
           }
         }
       };
@@ -276,6 +267,19 @@ export default function homeReducer(state = initialState({}), action) {
       };
       break;
     }
+    case "ADD_TAG": {
+      return {
+        ...state,
+        posts: {
+          ...state.posts,
+          AddNewService: {
+            ...state.posts.AddNewService,
+            tags: state.posts.AddNewService.tags.concat(action.tag)
+          }
+        }
+      };
+      break;
+    }
     case "ADD_TITLE": {
       return {
         ...state,
@@ -302,19 +306,6 @@ export default function homeReducer(state = initialState({}), action) {
       };
       break;
     }
-    case "DELETE_TAG": {
-      return {
-        ...state,
-        posts: {
-          ...state.posts,
-          AddNewService: {
-            ...state.posts.AddNewService,
-            tags: state.posts.AddNewService.tags.filter(oldTag => oldTag !== action.tag)
-          }
-        }
-      };
-      break;
-    }
     case "CHANGE_EDITNG_STATE": {
       return {
         ...state,
@@ -325,22 +316,46 @@ export default function homeReducer(state = initialState({}), action) {
       };
       break;
     }
-    case "USER_DATA_NAME": {
+    case "CREATE_NEW_SERVICE": {
       return {
         ...state,
-        userData: {
-          ...state.userData,
-          name: action.name
+        posts: {
+          ...state.posts,
+          services: state.posts.services.concat({
+            "about": `${action.service.tags[0]}, ${action.service.tags[1]}, ${action.service.tags[2]}, ${action.service.tags[3]}`,
+            "address": action.service.address,
+            "califacation": 0,
+            "categoty": action.service.category,
+            "description": action.service.description,
+            "direction": action.service.direction,
+            "honorary": action.service.value,
+            "img": state.picture,
+            "tags": action.service.tags,
+            "title": action.service.title
+          },)
         }
       };
       break;
     }
-    case "USER_DATA_LASTNAME": {
+    case "DELETE_NEW_SERVICE_STATE": {
       return {
         ...state,
-        userData: {
-          ...state.userData,
-          lastname: action.name
+        posts: {
+          ...state.posts,
+          AddNewService: NEW_SERVICE_STATE
+        }
+      };
+      break;
+    }
+    case "DELETE_TAG": {
+      return {
+        ...state,
+        posts: {
+          ...state.posts,
+          AddNewService: {
+            ...state.posts.AddNewService,
+            tags: state.posts.AddNewService.tags.filter(oldTag => oldTag !== action.tag)
+          }
         }
       };
       break;
@@ -361,6 +376,26 @@ export default function homeReducer(state = initialState({}), action) {
         posts: {
           ...state.posts,
           newServiceConfig: action.data
+        }
+      };
+      break;
+    }
+    case "USER_DATA_LASTNAME": {
+      return {
+        ...state,
+        userData: {
+          ...state.userData,
+          lastname: action.name
+        }
+      };
+      break;
+    }
+    case "USER_DATA_NAME": {
+      return {
+        ...state,
+        userData: {
+          ...state.userData,
+          name: action.name
         }
       };
       break;
