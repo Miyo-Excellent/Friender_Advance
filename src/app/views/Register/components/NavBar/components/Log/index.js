@@ -1,6 +1,7 @@
 // Dependencies
 import React from "react";
 import { connect } from "react-redux";
+//import axios from 'axios';
 
 // Styles
 import styles from "./scss/Log.scss";
@@ -116,6 +117,15 @@ const mapDispatchToProps = dispatch => ({
       password
     });
   }
+  /*
+  GoLoggin(data) {
+    dispatch (dispatch => axios
+      .post()
+      .then()
+      .catch()
+    )
+  }
+  */
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Log);

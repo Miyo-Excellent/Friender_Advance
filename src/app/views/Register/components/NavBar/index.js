@@ -91,7 +91,7 @@ const NavBar = ({ HiddenLoggin, HiddenMenu, isMobile, show }) => {
     if (ua) {
       return (
         <nav className={styles.nav_mobile}>
-          {whoView(isMobile)}
+          {whoView(ua)}
           <div className={styles.text_content}>
             <div className={styles.title}>
               <h1>Friender</h1>
@@ -105,14 +105,12 @@ const NavBar = ({ HiddenLoggin, HiddenMenu, isMobile, show }) => {
     } else {
       return (
         <nav className={styles.nav}>
-          {whoView(isMobile)}
-          <div className={styles.text_content}>
-            <div className={styles.title}>
-              <h1>Friender</h1>
-            </div>
-            <div className={styles.slogan}>
-              <h2>Tu red de empleo y conexiones profesionales</h2>
-            </div>
+          {whoView(ua)}
+          <div className={styles.title}>
+            <h1>Friender</h1>
+          </div>
+          <div className={styles.slogan}>
+            <h2>Tu red de trabajo profesional!</h2>
           </div>
         </nav>
       );

@@ -149,3 +149,39 @@
         }
     }
 }
+
+@media all and (max-width: 1200px) {
+    form.people {
+        div.steps {
+            div.one {
+                width: 100%;
+                div.name,
+                div.lastname,
+                div.phone,
+                div.email,
+                div.address {
+                    width: 100%;
+                    max-width: 500px;
+                    input {
+                        width: 100%;
+                    }
+                    .municipality,
+                    .provices {
+                        max-width: 500px;
+                    }
+                }
+            }
+            .two {
+                .nick,
+                .password {
+                    width: 100%;
+                    max-width: 500px;
+                    input {
+                        max-width: 100%;
+                        width: 100%;
+                    }
+                }
+            }
+        }
+    }
+}

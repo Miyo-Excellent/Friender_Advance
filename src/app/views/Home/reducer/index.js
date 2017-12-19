@@ -2,11 +2,11 @@
 import { combineReducers } from 'redux';
 
 // Locals Reducers
-import navBar from '../components/NavBar/reducer';
+import nav from '../components/Nav/reducer';
 
 // Home Initial State
 const initialState = combineReducers({
-  navBar
+  nav
 });
 
 export default initialState;

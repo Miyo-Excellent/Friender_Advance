@@ -15,7 +15,7 @@
                 .full_completed,
                 .half_completed,
                 .completed,
-                .emply{
+                .emply {
                     border-radius: 50%;
                 }
                 .full_completed,
@@ -36,7 +36,6 @@
                     display: block;
                 }
                 .completed {
-                    background: dodgerblue;
                 }
                 .emply {
                     background: transparent;
@@ -51,5 +50,104 @@
                 }
             }
         }
+        li.item {
+            &:nth-child(2) {
+                .content {
+                    .full_completed {
+                    }
+                    .half_completed {
+                    }
+                    .completed {
+                        transition: background 300ms ease-in-out;
+                        background: dodgerblue;
+                    }
+                    .emply {
+                    }
+                }
+            }
+            &:nth-child(3) {
+                .content {
+                    .full_completed {
+                    }
+                    .half_completed {
+                    }
+                    .completed {
+                        transition: background 700ms ease-in-out;
+                        transition-delay: 50ms;
+                        background: dodgerblue;
+                    }
+                    .emply {
+                    }
+                }
+            }
+            &:nth-child(4) {
+                .content {
+                    .full_completed {
+                    }
+                    .half_completed {
+                    }
+                    .completed {
+                        transition: background 900ms ease-in-out;
+                        transition-delay: 150ms;
+                        background: dodgerblue;
+                    }
+                    .emply {
+                    }
+                }
+            }
+            &:nth-child(6) {
+                .content {
+                    .full_completed {
+                    }
+                    .half_completed {
+                    }
+                    .completed {
+                        transition: background 300ms ease-in-out;
+                        background: dodgerblue;
+                    }
+                    .emply {
+                    }
+                }
+            }
+            &:nth-child(7) {
+                .content {
+                    .full_completed {
+                    }
+                    .half_completed {
+                    }
+                    .completed {
+                        transition: background 700ms ease-in-out;
+                        transition-delay: 50ms;
+                        background: dodgerblue;
+                    }
+                    .emply {
+                    }
+                }
+            }
+            &:nth-child(8) {
+                .content {
+                    .full_completed {
+                    }
+                    .half_completed {
+                    }
+                    .completed {
+                        transition: background 900ms ease-in-out;
+                        transition-delay: 150ms;
+                        background: dodgerblue;
+                    }
+                    .emply {
+                    }
+                }
+            }
+        }
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
     }
 }

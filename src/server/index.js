@@ -2,22 +2,19 @@
 import bodyParser from 'body-parser';
 import cookieParser from 'cookie-parser';
 import express from 'express';
-import {
-  isDesktop,
-  isBot,
-  isCurl,
-  isMobile,
-  isPlayStation
-} from "../shared/utils/device";
+import { isDesktop, isBot, isCurl, isMobile, isPlayStation } from "../shared/utils/device";
 import morgan from 'morgan';
 // import open from 'open';
 import path from 'path';
+//import pm2 from 'pm2';
+import pmx from 'pmx';
 import serveFavicon from 'serve-favicon';
 import remotedev from 'remotedev-server';
 import webpack from 'webpack';
 import webpackDevMiddleware from 'webpack-dev-middleware';
 import webpackHotMiddleware from 'webpack-hot-middleware';
 import webpackHotServerMiddleware from 'webpack-hot-server-middleware';
+
 // Router
 // import routes from './routes';
 
@@ -44,6 +41,14 @@ const compiler = webpack(webpackConfig);
 // Server Port
 const port = isDeployment ? 80 : process.env.NODE_PORT || 3000;
 
+const probe = pmx.probe();
+
+const meter = probe.meter({
+  name      : 'req/sec',
+  samples   : 1,
+  timeframe : 60
+});
+
 // Causes problems with REACT-REDUX. only use for files that do not use REACT-REDUX.
 // GZip Compression just for Production
 // if (!isDevelopment) {
@@ -57,6 +62,15 @@ const port = isDeployment ? 80 : process.env.NODE_PORT || 3000;
 remotedev({ // Remote Redux Dev Tools
   hostname: 'localhost',
   port: 8000
+});
+
+pmx.init({
+  http          : true, // HTTP routes logging (default: true)
+  ignore_routes : [], // Ignore http routes with this pattern (Default: [])
+  errors        : true, // Exceptions logging (default: true)
+  custom_probes : true, // Auto expose JS Loop Latency and HTTP req/s as custom metrics
+  network       : true, // Network monitoring at the application level
+  ports         : true // Shows which ports your app is listening on (default: false)
 });
 
 app
@@ -73,6 +87,7 @@ app
   .use(express.static(path.join(__dirname, '../../public')))
 
   .use('/', (req, res, next) => {
+    meter.mark();
     // Bots Detection
     req.isBot = isBot(req.headers["user-agent"]);
     // Curl Detection
@@ -114,18 +129,11 @@ app
 app.listen(port, err => { // Listening
   if (!err && !isAnalyzer) {
     // open(`http://localhost:${port}`);
-    setTimeout(() => {
-      console.log(`
-
-
-    =========================================================================================================================
-    |·─··─··─··─··─··─··─··─··─··─··─··─··─··─··─··─··─··─··─··─··─··─··─··─··─··─··─··─··─··─··─··─··─··─··─··─··─··─·─··─·|
+    console.log(`
+    ============================================================================================================================
+    |·─··─··─··─··─··─··─··─··─··─··─··─··─··─··─··─··─··─··─··─··─··─··─··─··─··─··─··─··─··─··─··─··─··─··─··─··─··─·─··─··─·|
     |·─ Aplicación corriendo en: ==>  http://localhost:${port}  <== Abrir enlace con (Ctrl + Clic) en Windows, Linux, MAC ─··─·|
-    |·─··─··─··─··─··─··─··─··─··─··─··─··─··─··─··─··─··─··─··─··─··─··─··─··─··─··─··─··─··─··─··─··─··─··─··─··─··─·─··─·|
-    =========================================================================================================================
-
-
-`);
-    }, 12000);
+    |·─··─··─··─··─··─··─··─··─··─··─··─··─··─··─··─··─··─··─··─··─··─··─··─··─··─··─··─··─··─··─··─··─··─··─··─··─··─·─··─··─·|
+    ============================================================================================================================`);
   }
 });

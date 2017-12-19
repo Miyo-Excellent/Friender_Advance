@@ -1,0 +1,22 @@
+[
+  {
+    "name": "Home",
+    "spanishName": "Inicio",
+    "path": "/"
+  },
+  {
+    "name": "Registe",
+    "spanishName": "Registro",
+    "path": "/register"
+  },
+  {
+    "name": "About",
+    "spanishName": "Nosotros",
+    "path": "/about"
+  },
+  {
+    "name": "User",
+    "spanishName": "Perfil",
+    "path": "/user"
+  }
+]
