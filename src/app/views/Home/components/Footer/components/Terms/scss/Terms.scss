@@ -1,0 +1,85 @@
+.terms {
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr auto;
+    .table,
+    .copy_right {
+        grid-column: 1;
+    }
+    .table {
+        grid-row: 1;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-rows: 1fr;
+        grid-gap: 5px;
+        padding: 10px 0;
+        .terms_and_politics,
+        .helpers,
+        .socials {
+            grid-row: 1;
+            display: flex;
+            flex-flow: column nowrap;
+            justify-content: space-between;
+            align-items: center;
+            >*{
+                width: 100%;
+                display: flex;
+                flex: 1 1 auto;
+                flex-flow: column nowrap;
+                justify-content: center;
+                align-items: center;
+                margin: 5px 0;
+            }
+            .title {
+                font-size: 1.2em;
+                font-weight: bolder;
+                color: #eee;
+            }
+            .item {
+                a {
+                    cursor: pointer;
+                    width: 100%;
+                    flex: 1 1 auto;
+                    display: flex;
+                    flex-flow: column nowrap;
+                    justify-content: center;
+                    align-items: center;
+                    text-decoration: none;
+                    font-size: 1em;
+                    color: #eee;
+                    &:hover {
+                        color: dodgerblue;
+                        text-decoration: underline;
+                    }
+                }
+            }
+        }
+        .terms_and_politics {
+            grid-column: 1;
+        }
+        .helpers {
+            grid-column: 2;
+        }
+        .socials {
+            grid-column: 3;
+        }
+    }
+    .copy_right {
+        grid-row: 2;
+        display: flex;
+        flex-flow: column nowrap;
+        justify-content: center;
+        align-items: center;
+        padding: 5px 0;
+        * {
+            color: #eee;
+        }
+        p {
+            strong {
+                font-size: 1.3em;
+            }
+        }
+    }
+}

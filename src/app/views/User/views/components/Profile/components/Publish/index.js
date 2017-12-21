@@ -63,17 +63,14 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  LoadServices(data) {
-    dispatch( dispatch =>
-      axios
-        .get("http://localhost:3000/api/servicesPosts")
-        .then(res =>
-          dispatch({
-            type: "LOAD_SERVICES_POSTS",
-            data: res.data
-          })
-        )
-        .catch(err => console.log(`No se pudieron solicitar los datos al servidor: Error: ${err}`)));
+  LoadServices() {
+    dispatch( dispatch =>axios
+      .get("http://localhost:3000/api/servicesPosts")
+      .then(res => dispatch({
+        type: "LOAD_SERVICES_POSTS",
+        data: res.data
+      }))
+      .catch(err => console.log(`No se pudieron solicitar los datos al servidor: Error: ${err}`)));
   }
 });
 

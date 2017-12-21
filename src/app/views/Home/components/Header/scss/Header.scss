@@ -1,5 +1,39 @@
 .header {
     grid-column: 1;
     grid-row: 2;
-    background: greenyellow;
+    background: #eee;
+    .text_content {
+        width: 100%;
+        height: auto;
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: auto auto auto;
+        grid-gap: 25px;
+        .title,
+        .slogan{
+            grid-column: 1;
+        }
+        > .title, >.slogan {
+            display: flex;
+            flex-flow: column nowrap;
+            justify-content: center;
+            align-items: center;
+            > * {
+                text-shadow: 2px 2px 3px #333;
+            }
+        }
+        > .title {
+            grid-row: 1;
+            padding: 25px 0 0 0;
+            h1 {
+                font-size: 3em;
+            }
+        }
+        .slogan {
+            grid-row: 2;
+            h2 {
+                font-size: 1.6em;
+            }
+        }
+    }
 }

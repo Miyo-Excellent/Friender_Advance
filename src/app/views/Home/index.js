@@ -6,6 +6,7 @@ import { connect } from 'react-redux';
 import Content from './components/Content';
 import Header from './components/Header';
 import Nav from './components/Nav';
+import Features from './components/Features';
 import Footer from './components/Footer';
 
 // Styles
@@ -15,6 +16,7 @@ const Home = ({ }) => {
     <div className={styles.home}>
       <Nav />
       <Header />
+      <Features />
       <Content />
       <Footer />
     </div>

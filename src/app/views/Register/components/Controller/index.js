@@ -6,20 +6,7 @@ import { connect } from "react-redux";
 import styles from "./scss/Controller.scss";
 
 const Controller = ({ BackStep, Complete, NextStep, UserData }) => {
-  const {
-    address,
-    email,
-    lastname,
-    name,
-    nickname,
-    nit,
-    password,
-    phone,
-    type,
-    typeOfCompany,
-    step
-  } = UserData;
-
+  const { address, email, lastname, name, nickname, nit, password, phone, type, typeOfCompany, step } = UserData;
   const nextStep = () => {
     if (step < 3) {
       NextStep();

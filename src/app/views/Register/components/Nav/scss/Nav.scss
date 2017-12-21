@@ -68,7 +68,41 @@
         }
     }
 }
+.nav_mobile {
+    position: absolute;
+    left: 20px;
+    top: 20px;
+    background: #333;
+    display: grid;
+    grid-template-columns: 45px;
+    grid-template-rows: 45px 45px;
+    grid-gap: 20px;
+    .menu,
+    .popMenu,
+    .popLogin {
 
+    }
+    .popMenu,
+    .popLogin {
+        grid-column: 1;
+        cursor: pointer;
+    }
+    .menu {}
+    .popMenu {
+        grid-row: 1;
+        display: flex;
+        flex-flow: column nowrap;
+        justify-content: center;
+        align-items: center;
+        img {
+            width: 100%;
+            height: 100%;
+        }
+    }
+    .popLogin {
+        grid-row: 2;
+    }
+}
 @media all and (max-width: 644px) {
     .nav {
         grid-template-rows: 1fr auto;

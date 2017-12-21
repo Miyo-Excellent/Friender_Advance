@@ -3,11 +3,11 @@ import { combineReducers } from "redux";
 
 // Component Reducer
 import controller from '../components/Controller/reducer';
-import navBar from "../components/NavBar/reducer";
+import nav from "../components/Nav/reducer";
 import userData from "./userData";
 
 export default combineReducers({
   controller,
-  navBar,
+  nav,
   userData
 });

@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 // Components
 import Company from './components/Company';
 import Controller from './components/Controller';
-import NavBar from './components/NavBar';
+import Nav from './components/Nav';
 import People from './components/Peoples';
 import Step from './components/Step';
 
@@ -70,7 +70,11 @@ const Register = ({ changeEntiy, userData }) => {
   };
   return (
     <section className={styles.register}>
-      <NavBar />
+      <Nav />
+      <header className={styles.header}>
+        <h1>Friender</h1>
+        <h2>Tu red de empleo favorita</h2>
+      </header>
       <Step />
       {whoStep(step)}
       <Controller />
