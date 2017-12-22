@@ -7,10 +7,16 @@ import { connect } from "react-redux";
 // Styles
 import styles from "./scss/Loggin.scss";
 
-const Loggin = ({ isMobile }) => {
+// Assets
+import back from '../../assets/img/back.svg';
+
+const Loggin = ({ changeLoginBar, isMobile }) => {
   return isMobile
     ? (
       <div className={styles.loggin_mobile}>
+        <div className={styles.back} onClick={changeLoginBar}>
+          <img src={back} alt="Plegar" />
+        </div>
         <form className={styles.form}>
           <div className={styles.email}>
             <input type="text" id="email" name="email" placeholder="mi-correo@dominio.com" />
@@ -44,6 +50,12 @@ const mapStateToProps = state => ({
   isMobile: state.devices.isMobile
 });
 
-const mapDispatchToProps = dispatch => ({});
+const mapDispatchToProps = dispatch => ({
+  changeLoginBar() {
+    dispatch({
+      type: 'CHANGE_LOG_BAR'
+    });
+  }
+});
 
 export default connect(mapStateToProps, mapDispatchToProps)(Loggin);
