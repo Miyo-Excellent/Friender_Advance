@@ -18,16 +18,24 @@ class Summary extends Component {
   }
 
   fethSummary(User) {
-    return summaryMap(styles, User);
+    const { devices } = this.props;
+    return summaryMap(styles, User, devices.isMobile);
   }
 
   Desktop() {
-    return <section className={styles.summary} />;
+    const {} = this;
+    const { user } = this.props;
+    return (
+      <article className={styles.summary}>
+        <h1 className={styles.title}>Resumen de tus postulaciones</h1>
+        {this.fethSummary(user)}
+      </article>
+    );
   }
 
   Mobile() {
-    const { user } = this.props;
     const {} = this;
+    const { user } = this.props;
     return (
       <article className={styles.summary_mobile}>
         <h1 className={styles.title}>Resumen de tus postulaciones</h1>

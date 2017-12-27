@@ -1,7 +1,7 @@
 .controllers {
     grid-column: 1;
-    grid-row: 5;
-    margin: 5px 0 0 0;
+    grid-row: 6;
+    top: -5px;
     display: flex;
     flex-flow: row nowrap;
     justify-content: space-around;
@@ -69,12 +69,12 @@
 /*
  * Start Buttons animations
  */
- @keyframes swipFromUp {
-     0% {
-        left: -500px;
-        opacity: 0;
-     }
-     100% {
-        opacity: 1;
-     }
- }
+@keyframes swipFromUp {
+    0% {
+    left: -500px;
+    opacity: 0;
+    }
+    100% {
+    opacity: 1;
+    }
+}

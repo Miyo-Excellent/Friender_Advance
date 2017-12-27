@@ -14,17 +14,17 @@ const Loggin = ({ changeLoginBar, isMobile }) => {
   return isMobile
     ? (
       <div className={styles.loggin_mobile}>
-        <div className={styles.back} onClick={changeLoginBar}>
+        <div className={styles.back_mobile} onClick={changeLoginBar}>
           <img src={back} alt="Plegar" />
         </div>
-        <form className={styles.form}>
-          <div className={styles.email}>
+        <form className={styles.form_mobile}>
+          <div className={styles.email_mobile}>
             <input type="text" id="email" name="email" placeholder="mi-correo@dominio.com" />
           </div>
-          <div className={styles.password}>
+          <div className={styles.password_mobile}>
             <input type="password" id="password" name="password" placeholder="Contraseña" />
           </div>
-          <div className={styles.set}>
+          <div className={styles.set_mobile}>
             <input name="set" id="set" type="button" value="Entrar" />
           </div>
         </form>

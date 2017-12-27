@@ -121,12 +121,14 @@
 }
 
 .companies_mobile {
+    grid-column: 1;
+    grid-row: 4;
     .step {
         width: 100%;
         height: 100%;
         display: flex;
         flex-flow: column nowrap;
-        justify-content: space-between;
+        justify-content: space-evenly;
         align-items: center;
         .one,
         .two,
@@ -135,7 +137,7 @@
             height: 100%;
             display: flex;
             flex-flow: column nowrap;
-            justify-content: space-between;
+            justify-content: space-evenly;
             align-items: center;
             max-width: 550px;
         }
@@ -147,7 +149,7 @@
             .email {
                 display: flex;
                 flex-flow: column nowrap;
-                justify-content: space-between;
+                justify-content: space-evenly;
                 align-items: center;
                 width: 100%;
                 height: 100%;
@@ -183,10 +185,9 @@
             .address {
                 display: flex;
                 flex-flow: column nowrap;
-                justify-content: space-between;
+                justify-content: space-evenly;
                 align-items: center;
                 width: 100%;
-                margin: 5px 0;
             }
             .type {
                 max-width: 500px;
@@ -220,7 +221,7 @@
             .address {
                 display: flex;
                 flex-flow: column nowrap;
-                justify-content: space-between;
+                justify-content: space-evenly;
                 align-items: center;
                 max-width: 500px;
                 .provices,
@@ -228,7 +229,7 @@
                     margin: 5px 0;
                     display: flex;
                     flex-flow: column nowrap;
-                    justify-content: space-between;
+                    justify-content: space-evenly;
                     align-items: center;
                     width: 100%;
                     select {
@@ -258,6 +259,7 @@
                 .provices {
                 }
                 .municipality {
+                    margin: 10px 0 0 0;
                 }
             }
         }
@@ -299,7 +301,6 @@
         }
     }
 }
-
 @media all and (max-width: 1200px) {
     .companies {
         .step {
@@ -327,6 +328,188 @@
             .two {
             }
             .three {
+            }
+        }
+    }
+}
+@media all and (max-width: 1024px) {
+    .companies_mobile,
+    .companies {
+        .step {
+            .two {
+                .address {
+                    .municipality {
+                        margin: 65px 0 0 0;
+                    }
+                }
+            }
+        }
+    }
+}
+@media all and (max-width: 640px) {
+    .companies_mobile,
+    .companies {
+        .step {
+            .two {
+                .address {
+                    .municipality {
+                        margin: 0;
+                    }
+                }
+            }
+        }
+    }
+}
+@media all and (max-width: 768px) {
+    .companies_mobile,
+    .companies {
+        .step {
+            .two {
+                .address {
+                    .municipality {
+                        margin: 30px 0 0 0;
+                    }
+                }
+            }
+        }
+    }
+}
+@media all and (max-width: 600px) {
+    .companies_mobile,
+    .companies {
+        .step {
+            .two {
+                .address {
+                    .municipality {
+                        margin: 30px 0 0 0;
+                    }
+                }
+            }
+        }
+    }
+}
+@media all and (max-width: 480px) {
+    .companies_mobile,
+    .companies {
+        .step {
+            .two {
+                .address {
+                    .municipality {
+                        margin: 23px 0 0 0;
+                    }
+                }
+            }
+        }
+    }
+}
+@media all and (max-width: 425px) {
+    .companies_mobile,
+    .companies {
+        .step {
+            .two {
+                .address {
+                    .municipality {
+                        margin: 23px 0 0 0;
+                    }
+                }
+            }
+        }
+    }
+}
+@media all and (max-width: 414px) and (max-height: 736px) { // IPHONE 6 PLUS
+    .companies_mobile,
+    .companies {
+        .step {
+            .two {
+                .address {
+                    .municipality {
+                        margin: 10px 0 0 0;
+                    }
+                }
+            }
+        }
+    }
+}
+@media all and (max-width: 412px) {
+    .companies_mobile,
+    .companies {
+        .step {
+            .two {
+                .address {
+                    .municipality {
+                        margin: 7px 0 0 0;
+                    }
+                }
+            }
+        }
+    }
+}
+@media all and (max-width: 384px) {
+    .companies_mobile,
+    .companies {
+        .step {
+            .two {
+                .address {
+                    .municipality {
+                        margin: 3px 0 0 0;
+                    }
+                }
+            }
+        }
+    }
+}
+@media all and (max-width: 375px) {
+    .companies_mobile,
+    .companies {
+        .step {
+            .two {
+                .address {
+                    .municipality {
+                        margin: 15px 0 0 0;
+                    }
+                }
+            }
+        }
+    }
+}
+@media all and (max-width: 375px) {
+    .companies_mobile,
+    .companies {
+        .step {
+            .two {
+                .address {
+                    .municipality {
+                        margin: 15px 0 0 0;
+                    }
+                }
+            }
+        }
+    }
+}
+@media all and (max-width: 375px) and (max-height: 667px) { // IPHONE 6
+    .companies_mobile,
+    .companies {
+        .step {
+            .two {
+                .address {
+                    .municipality {
+                        margin: 0;
+                    }
+                }
+            }
+        }
+    }
+}
+@media all and (max-width: 320px) {
+    .companies_mobile,
+    .companies {
+        .step {
+            .two {
+                .address {
+                    .municipality {
+                        margin: 1px 0 0 0;
+                    }
+                }
             }
         }
     }

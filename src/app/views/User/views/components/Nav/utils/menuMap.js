@@ -41,7 +41,6 @@ export default function menuMap(user, devices) {
       image: search,
       path: '/user'
     });
-    console.dir(newCommonConfig);
     return newCommonConfig;
   }
 }

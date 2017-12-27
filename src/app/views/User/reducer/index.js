@@ -3,79 +3,60 @@
 // Services default config
 const NEW_SERVICE_STATE = {
   address: {
-    munincipality: "",
-    province: ""
+    munincipality: "", province: ""
   },
-  category: "",
-  description: "",
-  direction: "",
+  category: "", description: "", direction: "",
   schedule: {
     from: {
-      hour: 8,
-      minutes: 30,
-      system: 'am'
+      hour: 8, minutes: 30, system: 'am'
     },
     to: {
-      hour: 5,
-      minutes: 30,
-      system: 'pm'
+      hour: 5, minutes: 30, system: 'pm'
     }
   },
-  tags: [],
-  title: "",
-  value: 0
+  tags: [], title: "", value: 0
 };
 
 // Initial State
 const initialState = options => {
   const {
-    lastname = "menganito",
-    nit = /([0-9]{3}(\.|\\|\/|\-)[0-9]{3}(\.|\\|\/|\-)[0-9]{3}\-[a-zA-Z])/ ||
-      "000.000.000-F",
-    type = "people",
-    typeOfCompany = "headquarters"
+    address = {
+      province: "", munincipality: ""
+    },
+    email = "",
+    follows = {
+      followers: [], followins: []
+    },
+    header = "", lastname = "CA", name = "Friender", nickname = "C.A",
+    nit = "00-00-00-F", // ReGex = /([0-9]{3}(\.|\\|\/|\-)[0-9]{3}(\.|\\|\/|\-)[0-9]{3}\-[a-zA-Z])/i
+    phone = "3123559419",
+    picture = "https://avatars0.githubusercontent.com/u/24364747?s=460&v=4",
+    posts = {
+      AddNewService: NEW_SERVICE_STATE,
+      editing: false, newServiceConfig: [], services: []
+    },
+    profession = ["Web-Developer"],
+    profile = {
+      aplicated: 0, completed: 0,
+      editing: false, evaluated: 0,
+      interested: 0, networks: []
+    },
+    type = "people", typeOfCompany = "headquarters"
   } = options;
 
   const commonConfig = {
-    address: {
-      province: "antioquia",
-      munincipality: "medellin"
-    },
-    email: "email@friender.co",
-    header: "http://eskipaper.com/images/best-wallpapers-hd-6.jpg",
-    followers: 35457,
-    followins: 2134,
-    name: "filanito",
-    nickname: "Friender",
-    phone: "3000000000",
-    picture: "https://avatars0.githubusercontent.com/u/24364747?s=460&v=4",
-    profession: "Web-Developer",
-    profil: {
-      aplicated: 2000,
-      completed: 456,
-      editing: false,
-      evaluated: 789,
-      interested: 123
-    },
-    posts: {
-      AddNewService: NEW_SERVICE_STATE,
-      editing: false,
-      newServiceConfig: [],
-      services: []
-    },
-    type
+    address, email, header,follows,
+    name, nickname, phone, picture,
+    posts, profession, profile, type
   };
 
   if (type === "people") {
     return {
-      ...commonConfig,
-      lastname
+      ...commonConfig, lastname
     };
   } else if (type === "company") {
     return {
-      ...commonConfig,
-      nit,
-      typeOfCompany
+      ...commonConfig, nit, typeOfCompany
     };
   }
 };
@@ -84,12 +65,9 @@ export default function homeReducer(state = initialState({}), action) {
   switch (action.type) {
     case "ADD_CATEGORY": {
       return {
-        ...state,
-        posts: {
-          ...state.posts,
-          AddNewService: {
-            ...state.posts.AddNewService,
-            category: action.category
+        ...state, posts: {
+          ...state.posts, AddNewService: {
+            ...state.posts.AddNewService, category: action.category
           }
         }
       };
@@ -97,12 +75,9 @@ export default function homeReducer(state = initialState({}), action) {
     }
     case "ADD_DESCRIPTION": {
       return {
-        ...state,
-        posts: {
-          ...state.posts,
-          AddNewService: {
-            ...state.posts.AddNewService,
-            description: action.description
+        ...state, posts: {
+          ...state.posts, AddNewService: {
+            ...state.posts.AddNewService, description: action.description
           }
         }
       };
@@ -110,12 +85,9 @@ export default function homeReducer(state = initialState({}), action) {
     }
     case "ADD_DIRECTION": {
       return {
-        ...state,
-        posts: {
-          ...state.posts,
-          AddNewService: {
-            ...state.posts.AddNewService,
-            direction: action.direction
+        ...state, posts: {
+          ...state.posts, AddNewService: {
+            ...state.posts.AddNewService, direction: action.direction
           }
         }
       };
@@ -123,14 +95,10 @@ export default function homeReducer(state = initialState({}), action) {
     }
     case "ADD_MUNINCIPALITY": {
       return {
-        ...state,
-        posts: {
-          ...state.posts,
-          AddNewService: {
-            ...state.posts.AddNewService,
-            address: {
-              ...state.posts.AddNewService.address,
-              munincipality: action.munincipality
+        ...state, posts: {
+          ...state.posts, AddNewService: {
+            ...state.posts.AddNewService, address: {
+              ...state.posts.AddNewService.address, munincipality: action.munincipality
             }
           }
         }
@@ -139,14 +107,10 @@ export default function homeReducer(state = initialState({}), action) {
     }
     case "ADD_PROVINCE": {
       return {
-        ...state,
-        posts: {
-          ...state.posts,
-          AddNewService: {
-            ...state.posts.AddNewService,
-            address: {
-              ...state.posts.AddNewService.address,
-              province: action.province
+        ...state, posts: {
+          ...state.posts, AddNewService: {
+            ...state.posts.AddNewService, address: {
+              ...state.posts.AddNewService.address, province: action.province
             }
           }
         }
@@ -155,16 +119,11 @@ export default function homeReducer(state = initialState({}), action) {
     }
     case "ADD_SCHEDULE_FROM_HOUR": {
       return {
-        ...state,
-        posts: {
-          ...state.posts,
-          AddNewService: {
-            ...state.posts.AddNewService,
-            schedule: {
-              ...state.posts.AddNewService.schedule,
-              from: {
-                ...state.posts.AddNewService.schedule.from,
-                hour: action.hour
+        ...state, posts: {
+          ...state.posts, AddNewService: {
+            ...state.posts.AddNewService, schedule: {
+              ...state.posts.AddNewService.schedule, from: {
+                ...state.posts.AddNewService.schedule.from, hour: action.hour
               }
             }
           }
@@ -174,16 +133,11 @@ export default function homeReducer(state = initialState({}), action) {
     }
     case "ADD_SCHEDULE_FROM_MINUTES": {
       return {
-        ...state,
-        posts: {
-          ...state.posts,
-          AddNewService: {
-            ...state.posts.AddNewService,
-            schedule: {
-              ...state.posts.AddNewService.schedule,
-              from: {
-                ...state.posts.AddNewService.schedule.from,
-                minutes: action.minutes
+        ...state, posts: {
+          ...state.posts, AddNewService: {
+            ...state.posts.AddNewService, schedule: {
+              ...state.posts.AddNewService.schedule, from: {
+                ...state.posts.AddNewService.schedule.from, minutes: action.minutes
               }
             }
           }
@@ -193,16 +147,11 @@ export default function homeReducer(state = initialState({}), action) {
     }
     case "ADD_SCHEDULE_FROM_SYSTEM": {
       return {
-        ...state,
-        posts: {
-          ...state.posts,
-          AddNewService: {
-            ...state.posts.AddNewService,
-            schedule: {
-              ...state.posts.AddNewService.schedule,
-              from: {
-                ...state.posts.AddNewService.schedule.from,
-                system: action.system
+        ...state, posts: {
+          ...state.posts, AddNewService: {
+            ...state.posts.AddNewService, schedule: {
+              ...state.posts.AddNewService.schedule, from: {
+                ...state.posts.AddNewService.schedule.from, system: action.system
               }
             }
           }
@@ -212,16 +161,11 @@ export default function homeReducer(state = initialState({}), action) {
     }
     case "ADD_SCHEDULE_TO_HOUR": {
       return {
-        ...state,
-        posts: {
-          ...state.posts,
-          AddNewService: {
-            ...state.posts.AddNewService,
-            schedule: {
-              ...state.posts.AddNewService.schedule,
-              to: {
-                ...state.posts.AddNewService.schedule.to,
-                hour: action.hour
+        ...state, posts: {
+          ...state.posts, AddNewService: {
+            ...state.posts.AddNewService, schedule: {
+              ...state.posts.AddNewService.schedule, to: {
+                ...state.posts.AddNewService.schedule.to, hour: action.hour
               }
             }
           }
@@ -231,16 +175,11 @@ export default function homeReducer(state = initialState({}), action) {
     }
     case "ADD_SCHEDULE_TO_MINUTES": {
       return {
-        ...state,
-        posts: {
-          ...state.posts,
-          AddNewService: {
-            ...state.posts.AddNewService,
-            schedule: {
-              ...state.posts.AddNewService.schedule,
-              to: {
-                ...state.posts.AddNewService.schedule.to,
-                minutes: action.minutes
+        ...state, posts: {
+          ...state.posts, AddNewService: {
+            ...state.posts.AddNewService, schedule: {
+              ...state.posts.AddNewService.schedule, to: {
+                ...state.posts.AddNewService.schedule.to, minutes: action.minutes
               }
             }
           }
@@ -250,16 +189,11 @@ export default function homeReducer(state = initialState({}), action) {
     }
     case "ADD_SCHEDULE_TO_SYSTEM": {
       return {
-        ...state,
-        posts: {
-          ...state.posts,
-          AddNewService: {
-            ...state.posts.AddNewService,
-            schedule: {
-              ...state.posts.AddNewService.schedule,
-              to: {
-                ...state.posts.AddNewService.schedule.to,
-                system: action.system
+        ...state, posts: {
+          ...state.posts, AddNewService: {
+            ...state.posts.AddNewService, schedule: {
+              ...state.posts.AddNewService.schedule, to: {
+                ...state.posts.AddNewService.schedule.to, system: action.system
               }
             }
           }
@@ -269,12 +203,9 @@ export default function homeReducer(state = initialState({}), action) {
     }
     case "ADD_TAG": {
       return {
-        ...state,
-        posts: {
-          ...state.posts,
-          AddNewService: {
-            ...state.posts.AddNewService,
-            tags: state.posts.AddNewService.tags.concat(action.tag)
+        ...state, posts: {
+          ...state.posts, AddNewService: {
+            ...state.posts.AddNewService, tags: state.posts.AddNewService.tags.concat(action.tag)
           }
         }
       };
@@ -282,12 +213,9 @@ export default function homeReducer(state = initialState({}), action) {
     }
     case "ADD_TITLE": {
       return {
-        ...state,
-        posts: {
-          ...state.posts,
-          AddNewService: {
-            ...state.posts.AddNewService,
-            title: action.title
+        ...state, posts: {
+          ...state.posts, AddNewService: {
+            ...state.posts.AddNewService, title: action.title
           }
         }
       };
@@ -295,12 +223,9 @@ export default function homeReducer(state = initialState({}), action) {
     }
     case "ADD_VALUE": {
       return {
-        ...state,
-        posts: {
-          ...state.posts,
-          AddNewService: {
-            ...state.posts.AddNewService,
-            value: action.value
+        ...state, posts: {
+          ...state.posts, AddNewService: {
+            ...state.posts.AddNewService, value: action.value
           }
         }
       };
@@ -308,30 +233,25 @@ export default function homeReducer(state = initialState({}), action) {
     }
     case "CHANGE_EDITNG_STATE": {
       return {
-        ...state,
-        profil: {
-          ...state.profil,
-          editing: !state.profil.editing
+        ...state, profil: {
+          ...state.profil, editing: !state.profil.editing
         }
       };
       break;
     }
+    case "CHANGE_ALL_DATA_USER": {
+      return action.data;
+      break;
+    }
     case "CREATE_NEW_SERVICE": {
       return {
-        ...state,
-        posts: {
-          ...state.posts,
-          services: state.posts.services.concat({
+        ...state, posts: {
+          ...state.posts, services: state.posts.services.concat({
             "about": `${action.service.tags[0]}, ${action.service.tags[1]}, ${action.service.tags[2]}, ${action.service.tags[3]}`,
-            "address": action.service.address,
-            "califacation": 0,
-            "categoty": action.service.category,
-            "description": action.service.description,
-            "direction": action.service.direction,
-            "honorary": action.service.value,
-            "img": state.picture,
-            "tags": action.service.tags,
-            "title": action.service.title
+            "address": action.service.address, "califacation": 0,
+            "categoty": action.service.category, "description": action.service.description,
+            "direction": action.service.direction, "honorary": action.service.value,
+            "img": state.picture, "tags": action.service.tags, "title": action.service.title
           },)
         }
       };
@@ -339,22 +259,17 @@ export default function homeReducer(state = initialState({}), action) {
     }
     case "DELETE_NEW_SERVICE_STATE": {
       return {
-        ...state,
-        posts: {
-          ...state.posts,
-          AddNewService: NEW_SERVICE_STATE
+        ...state, posts: {
+          ...state.posts, AddNewService: NEW_SERVICE_STATE
         }
       };
       break;
     }
     case "DELETE_TAG": {
       return {
-        ...state,
-        posts: {
-          ...state.posts,
-          AddNewService: {
-            ...state.posts.AddNewService,
-            tags: state.posts.AddNewService.tags.filter(oldTag => oldTag !== action.tag)
+        ...state, posts: {
+          ...state.posts, AddNewService: {
+            ...state.posts.AddNewService, tags: state.posts.AddNewService.tags.filter(oldTag => oldTag !== action.tag)
           }
         }
       };
@@ -362,47 +277,38 @@ export default function homeReducer(state = initialState({}), action) {
     }
     case "LOAD_SERVICES_POSTS": {
       return {
-        ...state,
-        posts: {
-          ...state.posts,
-          services: action.data
+        ...state, posts: {
+          ...state.posts, services: action.data
         }
       };
       break;
     }
     case "LOAD_NEW_SERVICES_CONFIG": {
       return {
-        ...state,
-        posts: {
-          ...state.posts,
-          newServiceConfig: action.data
+        ...state, posts: {
+          ...state.posts, newServiceConfig: action.data
         }
       };
       break;
     }
     case "USER_DATA_LASTNAME": {
       return {
-        ...state,
-        userData: {
-          ...state.userData,
-          lastname: action.name
+        ...state, userData: {
+          ...state.userData, lastname: action.name
         }
       };
       break;
     }
     case "USER_DATA_NAME": {
       return {
-        ...state,
-        userData: {
-          ...state.userData,
-          name: action.name
+        ...state, userData: {
+          ...state.userData, name: action.name
         }
       };
       break;
     }
     default: {
-      return state;
-      break;
+      return state; break;
     }
   }
 }

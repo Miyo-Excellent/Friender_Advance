@@ -45,11 +45,11 @@ class ShortInformatio extends Component {
             )}
             <div className={styles.followers}>
               <span>Seguidores:</span>
-              <strong>{user.followers}</strong>
+              <strong>{user.follows.followers}</strong>
             </div>
             <div className={styles.followins}>
               <span>Seguidos:</span>
-              <strong>{user.followins}</strong>
+              <strong>{user.follows.followins}</strong>
             </div>
           </div>
         </div>

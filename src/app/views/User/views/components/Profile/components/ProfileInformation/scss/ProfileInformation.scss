@@ -1,0 +1,22 @@
+// Variables
+
+.profile_information_mobile {
+    grid-row: 1;
+    .header_mobile{
+        .picture_mobile{
+            img {
+                width: 50px;
+            }
+        }
+    }
+}
+.profile_information {
+    grid-row: 1;
+    grid-gap: 5px;
+    display: grid;
+    grid-template-columns: 100%;
+    grid-auto-rows: minmax(50px, auto);
+    >*{
+        grid-column: 1;
+    }
+}

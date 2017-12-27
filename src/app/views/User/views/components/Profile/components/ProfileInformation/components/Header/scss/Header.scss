@@ -1,0 +1,109 @@
+// Variables
+$picture-size: 150;
+.header{
+    border-radius: 10px;
+    background: hsl(0, 0%, 91%);
+    grid-row: 1;
+    display: grid;
+    grid-template-columns: 100%;
+    grid-auto-rows: auto;
+    grid-gap: 5px;
+    >*{
+        grid-column: 1;
+    }
+    .information {
+        background: hsl(0, 0%, 85%);
+        border-radius: 0 0 10px 10px;
+        grid-row: 2;
+        display: grid;
+        grid-template-columns: 100%;
+        grid-auto-rows: auto;
+        grid-gap: 5px;
+        padding: 5px;
+        >*{
+            grid-column: 1;
+        }
+        .connect {
+            display: grid;
+            grid: 100% / 1fr 1fr;
+            grid-gap: 5px;
+            padding: 5px;
+            .followers,
+            .followins {
+                background: hsl(0, 0%,75%);
+                border-radius: 10px;
+                grid-row: 1;
+                grid-gap: 5px;
+                padding: 5px;
+                &, & > * {
+                    display: flex;
+                    flex-flow: column nowrap;
+                    justify-content: center;
+                    align-items: center;
+                }
+                .title,
+                .how {
+                    width: 100%;
+                    height: 100%;
+                    font-weight: bolder;
+                    color: hsla(220, 50%, 20%, 1);
+                }
+                .title {
+                }
+                .how {
+                    font-size: 1.1em;
+                    margin: 5px 0 0 0;
+                    color: hsla(220, 100%, 55%, 1);
+                }
+            }
+            .followers {
+                grid-column: 1;
+            }
+            .followins {
+                grid-column: 2;
+            }
+        }
+        .email,
+        .full_name {
+            &, >* {
+                display: flex;
+                flex-flow: column nowrap;
+                justify-content: center;
+                align-items: center;
+            }
+            >*{
+                text-align: center;
+                width: 100%;
+                height: 100%;
+            }
+        }
+        .email {
+            grid-row: 2;
+            >*{
+                font-size: .9em;
+            }
+        }
+        .full_name {
+            grid-row: 1;
+            > * {
+                font-size: 1.2em;
+            }
+        }
+    }
+    .picture{
+        grid-row: 1;
+        margin: auto;
+        width: $picture-size + px;
+        height: $picture-size + px;
+        background: hsla(0, 0%, 0%, .4);
+        border-radius: 50%;
+        display: flex;
+        flex-flow: columnn nowrap;
+        justify-content: center;
+        align-items: center;
+        img {
+            border-radius: 50%;
+            width: 90%;
+        }
+    }
+}

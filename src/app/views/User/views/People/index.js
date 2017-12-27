@@ -9,7 +9,7 @@ import Profil from '../components/Profile';
 // Styles
 import styles from "./scss/People.scss";
 
-const People = ({ devices, user }) => {
+const People = ({ devices }) => {
   const { isMobile } = devices;
   const Mobile = () => (
     <section className={styles.user_mobile}>
@@ -19,8 +19,9 @@ const People = ({ devices, user }) => {
   );
 
   const Desktop = () => (
-    <section className={styles.user}>
+    <section className={styles.user_desktop}>
       <Nav />
+      <Profil />
     </section>
   );
 
@@ -29,8 +30,7 @@ const People = ({ devices, user }) => {
 };
 
 const mapStateToProps = state => ({
-  devices: state.devices,
-  user: state.user
+  devices: state.devices
 });
 const mapDispatchToProps = dispatch => ({});
 

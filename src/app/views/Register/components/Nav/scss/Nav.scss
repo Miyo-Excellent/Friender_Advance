@@ -81,7 +81,21 @@
     }
     .popMenu_mobile,
     .popLogin_mobile {
-        //background: dodgerblue;
+        background: hsla(0, 0%, 20%, .9);
+        position: absolute;
+        border-radius: 50%;
+        width: 40px;
+        height: 40px;
+        animation: pop 350ms alternate;
+        display: flex;
+        flex-flow: column nowrap;
+        justify-content: center;
+        align-items: center;
+        img {
+            display: block;
+            width: 70%;
+            height: 70%;
+        }
     }
     .menu_mobile {
         width: calc(100vw - 20px);
@@ -94,13 +108,13 @@
             content: "";
             width: 0;
             height: 35px;
-            background: #333;
+            background: hsla(0, 0%, 20%, .9);
             border-radius: 5px;
             position: absolute;
             top: 0;
             left: 0;
             //transition: width 250ms ease-in-out;
-            animation: widthToRight ease-in-out 250ms alternate;
+            animation: widthToRight ease-in-out 350ms alternate;
             width: 100%;
         }
         .back_mobile,
@@ -147,16 +161,27 @@
             }
         }
         .back_mobile {
+            animation: pop 350ms alternate;
         }
         .item_mobile {
+            &:nth-child(2) {
+                animation: pop 350ms alternate;
+            }
+            &:nth-child(3) {
+                animation: pop 450ms alternate;
+            }
+            &:nth-child(4) {
+                animation: pop 550ms alternate;
+            }
+            &:nth-child(5) {
+                animation: pop 650ms alternate;
+            }
         }
     }
     .popMenu_mobile {
     }
     .popLogin_mobile {
-    }
-    img {
-        width: 35px;
+        top: 53px;
     }
 }
 @media all and (max-width: 644px) {
@@ -167,6 +192,24 @@
             grid-column: 1;
             grid-row: 1;
         }
+    }
+}
+@media all and (max-width: 320px) {
+    .nav_mobile {
+        .item_mobile {
+            >*{
+                font-size: .8em;
+            }
+        }
+    }
+}
+@keyframes pop {
+    0% {
+        opacity: 0;
+        transform: scale(0);
+    } 100% {
+        opacity: 1;
+        transform: scale(1);
     }
 }
 @keyframes widthToRight {

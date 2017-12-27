@@ -17,7 +17,7 @@ const User = ({ devices, user }) => {
 
   const View = () =>
     isMobile ? (
-      <section className={styles.user}>{whatKind(type)}</section>
+      <section className={styles.user_mobile}>{whatKind(type)}</section>
     ) : (
       <section className={styles.user}>{whatKind(type)}</section>
     );

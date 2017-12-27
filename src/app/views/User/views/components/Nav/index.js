@@ -27,7 +27,7 @@ const Nav = ({ devices, user }) => {
 
   const Mobile = () => <nav className={styles.nav_mobile}>{generator()}</nav>;
 
-  const Desktop = () => <nav className={styles.nav}>{generator()}</nav>;
+  const Desktop = () => <nav className={styles.nav_desktop}>{generator()}</nav>;
 
   const View = () => isMobile ? Mobile() : Desktop();
   return View();

@@ -393,7 +393,7 @@ class AddNewService extends Component {
 const mapStateToProps = state => ({
   addNewService: state.user.posts.AddNewService,
   devices: state.devices,
-  editing: state.user.profil.editing,
+  editing: state.user.profile.editing,
   newServiceConfig: state.user.posts.newServiceConfig,
   tags: state.user.posts.AddNewService.tags,
   type: state.user.type
