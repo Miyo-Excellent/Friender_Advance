@@ -21,8 +21,7 @@ class ShortInformatio extends Component {
   Mobile() {
     const { user } = this.props;
     const background = {
-      background: `url("${user.header}") no-repeat center center`,
-      backgroundSize: "cover"
+      background: `url("${user.header}") no-repeat center center`
     };
     return (
       <article className={styles.short_info_mobile}>
@@ -43,13 +42,9 @@ class ShortInformatio extends Component {
                 <h2 className={styles.profession_title}>{user.profession}</h2>
               </div>
             )}
-            <div className={styles.followers}>
+            <div className={styles.connectors}>
               <span>Seguidores:</span>
-              <strong>{user.follows.followers}</strong>
-            </div>
-            <div className={styles.followins}>
-              <span>Seguidos:</span>
-              <strong>{user.follows.followins}</strong>
+              <strong>{user.connectors.length}</strong>
             </div>
           </div>
         </div>

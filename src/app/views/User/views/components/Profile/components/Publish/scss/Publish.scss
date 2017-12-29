@@ -4,9 +4,11 @@
     height: 100%;
     grid-row: 3;
     grid-column: 1;
-    padding: 0 5px;
+    padding: 5px;
 }
 .publish {
+    display: grid;
+    grid: 1fr / 1fr;
 }
 .publish_mobile {
     display: grid;

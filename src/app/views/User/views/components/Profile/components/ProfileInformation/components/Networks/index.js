@@ -1,5 +1,4 @@
 // Dependencies
-import axios from 'axios';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import React, { Component } from 'react';
@@ -18,12 +17,6 @@ class Networks extends Component {
     super(props);
     this.image = this.image.bind(this);
   }
-
-  componentDidMount() {
-    const { loadUser } = this.props;
-    loadUser();
-  }
-
   image(type) {
     switch (type) {
       case 'facebook': {
@@ -66,15 +59,6 @@ const mapStateToProps = state => ({
   devices: state.devices,
   user: state.user
 });
-const mapDispatchToProps = dispatch => ({
-  loadUser() {
-    dispatch(dispatch => axios.get("http://localhost:3000/api/user_people")
-      .then(res => dispatch({
-        type: 'CHANGE_ALL_DATA_USER',
-        data: res.data
-      })))
-      .catch( error => console.error(`No se pudo obtener los datos del usuario, por favor revise el nombre de usuario o la contraseña, puede que uno de ello esten errados: ${error}`));
-  }
-});
+const mapDispatchToProps = dispatch => ({});
 
 export default connect(mapStateToProps, mapDispatchToProps)(Networks);

@@ -13,6 +13,8 @@
     }
     .image_background {
       position: absolute;
+      display: block;
+      background-size: cover;
       width: 100%;
       height: 100%;
     }
@@ -38,11 +40,10 @@
           display: grid;
           grid-template-columns: 1fr 1fr;
           grid-template-rows: 1fr 1fr;
-          .followers,
-          .followins {
+          .connectors {
               display: flex;
-              flex-flow: column nowrap;
-              justify-content: space-around;
+              flex-flow: row nowrap;
+              justify-content: center;
               align-items: center;
           }
           .text {
@@ -82,12 +83,8 @@
                   font-weight: bolder;
               }
           }
-          .followers {
-              grid-column: 1;
-              grid-row: 2;
-          }
-          .followins {
-              grid-column: 2;
+          .connectors {
+              grid-column: 1/3;
               grid-row: 2;
           }
       }

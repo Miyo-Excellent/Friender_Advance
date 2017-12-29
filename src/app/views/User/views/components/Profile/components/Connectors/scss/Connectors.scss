@@ -1,4 +1,4 @@
-.followers {
+.connectors {
     display: grid;
     grid: auto auto / 100%;
     grid-gap: 10px;
@@ -50,10 +50,53 @@
             justify-content: center;
             align-items: center;
             border-radius: 10px;
+            &:hover {
+                &::after {
+                    content: "";
+                    position: absolute;
+                    left: auto;
+                    right: auto;
+                    border-radius: 10px;
+                    width: calc(100% - 12px);
+                    height: 100%;
+                    display: block;
+                    background: hsla(0, 0%, 40%, .7);
+                }
+                .tooltip {
+                    display: flex;
+                }
+            }
             img {
                 border-radius: 10px;
                 width: 80%;
                 height: 80%;
+            }
+            .tooltip {
+                z-index: 3;
+                position: absolute;
+                left: auto;
+                right: calc(-100% - 10px);
+                top: auto;
+                bottom: auto;
+                background: hsla(220, 70%, 60%, .8);
+                border-radius: 5px;
+                width: 85px;
+                height: auto;
+                padding: 5px;
+                display: none;
+                flex-flow: column nowrap;
+                justify-content: center;
+                align-items: center;
+                span {
+                    width: 100%;
+                    height: 100%;
+                    display: flex;
+                    flex-flow: column nowrap;
+                    justify-content: center;
+                    align-items: center;
+                    text-align: center;
+                    font-size: .8rem;
+                }
             }
         }
         .not_found {

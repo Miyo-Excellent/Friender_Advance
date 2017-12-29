@@ -38,7 +38,7 @@ class Summary extends Component {
     const { user } = this.props;
     return (
       <article className={styles.summary_mobile}>
-        <h1 className={styles.title}>Resumen de tus postulaciones</h1>
+        <span className={styles.title_mobile}>Resumen de tus postulaciones</span>
         {this.fethSummary(user)}
       </article>
     );

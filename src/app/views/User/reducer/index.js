@@ -24,10 +24,8 @@ const initialState = options => {
       province: "", munincipality: ""
     },
     email = "",
-    follows = {
-      followers: [], followins: []
-    },
-    header = "", lastname = "CA", name = "Friender", nickname = "C.A",
+    connectors = [],
+    header = "", lastname = "C.A", name = "Friender", nickname = "C.A",
     nit = "00-00-00-F", // ReGex = /([0-9]{3}(\.|\\|\/|\-)[0-9]{3}(\.|\\|\/|\-)[0-9]{3}\-[a-zA-Z])/i
     phone = "3123559419",
     picture = "https://avatars0.githubusercontent.com/u/24364747?s=460&v=4",
@@ -45,9 +43,12 @@ const initialState = options => {
   } = options;
 
   const commonConfig = {
-    address, email, header,follows,
-    name, nickname, phone, picture,
-    posts, profession, profile, type
+    address, email,
+    header, connectors,
+    name, nickname,
+    phone, picture,
+    posts, profession,
+    profile, type
   };
 
   if (type === "people") {
@@ -233,14 +234,16 @@ export default function homeReducer(state = initialState({}), action) {
     }
     case "CHANGE_EDITNG_STATE": {
       return {
-        ...state, profil: {
-          ...state.profil, editing: !state.profil.editing
+        ...state, profile: {
+          ...state.profile, editing: !state.profile.editing
         }
       };
       break;
     }
     case "CHANGE_ALL_DATA_USER": {
-      return action.data;
+      return {
+        ...action.data
+      };
       break;
     }
     case "CREATE_NEW_SERVICE": {
@@ -276,6 +279,7 @@ export default function homeReducer(state = initialState({}), action) {
       break;
     }
     case "LOAD_SERVICES_POSTS": {
+      console.info(action.data);
       return {
         ...state, posts: {
           ...state.posts, services: action.data

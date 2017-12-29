@@ -8,7 +8,7 @@ export default function html(options) {
     initialState = {},
     markup,
     rootElement = 'root',
-    scalable = 'yes',
+    scalable = 'no',
     stylesheet = '/css/style.css',
     themeColor = 'black',
     title = 'Friender',

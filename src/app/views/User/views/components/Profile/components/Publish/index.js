@@ -1,7 +1,6 @@
 // Dependencies
 import { connect } from "react-redux";
 import React, { Component } from "react";
-import axios from "axios";
 
 // Components
 //import Offert from './components/Offert';
@@ -21,13 +20,12 @@ class Publish extends Component {
     this.View = this.View.bind(this);
   }
 
-  componentDidMount() {
-    const { LoadServices } = this.props;
-    LoadServices();
-  }
-
   Desktop() {
-    return <article className={styles.publish} />;
+    return (
+      <article className={styles.publish}>
+        <AddNewService />
+      </article>
+    );
   }
 
   load() {
@@ -62,16 +60,6 @@ const mapStateToProps = state => ({
   services: state.user.posts.services
 });
 
-const mapDispatchToProps = dispatch => ({
-  LoadServices() {
-    dispatch( dispatch =>axios
-      .get("http://localhost:3000/api/servicesPosts")
-      .then(res => dispatch({
-        type: "LOAD_SERVICES_POSTS",
-        data: res.data
-      }))
-      .catch(err => console.log(`No se pudieron solicitar los datos al servidor: Error: ${err}`)));
-  }
-});
+const mapDispatchToProps = dispatch => ({});
 
 export default connect(mapStateToProps, mapDispatchToProps)(Publish);

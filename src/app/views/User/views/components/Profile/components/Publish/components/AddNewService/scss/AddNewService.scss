@@ -1,554 +1,97 @@
-$scroll-color: rgb(252, 252, 252);
-$scroll-bg-color: rgb(0, 132, 255);
-.add_service_container_mobile,
-.add_service_container {
-  grid-column: 1;
-  grid-row: 1;
-  display: grid;
-  grid-template-columns: 1fr;
-  grid-template-rows: 1fr;
-  .newService {
-    grid-column: 1;
-    grid-row: 1;
-    display: flex;
-    flex-flow: column nowrap;
-    justify-content: center;
-    align-items: center;
-    transition: all 10s linear;
-    h3 {
-      color: #fff;
-      padding: 5px 15px;
-      width: 75%;
-      height: 100%;
-      border-radius: 5px;
-      display: flex;
-      flex-flow: column nowrap;
-      justify-content: center;
-      align-items: center;
-      cursor: pointer;
-      transition: all 1.3s linear;
-      animation: swipLeft 900ms ease-in-out alternate;
-      animation-play-state: inherit;
-      animation-fill-mode: forwards;
-      background: rgba(50, 200, 50, 0.671);
-      border: 2px solid rgb(48, 175, 48);
-      &:hover,
-      &:active {
-        background: rgb(50, 255, 50);
-        border: 2px solid rgb(50, 200, 50);
-      }
-    }
-    .editing {
-      grid-column: 1;
-      grid-row: 1;
-      display: grid;
-      grid-template-columns: 1fr;
-      grid-template-rows: 40px 185px 50px auto auto auto;
-      grid-gap: 5px;
-      padding: 5px;
-      border-radius: 5px;
-      background: #eee;
-      .description,
-      .config,
-      .title {
-        > * {
-          transition: all 1.3s linear;
-          animation: swipDown 900ms ease-in-out alternate;
-          animation-play-state: inherit;
-          animation-fill-mode: forwards;
-        }
-      }
-      .courier_box,
-      .title,
-      .description,
-      span,
-      .tags,
-      .config {
-        transition: all 1.3s linear;
-        grid-column: 1;
-        animation-play-state: inherit;
-        animation-fill-mode: forwards;
-      }
-      .courier_box {
-        grid-row: 6;
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        grid-template-rows: 1fr;
-        grid-gap: 5px;
-        .cancel,
-        .add {
-          grid-row: 1;
-          display: flex;
-          flex-flow: row nowrap;
-          justify-content: center;
-          align-items: center;
-          button {
-            color: #2a2a2a;
-            border-radius: 5px;
-            font-size: 1em;
-            font-weight: bolder;
-            width: 95%;
-            height: 70%;
-            transition: background 100ms linear;
-            &:active,
-            &:hover {
-              color: #fff;
-            }
-          }
-        }
-        .cancel {
-          grid-column: 1;
-          animation: fadeIn 250ms linear alternate;
-          button {
-            background: rgba(200, 50, 50, 0.671);
-            border: 2px solid rgb(200, 50, 50);
-            &:active,
-            &:hover {
-              background: rgb(200, 50, 50);
-              border: 2px solid rgb(200, 50, 50);
-            }
-          }
-        }
-        .add {
-          grid-column: 2;
-          button {
-            background: rgba(50, 200, 50, 0.671);
-            border: 2px solid rgb(48, 175, 48);
-            &:hover {
-              background: rgb(50, 200, 50);
-              border: 2px solid rgb(50, 200, 50);
-            }
-          }
-        }
-      }
-      .title {
-        grid-row: 1;
-        display: flex;
-        flex-flow: row nowrap;
-        justify-content: center;
-        align-items: center;
-        animation: swipLeft 900ms ease-in-out alternate;
-        input {
-          padding: 0 15px;
-          font-size: 1.1em;
-          font-weight: bolder;
-          border: none;
-          background: #fff;
-          border-radius: 5px;
-          width: 100%;
-          height: 90%;
-          transition: background linear 250ms;
-          &:focus {
-            background: #333;
-            color: #eee;
-          }
-        }
-      }
-      .description {
-        animation: swipLeft 1200ms ease-in-out alternate;
-        grid-row: 2;
-        padding: 5px;
-        border-radius: 5px;
-        background: #ddd;
-        display: flex;
-        flex-flow: column nowrap;
-        justify-content: center;
-        align-items: center;
-        textarea {
-          overflow-y: scroll;
-          padding: 5px 20px 5px 5px;
-          resize: none;
-          font-size: 1em;
-          border: none;
-          background: #eee;
-          border-radius: 5px;
-          font-size: 0.95em;
-          font-weight: bolder;
-          width: 100%;
-          height: 100%;
-          transition: background linear 250ms;
-          &:focus {
-            background: #333;
-            color: #eee;
-          }
-        }
-      }
-      span {
-        animation: swipLeft 1400ms ease-in-out alternate;
-        grid-row: 3;
-        display: block;
-        text-align: center;
-        line-height: 23px;
-        font-size: 1.1em;
-        color: #eee;
-        background: #333;
-        border-radius: 5px;
-        strong {
-          color: dodgerblue;
-          font-size: 1.12em;
-          animation: changeColor 2s linear infinite alternate;
-        }
-        @keyframes changeColor {
-          from {
-            color: dodgerblue;
-          }
-          to {
-            color: skyblue;
-          }
-        }
-      }
-      .tags {
-        animation: swipLeft 1500ms ease-in-out alternate;
-        grid-row: 4;
-        display: grid;
-        grid-template-columns: 35px 45px 1fr 75px;
-        grid-template-rows: 1fr auto;
-        grid-gap: 5px;
-        padding: 5px;
-        .add,
-        .addButton,
-        .tagList {
-        }
-        .add {
-          grid-column: 1/4;
-          grid-row: 1;
-          display: grid;
-          grid-template-columns: 35px 1fr;
-          grid-template-rows: 35px;
-          grid-gap: 3px;
-          .image,
-          .inputBox {
-            height: 100%;
-            display: flex;
-            flex-flow: row nowrap;
-            justify-content: center;
-            align-items: center;
-            > * {
-              width: 100%;
-            }
-          }
-          .image {
-            animation: swipLeft 1500ms ease-in-out alternate;
-            height: 100%;
-            img {
-              width: 100%;
-            }
-          }
-          .inputBox {
-            animation: swipRight 1400ms ease-in-out alternate;
-            input {
-              width: 90%;
-              height: 85%;
-              padding: 0 15px;
-              font-size: 1.1em;
-              font-weight: bolder;
-              border: none;
-              background: #ddd;
-              border-radius: 5px;
-              transition: background linear 250ms;
-              &:focus {
-                background: #333;
-                color: #eee;
-              }
-            }
-          }
-        }
-        .addButton {
-          animation: swipRight 1500ms ease-in-out alternate;
-          grid-column: 4;
-          grid-row: 1;
-          display: flex;
-          flex-flow: column nowrap;
-          justify-content: center;
-          align-items: center;
-          button {
-            background: #888;
-            border: 2px solid #666;
-            color: #fff;
-            border-radius: 5px;
-            font-size: 1em;
-            font-weight: bolder;
-            width: 95%;
-            height: 70%;
-            transition: background 100ms linear;
-            &:hover {
-              background: #666;
-              border: 2px solid #444;
-            }
-          }
-        }
-        .tagList {
-          grid-column: 1/5;
-          grid-row: 2;
-          background: #fff;
-          border-radius: 5px;
-          animation: swipDown 1500ms ease-in-out alternate;
-          .list {
-            width: 100%;
-            height: auto;
-            display: flex;
-            flex-flow: row wrap;
-            justify-content: flex-start;
-            align-items: center;
-            .item,
-            li,
-            li.item {
-              width: auto;
-              height: 20px;
-              color: dodgerblue;
-              font-weight: bolder;
-              font-size: 1.1em;
-              margin: 2px 0;
-              display: flex;
-              flex-flow: row nowrap;
-              justify-content: center;
-              align-items: center;
-              padding: 2px 6px;
-              border-radius: 5px;
-            }
-          }
-        }
-      }
-      .config {
-        grid-row: 5;
-        display: grid;
-        grid-template-columns: 1fr;
-        grid-template-rows: 40px 40px 86px auto;
-        grid-gap: 5px;
-        padding: 5px 0;
-        background: #ccc;
-        border-radius: 5px;
-        .inputBox,
-        .selectBox {
-          display: flex;
-          flex-flow: column nowrap;
-          justify-content: space-around;
-          align-items: center;
-        }
-        .box {
-          display: grid;
-          grid-template-columns: 1fr;
-          grid-template-rows: 1fr 1fr;
-          grid-gap: 5px;
-          padding: 0 5px;
-          .scheduleCamp {
-            display: grid;
-            grid-template-columns: 75px 1fr 75px;
-            grid-template-rows: 1fr;
-            grid-gap: 5px;
-            grid-column: 1;
-            width: 92%;
-            margin: auto;
-            &:nth-child(1) {
-              grid-row: 1;
-            }
-            &:nth-child(2) {
-              grid-row: 2;
-            }
-            input,
-            span {
-              grid-row: 1;
-            }
-            input {
-              display: block;
-              grid-column: 2;
-              padding: 0 15px;
-              font-size: 1.1em;
-              font-weight: bolder;
-              border: none;
-              background: #fff;
-              border-radius: 5px;
-              width: 100%;
-              height: 90%;
-              transition: background linear 250ms;
-              &:focus {
-                background: #333;
-                color: #eee;
-              }
-            }
-            span {
-              grid-column: 1;
-            }
-            select {
-              grid-column: 3;
-              width: 100%;
-              height: 100%;
-              font-size: 1.1em;
-              font-weight: bolder;
-              border: none;
-              background: #fff;
-              color: #333;
-              border-radius: 5px;
-              &:hover {
-                background: #fff;
-                color: #333;
-              }
-            }
-          }
-        }
-        .inputBox {
-          grid-column: 1;
-          &:nth-child(1) {
-            grid-row: 1;
-          }
-          &:nth-child(2) {
-            grid-row: 2;
-          }
-          &:nth-child(3) {
-            grid-row: 3;
-          }
-          input {
-            width: 90%;
-            height: 85%;
-            padding: 0 15px;
-            font-size: 1.1em;
-            font-weight: bolder;
-            border: none;
-            background: #fff;
-            color: #333;
-            border-radius: 5px;
-            transition: background linear 250ms;
-            &:focus {
-              background: #333;
-              color: #fff;
-            }
-          }
-        }
-        .selectBox {
-          grid-column: 1;
-          width: 90%;
-          display: grid;
-          grid-template-columns: 1fr;
-          grid-template-rows: 1fr 1fr 1fr;
-          grid-gap: 5px;
-          margin: auto;
-          >*{
-            animation: swipRight 1500ms ease-in-out alternate;
-          }
-          &:nth-child(1) {
-            animation: swipRight 1600ms ease-in-out alternate;
-            grid-row: 1;
-            grid-template-columns: 1fr;
-            grid-template-rows: 1fr;
-            select {
-              width: 100%;
-              height: 100%;
-              padding: 0 15px;
-              font-size: 1.1em;
-              font-weight: bolder;
-              border: none;
-              background: #fff;
-              color: #333;
-              border-radius: 5px;
-              display: block;
-              &:hover {
-                background: #fff;
-                color: #333;
-              }
-              option {
-                display: block;
-                width: 100%;
-                height: 100%;
-              }
-            }
-          }
-          &:nth-child(3) {
-            grid-row: 3;
-          }
-          .item {
-            display: flex;
-            flex-flow: column nowrap;
-            justify-content: space-around;
-            align-items: center;
-            grid-column: 1;
-            &:nth-child(1) {
-              animation: swipRight 1500ms ease-in-out alternate;
-              grid-row: 1;
-            }
-            &:nth-child(2) {
-              animation: swipLeft 1500ms ease-in-out alternate;
-              grid-row: 2;
-            }
-            &:nth-child(3) {
-              animation: swipRight 1400ms ease-in-out alternate;
-              grid-row: 3;
-            }
-            input {
-              width: 100%;
-              height: 100%;
-              padding: 0 15px;
-              font-size: 1.1em;
-              font-weight: bolder;
-              border: none;
-              background: #eee;
-              border-radius: 5px;
-              transition: background linear 250ms;
-              &:focus {
-                background: #333;
-                color: #eee;
-              }
-            }
-            select {
-              animation: swipRight 1500ms ease-in-out alternate;
-              width: 100%;
-              height: 100%;
-              padding: 0 15px;
-              font-size: 1.1em;
-              font-weight: bolder;
-              border: none;
-              background: #fff;
-              color: #333;
-              border-radius: 5px;
-              &:hover {
-                background: #fff;
-                color: #333;
-              }
-            }
-          }
-        }
-      }
-    }
-  }
-}
+$scroll-color: hsl(0, 0%, 99%);
+$scroll-bg-color: hsl(209, 100%, 50%);
 
-.add_service_container_mobile {
-}
+$editing_mobile-bg-color: hsl(0, 0%, 93%);
+
+$add-input-btn-bg-color: hsla(0,0%,95%,1);
+$add-input-btn-border-color: hsla(0,0%,90%,1);
+
+$tags-list-bg-color: hsla(0,0%, 95%, 1);
+
+$tags-list-item-color: hsla(0,0%, 90%, 1);
+$tags-list-item-bg-color: hsla(200, 70%, 55%, 1);
+$tags-list-item-border-color: hsla(200, 70%, 45%, 1);
+$tags-list-item-bg-color-hover: hsla(200, 90%, 60%, 1);
+$tags-list-item-border-color-hover: hsla(200, 90%, 55%, 1);
+
+$add-list-tag-item-btn-color: hsla(0,0%, 90%, 1);
+$add-list-tag-item-btn-bg-color: hsl(0, 50%, 50%);
+$add-list-tag-item-btn-border-color: hsl(0, 60%, 45%);
+$add-list-tag-item-btn-bg-color-hover: hsl(0, 75%, 55%);
+$add-list-tag-item-btn-border-color-hover: hsl(0, 75%, 50%);
+$add-list-tag-item-btn-bg-color-active: hsl(0, 80%, 53%);
+$add-list-tag-item-btn-border-color-active: hsl(0, 80%, 48%);
+$add-list-tag-item-btn-span-color: hsla(0,0%,95%,1);
+$add-list-tag-item-btn-span-color-hover: hsla(0,0%,100%,1);
+$add-list-tag-item-btn-span-bg-color: hsl(120, 90%, 35%);
+$add-list-tag-item-btn-span-bg-color-hover: hsl(120, 100%, 40%);
+
+$add-new-tag-btn-color: hsla(0,0%, 95%, 1);
+$add-new-tag-btn-bg-color: hsla(120, 65%, 65%, 1);
+$add-new-tag-btn-border: hsla(120, 65%, 50%, 1);
+$add-new-tag-btn-bg-color-hover: hsla(120, 60%, 55%, 1);
+$add-new-tag-btn-border-hover: hsla(120, 60%, 45%, 1);
+$add-new-tag-btn-bg-color-active: hsla(120, 100%, 70%, 1);
+$add-new-tag-btn-border-active: hsla(120, 100%, 43%, 1);
+
+$add-new-service-btn-color: hsl(0, 0%, 100%);
+$add-new-service-btn-bg-color: hsla(120, 60%, 49%, 0.671);
+$add-new-service-btn-border: hsl(120, 57%, 44%);
+$add-new-service-btn-bg-color-active: hsl(120, 100%, 60%);
+$add-new-service-btn-border-active: hsl(120, 60%, 49%);
+
+$editing-btn-add-bg-color: hsla(120, 60%, 49%, 0.671);
+$editing-btn-add-color-border: hsl(120, 57%, 44%);
+$editing-btn-add-bg-color-hover: hsl(120, 60%, 49%);
+$editing-btn-add-color-border-hover: hsl(120, 60%, 49%);
+
+$editing-btn-cancel-bg-color: hsla(0, 60%, 49%, 0.671);
+$editing-btn-cancel-color-border: hsl(0, 60%, 49%);
+$editing-btn-cancel-bg-color-hover: hsl(0, 60%, 49%);
+$editing-btn-cancel-color-border-hover: hsl(0, 60%, 49%);
+
+$banner_tags-color: hsl(0, 0%, 100%);
+$banner_tags-color-stg: hsla(209, 100%, 40%, 1);
+$banner_tags-bg-color: hsla(0, 0%, 10%, 1);
+
+@import 'mobile';
+@import 'desktop';
 
 .add_service_container {
 }
 @keyframes fadeIn {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
 }
 @keyframes swipDown {
-  0% {
-    height: 0px;
-    opacity: 0;
-  }
-  100% {
-    height: 100%;
-    opacity: 1;
-  }
+    0% {
+        height: 0px;
+        opacity: 0;
+    }
+    100% {
+        height: 100%;
+        opacity: 1;
+    }
 }
 @keyframes swipLeft {
-  0% {
-    left: -200%;
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
+    0% {
+        left: -200%;
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
 }
 @keyframes swipRight {
-  0% {
-    right: -200%;
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
+    0% {
+        right: -200%;
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
 }

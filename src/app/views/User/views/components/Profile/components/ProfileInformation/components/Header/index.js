@@ -25,13 +25,9 @@ class Header extends Component {
             <h3>{`${user.email}`}</h3>
           </div>
           <div className={styles.connect}>
-            <div className={styles.followers}>
+            <div className={styles.connectors}>
               <span className={styles.title}>Seguidos</span>
-              <span className={styles.how}>{user.follows.followers.length}</span>
-            </div>
-            <div className={styles.followins}>
-              <span className={styles.title}>Seguidores</span>
-              <span className={styles.how}>{ user.follows.followins.length}</span>
+              <span className={styles.how}>{user.connectors.length}</span>
             </div>
           </div>
         </div>

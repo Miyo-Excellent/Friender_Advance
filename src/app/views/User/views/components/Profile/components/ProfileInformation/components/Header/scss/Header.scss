@@ -25,14 +25,14 @@ $picture-size: 150;
         }
         .connect {
             display: grid;
-            grid: 100% / 1fr 1fr;
+            grid: 100% / 100%;
             grid-gap: 5px;
             padding: 5px;
-            .followers,
-            .followins {
+            .connectors {
                 background: hsl(0, 0%,75%);
                 border-radius: 10px;
                 grid-row: 1;
+                grid-column: 1;
                 grid-gap: 5px;
                 padding: 5px;
                 &, & > * {
@@ -55,12 +55,6 @@ $picture-size: 150;
                     margin: 5px 0 0 0;
                     color: hsla(220, 100%, 55%, 1);
                 }
-            }
-            .followers {
-                grid-column: 1;
-            }
-            .followins {
-                grid-column: 2;
             }
         }
         .email,

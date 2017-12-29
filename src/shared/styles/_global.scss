@@ -2,6 +2,7 @@
 *,
 *::backdrop,
 *::after {
+    transition: all 175ms ease-in-out;
     color: #222;
     font-size: 16px;
     list-style-type: none;
