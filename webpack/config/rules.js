@@ -56,7 +56,7 @@ export default type => {
   ];
 
   if (!isDevelopment || type === 'server') {
-    rules.push({
+    rules.push({ // SASS
       test: /\.scss$/,
       use: ExtractTextPlugin.extract({
         fallback: {
@@ -70,12 +70,25 @@ export default type => {
             loader: 'css-loader',
             options: {
               import: true,
+              importLoaders: 1,
               localIdentName: '[name]__[local]',
               minimize: true,
               modules: true,
               root: '.',
               sourceMap: true,
               url: true
+            }
+          },
+          {
+            loader: 'postcss-loader',
+            options: {
+              sourceMap: true,
+              plugins: () => [
+                require("postcss-import")(),
+                require("postcss-cssnext")(),
+                require("autoprefixer")(),
+                require("cssnano")()
+              ]
             }
           },
           {
@@ -101,12 +114,24 @@ export default type => {
           loader: 'css-loader',
           options: {
             import: true,
+            importLoaders: 1,
             localIdentName: '[name]__[local]',
             minimize: false,
             modules: true,
             root: '.',
             sourceMap: false,
             url: true
+          }
+        },
+        {
+          loader: 'postcss-loader',
+          options: {
+            sourceMap: false,
+            plugins: () => [
+              require("postcss-import")(),
+              require("postcss-cssnext")(),
+              require("autoprefixer")()
+            ]
           }
         },
         {

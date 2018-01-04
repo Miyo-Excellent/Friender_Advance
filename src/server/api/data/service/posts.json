@@ -1,6 +1,7 @@
 [
   {
-    "about": "Sellers",
+    "_id": 0,
+    "about": "Solicitamos vendedor",
     "address": {
       "munincipality":"Medellin",
       "province":"Antioquia"
@@ -37,7 +38,46 @@
     "title": "MC Donalds"
   },
   {
-    "about": "Forjando el fut...",
+    "_id": 0,
+    "about": "We need a UI/UX Manager",
+    "address": {
+      "munincipality":"Medellin",
+      "province":"Antioquia"
+    },
+    "description": "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptate vel labore quasi veritatis exercitationem laborum quo voluptatem numquam, alias mollitia vitae. Neque cupiditate cumque recusandae!",
+    "direction": "",
+    "califacation": 5,
+    "category":"Infomatic",
+    "creationDate":{
+      "day": "20",
+      "month": "Noviembre",
+      "time": {
+        "hour": 12,
+        "minute": 30,
+        "second": 40
+      }
+    },
+    "honorary": "999999999",
+    "img": "http://www.e-retailadvertising.com/wp-content/uploads/2017/06/Apple_gray_logo.png",
+    "name": "APPLE",
+    "schedule": {
+      "from": {
+        "hour": 12,
+        "minutes": 0,
+        "system": "PM"
+      },
+      "to": {
+        "hour": 12,
+        "minutes": 0,
+        "system": "PM"
+      }
+    },
+    "tags": ["tag-1", "tag-2", "tag-3", "tag-4"],
+    "title": "APPLE"
+  },
+  {
+    "_id": 1,
+    "about": "Nuevo proyecto de google! se parte del futuro",
     "address": {
       "munincipality":"Medellin",
       "province":"Antioquia"
@@ -74,7 +114,8 @@
     "title": "Google"
   },
   {
-    "about": "back-end develo...",
+    "_id": 2,
+    "about": "Vacante para Back-End Development en el area de base de datos",
     "address": {
       "munincipality":"Medellin",
       "province":"Antioquia"
@@ -111,7 +152,8 @@
     "title": "Facebook"
   },
   {
-    "about": "Recordings...",
+    "_id": 3,
+    "about": "Los recuerdos son imagenes y nosotros las pintamos en fotografia de la mejor calidad. se parte del equipo!",
     "address": {
       "munincipality":"Medellin",
       "province":"Antioquia"

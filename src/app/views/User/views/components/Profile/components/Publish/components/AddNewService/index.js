@@ -74,10 +74,15 @@ class AddNewService extends Component {
 
     const { ChangeEditingState, editing } = this.props;
 
+    const createNewServiceBTN = e => {
+      e.preventDefault();
+      ChangeEditingState();
+    };
+
     if (editing) {
       return newService();
     } else {
-      return ( <h3 onClick={ChangeEditingState}>Crear nuevo servicio</h3>);
+      return ( <button onClick={createNewServiceBTN} className={styles.create_new_service_btn}>Crear nuevo servicio</button>);
     }
 
   }
@@ -185,7 +190,7 @@ class AddNewService extends Component {
         title !== "" &&
         title !== undefined &&
         title !== null &&
-        /[a-zA-Z.-\/\\\@\&\$\"\']{3,}/.test(title)) {
+        /[a-zA-Z.-\/\\\@\&\$\"\']{3,}/i.test(title)) {
         if (
           description !== "" &&
           description !== undefined &&
@@ -244,10 +249,10 @@ class AddNewService extends Component {
                           if (
                             schedule.from.system !== "" &&
                             schedule.to.system !== "" &&
-                            ((schedule.from.system === "PM" ||
-                              schedule.from.system === "AM") &&
-                              (schedule.to.system === "PM" ||
-                                schedule.to.system === "AM")) &&
+                            ((schedule.from.system.toUpperCase() === "PM" ||
+                              schedule.from.system.toUpperCase() === "AM") &&
+                              (schedule.to.system.toUpperCase() === "PM" ||
+                                schedule.to.system.toUpperCase() === "AM")) &&
                             (!/[0-9]/g.test(schedule.from.system) &&
                               /(PM||AM)/.test(schedule.from.system) &&
                               (!/[0-9]/g.test(schedule.to.system) &&

@@ -1,0 +1,49 @@
+.courier_box {
+    display: grid;
+    grid: 100% / 1fr 1fr;
+    .add,
+    .cancel {
+        display: flex;
+        flex-flow: column nowrap;
+        justify-content: center;
+        align-items: center;
+        > button {
+            color: $currier-box-btn-color;
+            font-weight: bolder;
+            font-size: 1.1rem;
+            display: block;
+            width: calc(100% - 10px);
+            height: calc(100% - 10px);
+            border-radius: 5px;
+            padding: 5px;
+        }
+    }
+    .add {
+        > button {
+            background: $currier-box-btn-add-bg-color;
+            border: 2px solid $currier-box-btn-add-border-color;
+            &:active {
+                background: $currier-box-btn-add-bg-color-active;
+                border: 2px solid $currier-box-btn-add-border-color-active;
+            }
+            &:hover {
+                background: $currier-box-btn-add-bg-color-hover;
+                border: 2px solid $currier-box-btn-add-border-color-hover;
+            }
+        }
+    }
+    .cancel {
+        > button {
+            background: $currier-box-btn-cancel-bg-color;
+            border: 2px solid $currier-box-btn-cancel-border-color;
+            &:active {
+                background: $currier-box-btn-cancel-bg-color-active;
+                border: 2px solid $currier-box-btn-cancel-border-color-active;
+            }
+            &:hover {
+                background: $currier-box-btn-cancel-bg-color-hover;
+                border: 2px solid $currier-box-btn-cancel-border-color-hover;
+            }
+        }
+    }
+}

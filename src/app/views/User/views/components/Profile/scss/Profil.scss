@@ -1,3 +1,9 @@
+$profile-modules-bg-color: hsla(0, 0%, 90%, 1);
+
+$information_desktop-bg-color: hsla(220, 0%, 98%, 1);
+$dinamic_content_desktop-bg-color: hsla(120, 0%, 98%, 1);
+$friends-bg-color: hsla(60, 0%, 98%, 1);
+
 .profil_desktop,
 .profil_mobile {
     width: 100%;
@@ -8,27 +14,31 @@
 .profil_desktop {
     width: 100%;
     height: 100%;
-    background: darkgray;
     display: grid;
     grid: 1fr / 250px minmax(320px, auto) 100px;
+    grid-gap: 5px;
+    padding: 5px;
     .information_desktop,
     .dinamic_content_desktop,
     .friends {
+        border-radius: 5px;
+        > * {
+            width: calc(100% - 10px);
+            max-width: 100%;
+            background: $profile-modules-bg-color;
+            border-radius: 5px;
+            padding: 5px;
+        }
 
     }
     .information_desktop {
-        background: hsla(220, 100%, 55%, 1);
+        background: $information_desktop-bg-color;
         display: flex;
         flex-flow: column nowrap;
         justify-content: flex-start;
         align-items: center;
         >*{
-            width: calc(100% - 10px);
-            max-width: 100%;
-            background: ghostwhite;
-            border-radius: 10px;
             margin: 0 auto 5px auto;
-            padding: 5px;
             &:last-child {
                 margin: 0 auto;
             }
@@ -38,10 +48,10 @@
         }
     }
     .dinamic_content_desktop {
-        background: hsl(120, 40%, 50%)
+        background: $dinamic_content_desktop-bg-color;
     }
     .friends {
-        background: hsl(60, 70%, 60%)
+        background: $friends-bg-color;
     }
 }
 .profil_mobile {

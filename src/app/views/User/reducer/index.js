@@ -24,6 +24,7 @@ const initialState = options => {
       province: "", munincipality: ""
     },
     email = "",
+    favorites = [],
     connectors = [],
     header = "", lastname = "C.A", name = "Friender", nickname = "C.A",
     nit = "00-00-00-F", // ReGex = /([0-9]{3}(\.|\\|\/|\-)[0-9]{3}(\.|\\|\/|\-)[0-9]{3}\-[a-zA-Z])/i
@@ -43,7 +44,7 @@ const initialState = options => {
   } = options;
 
   const commonConfig = {
-    address, email,
+    address, email, favorites,
     header, connectors,
     name, nickname,
     phone, picture,
@@ -91,6 +92,13 @@ export default function homeReducer(state = initialState({}), action) {
             ...state.posts.AddNewService, direction: action.direction
           }
         }
+      };
+      break;
+    }
+    case "ADD_FAVORITE": {
+      return {
+        ...state,
+        favorites: state.favorites.concat(action.favorite)
       };
       break;
     }
@@ -279,7 +287,6 @@ export default function homeReducer(state = initialState({}), action) {
       break;
     }
     case "LOAD_SERVICES_POSTS": {
-      console.info(action.data);
       return {
         ...state, posts: {
           ...state.posts, services: action.data
@@ -292,6 +299,13 @@ export default function homeReducer(state = initialState({}), action) {
         ...state, posts: {
           ...state.posts, newServiceConfig: action.data
         }
+      };
+      break;
+    }
+    case "REMOVE_FAVORITE": {
+      return {
+        ...state,
+        favorites: state.favorites.filter(favorite => favorite._id !== action._id)
       };
       break;
     }

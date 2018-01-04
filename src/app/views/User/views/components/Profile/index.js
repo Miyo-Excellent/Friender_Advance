@@ -96,8 +96,7 @@ const mapDispatchToProps = dispatch => ({
       .catch(err => console.log(`No se pudieron solicitar los datos al servidor: Error: ${err}`)));
   },
   loadNewServicesConfig(type) {
-    const error = err =>
-      console.log( `No se pudieron solicitar los datos al servidor: Error: ${err}`);
+    const error = err => console.log( `No se pudieron solicitar los datos al servidor: Error: ${err}`);
 
     type === "people"
       ? dispatch( dispatch => axios.get("http://localhost:3000/api/new-service-people-config")

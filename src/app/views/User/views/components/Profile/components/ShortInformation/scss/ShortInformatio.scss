@@ -12,9 +12,9 @@
     .details {
     }
     .image_background {
+      background-size: cover !important;
       position: absolute;
       display: block;
-      background-size: cover;
       width: 100%;
       height: 100%;
     }
@@ -41,6 +41,8 @@
           grid-template-columns: 1fr 1fr;
           grid-template-rows: 1fr 1fr;
           .connectors {
+              grid-column: 1 / 3;
+              grid-row: 2;
               display: flex;
               flex-flow: row nowrap;
               justify-content: center;
@@ -95,12 +97,15 @@
         align-items: center;
         grid-column: 1;
         grid-row: 1;
-        border-radius: 50%;
+        border-radius: 5px;
         background: whitesmoke;
+        width: 90%;
+        height: 90%;
+        margin: auto;
         img {
-          width: 90%;
-          height: 90%;
-          border-radius: 50%;
+          width: 95%;
+          height: 95%;
+          border-radius: 5px;
         }
       }
     }

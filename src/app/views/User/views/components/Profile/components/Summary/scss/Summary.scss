@@ -80,11 +80,12 @@
     display: grid;
     grid: auto 1fr / 100%;
     grid-gap: 10px;
+    border-radius: 5px;
     .info,
-    .title_mobile {
+    .title {
         grid-column: 1;
     }
-    .title_mobile {
+    .title {
         grid-row: 1;
         display: flex;
         flex-flow: column nowrap;

@@ -21,9 +21,11 @@ class Publish extends Component {
   }
 
   Desktop() {
+    const { load } = this;
     return (
       <article className={styles.publish}>
         <AddNewService />
+        <div className={styles.wrapper}>{load()}</div>
       </article>
     );
   }

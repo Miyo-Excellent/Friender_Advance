@@ -1,403 +1,233 @@
-.add_service_container_mobile {
-    overflow: hidden;
+.newService_mobile {
     grid-column: 1;
     grid-row: 1;
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: 1fr;
-    .newService_mobile {
-        grid-column: 1;
-        grid-row: 1;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+    transition: all 10s linear;
+    h3 {
+        color: $add-new-service-btn-color;
+        padding: 5px 15px;
+        width: 75%;
+        height: 100%;
+        border-radius: 5px;
         display: flex;
         flex-flow: column nowrap;
         justify-content: center;
         align-items: center;
-        transition: all 10s linear;
-        h3 {
-            color: $add-new-service-btn-color;
-            padding: 5px 15px;
-            width: 75%;
-            height: 100%;
-            border-radius: 5px;
-            display: flex;
-            flex-flow: column nowrap;
-            justify-content: center;
-            align-items: center;
-            cursor: pointer;
-            transition: all 1.3s linear;
-            animation: swipLeft 900ms ease-in-out alternate;
-            animation-play-state: inherit;
-            animation-fill-mode: forwards;
-            background: $add-new-service-btn-bg-color;
-            border: 2px solid $add-new-service-btn-border;
-            &:hover,
-            &:active {
-                background: $add-new-service-btn-bg-color-active;
-                border: 2px solid $add-new-service-btn-border-active;
-            }
+        cursor: pointer;
+        transition: all 1.3s linear;
+        animation: swipLeft 900ms ease-in-out alternate;
+        animation-play-state: inherit;
+        animation-fill-mode: forwards;
+        background: $add-new-service-btn-bg-color;
+        border: 2px solid $add-new-service-btn-border;
+        &:hover,
+        &:active {
+            background: $add-new-service-btn-bg-color-active;
+            border: 2px solid $add-new-service-btn-border-active;
         }
-        .editing_mobile {
-            overflow: hidden;
-            grid-column: 1;
-            grid-row: 1;
-            display: grid;
-            grid-template-columns: 1fr;
-            grid-template-rows: 40px 185px 50px auto auto auto;
-            grid-gap: 5px;
-            padding: 5px;
-            border-radius: 5px;
-            background: $editing_mobile-bg-color;
-            .description_mobile,
-            .config_mobile,
-            .title_mobile {
-                > * {
-                    transition: all 1.3s linear;
-                    animation: swipDown 900ms ease-in-out alternate;
-                    animation-play-state: inherit;
-                    animation-fill-mode: forwards;
-                }
-            }
-            .courier_box_mobile,
-            .title_mobile,
-            .description_mobile,
-            span,
-            .tags_mobile,
-            .config_mobile {
+    }
+    .editing_mobile {
+        overflow: hidden;
+        grid-column: 1;
+        grid-row: 1;
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: 40px 185px 50px auto auto auto;
+        grid-gap: 5px;
+        padding: 5px;
+        border-radius: 5px;
+        background: $editing_mobile-bg-color;
+        .description_mobile,
+        .config_mobile,
+        .title_mobile {
+            > * {
                 transition: all 1.3s linear;
-                grid-column: 1;
+                animation: swipDown 900ms ease-in-out alternate;
                 animation-play-state: inherit;
                 animation-fill-mode: forwards;
             }
-            .courier_box_mobile {
-                grid-row: 6;
-                display: grid;
-                grid-template-columns: 1fr 1fr;
-                grid-template-rows: 1fr;
-                grid-gap: 5px;
-                .cancel_mobile,
-                .add_mobile {
-                    grid-row: 1;
-                    display: flex;
-                    flex-flow: row nowrap;
-                    justify-content: center;
-                    align-items: center;
-                    button {
-                        color: #2a2a2a;
-                        border-radius: 5px;
-                        font-size: 1em;
-                        font-weight: bolder;
-                        width: 95%;
-                        height: 70%;
-                        transition: background 100ms linear;
-                        &:active,
-                        &:hover {
-                            color: #fff;
-                        }
-                    }
-                }
-                .cancel_mobile {
-                    grid-column: 1;
-                    animation: fadeIn 250ms linear alternate;
-                    button {
-                        background: $editing-btn-cancel-bg-color;
-                        border: 2px solid $editing-btn-cancel-color-border;
-                        &:active,
-                        &:hover {
-                            background: $editing-btn-cancel-bg-color-hover;
-                            border: 2px solid
-                                $editing-btn-cancel-color-border-hover;
-                        }
-                    }
-                }
-                .add_mobile {
-                    grid-column: 2;
-                    button {
-                        background: $editing-btn-add-bg-color;
-                        border: 2px solid $editing-btn-add-color-border;
-                        &:hover {
-                            background: $editing-btn-add-bg-color-hover;
-                            border: 2px solid
-                                $editing-btn-add-color-border-hover;
-                        }
-                    }
-                }
-            }
-            .title_mobile {
+        }
+        .courier_box_mobile,
+        .title_mobile,
+        .description_mobile,
+        span,
+        .tags_mobile,
+        .config_mobile {
+            transition: all 1.3s linear;
+            grid-column: 1;
+            animation-play-state: inherit;
+            animation-fill-mode: forwards;
+        }
+        .courier_box_mobile {
+            grid-row: 6;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: 1fr;
+            grid-gap: 5px;
+            .cancel_mobile,
+            .add_mobile {
                 grid-row: 1;
                 display: flex;
                 flex-flow: row nowrap;
                 justify-content: center;
                 align-items: center;
-                animation: swipLeft 900ms ease-in-out alternate;
-                input {
-                    padding: 0 15px;
-                    font-size: 1.1em;
-                    font-weight: bolder;
-                    border: none;
-                    background: #fff;
+                button {
+                    color: #2a2a2a;
                     border-radius: 5px;
-                    width: 100%;
-                    height: 90%;
-                    transition: background linear 250ms;
-                    &:focus {
-                        background: #333;
-                        color: #eee;
-                    }
-                }
-            }
-            .description_mobile {
-                animation: swipLeft 1200ms ease-in-out alternate;
-                grid-row: 2;
-                padding: 5px;
-                border-radius: 5px;
-                background: #ddd;
-                display: flex;
-                flex-flow: column nowrap;
-                justify-content: center;
-                align-items: center;
-                textarea {
-                    overflow-y: scroll;
-                    padding: 5px 20px 5px 5px;
-                    resize: none;
                     font-size: 1em;
-                    border: none;
-                    background: #eee;
-                    border-radius: 5px;
-                    font-size: 0.95em;
                     font-weight: bolder;
-                    width: 100%;
-                    height: 100%;
-                    transition: background linear 250ms;
-                    &:focus {
-                        background: #333;
-                        color: #eee;
+                    width: 95%;
+                    height: 70%;
+                    transition: background 100ms linear;
+                    &:active,
+                    &:hover {
+                        color: #fff;
                     }
                 }
             }
-            span {
-                animation: swipLeft 1400ms ease-in-out alternate;
-                grid-row: 3;
-                display: block;
-                text-align: center;
-                line-height: 23px;
+            .cancel_mobile {
+                grid-column: 1;
+                animation: fadeIn 250ms linear alternate;
+                button {
+                    background: $editing-btn-cancel-bg-color;
+                    border: 2px solid $editing-btn-cancel-color-border;
+                    &:active,
+                    &:hover {
+                        background: $editing-btn-cancel-bg-color-hover;
+                        border: 2px solid $editing-btn-cancel-color-border-hover;
+                    }
+                }
+            }
+            .add_mobile {
+                grid-column: 2;
+                button {
+                    background: $editing-btn-add-bg-color;
+                    border: 2px solid $editing-btn-add-color-border;
+                    &:hover {
+                        background: $editing-btn-add-bg-color-hover;
+                        border: 2px solid $editing-btn-add-color-border-hover;
+                    }
+                }
+            }
+        }
+        .title_mobile {
+            grid-row: 1;
+            display: flex;
+            flex-flow: row nowrap;
+            justify-content: center;
+            align-items: center;
+            animation: swipLeft 900ms ease-in-out alternate;
+            input {
+                padding: 0 15px;
                 font-size: 1.1em;
-                color: #eee;
-                background: #333;
+                font-weight: bolder;
+                border: none;
+                background: #fff;
                 border-radius: 5px;
-                strong {
-                    color: dodgerblue;
-                    font-size: 1.12em;
-                    animation: changeColor 2s linear infinite alternate;
-                }
-                @keyframes changeColor {
-                    from {
-                        color: dodgerblue;
-                    }
-                    to {
-                        color: skyblue;
-                    }
+                width: 100%;
+                height: 90%;
+                transition: background linear 250ms;
+                &:focus {
+                    background: #333;
+                    color: #eee;
                 }
             }
-            .tags_mobile {
-                animation: swipLeft 1500ms ease-in-out alternate;
-                grid-row: 4;
+        }
+        .description_mobile {
+            animation: swipLeft 1200ms ease-in-out alternate;
+            grid-row: 2;
+            padding: 5px;
+            border-radius: 5px;
+            background: #ddd;
+            display: flex;
+            flex-flow: column nowrap;
+            justify-content: center;
+            align-items: center;
+            textarea {
+                overflow-y: scroll;
+                padding: 5px 20px 5px 5px;
+                resize: none;
+                font-size: 1em;
+                border: none;
+                background: #eee;
+                border-radius: 5px;
+                font-size: 0.95em;
+                font-weight: bolder;
+                width: 100%;
+                height: 100%;
+                transition: background linear 250ms;
+                &:focus {
+                    background: #333;
+                    color: #eee;
+                }
+            }
+        }
+        span {
+            animation: swipLeft 1400ms ease-in-out alternate;
+            grid-row: 3;
+            display: block;
+            text-align: center;
+            line-height: 23px;
+            font-size: 1.1em;
+            color: #eee;
+            background: #333;
+            border-radius: 5px;
+            strong {
+                color: dodgerblue;
+                font-size: 1.12em;
+                animation: changeColor 2s linear infinite alternate;
+            }
+            @keyframes changeColor {
+                from {
+                    color: dodgerblue;
+                }
+                to {
+                    color: skyblue;
+                }
+            }
+        }
+        .tags_mobile {
+            animation: swipLeft 1500ms ease-in-out alternate;
+            grid-row: 4;
+            display: grid;
+            grid-template-columns: 35px 45px 1fr 75px;
+            grid-template-rows: 1fr auto;
+            grid-gap: 5px;
+            padding: 5px;
+            .add_mobile,
+            .addButton_mobile,
+            .tagList_mobile {
+            }
+            .add_mobile {
+                grid-column: 1/4;
+                grid-row: 1;
                 display: grid;
-                grid-template-columns: 35px 45px 1fr 75px;
-                grid-template-rows: 1fr auto;
-                grid-gap: 5px;
-                padding: 5px;
-                .add_mobile,
-                .addButton_mobile,
-                .tagList_mobile {
-                }
-                .add_mobile {
-                    grid-column: 1/4;
-                    grid-row: 1;
-                    display: grid;
-                    grid-template-columns: 35px 1fr;
-                    grid-template-rows: 35px;
-                    grid-gap: 3px;
-                    .image_mobile,
-                    .inputBox_mobile {
-                        height: 100%;
-                        display: flex;
-                        flex-flow: row nowrap;
-                        justify-content: center;
-                        align-items: center;
-                        > * {
-                            width: 100%;
-                        }
-                    }
-                    .image_mobile {
-                        animation: swipLeft 1500ms ease-in-out alternate;
-                        height: 100%;
-                        img {
-                            width: 100%;
-                        }
-                    }
-                    .inputBox_mobile {
-                        animation: swipRight 1400ms ease-in-out alternate;
-                        input {
-                            width: 90%;
-                            height: 85%;
-                            padding: 0 15px;
-                            font-size: 1.1em;
-                            font-weight: bolder;
-                            border: none;
-                            background: #ddd;
-                            border-radius: 5px;
-                            transition: background linear 250ms;
-                            &:focus {
-                                background: #333;
-                                color: #eee;
-                            }
-                        }
-                    }
-                }
-                .addButton_mobile {
-                    animation: swipRight 1500ms ease-in-out alternate;
-                    grid-column: 4;
-                    grid-row: 1;
+                grid-template-columns: 35px 1fr;
+                grid-template-rows: 35px;
+                grid-gap: 3px;
+                .image_mobile,
+                .inputBox_mobile {
+                    height: 100%;
                     display: flex;
-                    flex-flow: column nowrap;
+                    flex-flow: row nowrap;
                     justify-content: center;
                     align-items: center;
-                    button {
-                        background: #888;
-                        border: 2px solid #666;
-                        color: #fff;
-                        border-radius: 5px;
-                        font-size: 1em;
-                        font-weight: bolder;
-                        width: 95%;
-                        height: 70%;
-                        transition: background 100ms linear;
-                        &:hover {
-                            background: #666;
-                            border: 2px solid #444;
-                        }
-                    }
-                }
-                .tagList_mobile {
-                    grid-column: 1/5;
-                    grid-row: 2;
-                    background: #fff;
-                    border-radius: 5px;
-                    animation: swipDown 1500ms ease-in-out alternate;
-                    .list_mobile {
+                    > * {
                         width: 100%;
-                        height: auto;
-                        display: flex;
-                        flex-flow: row wrap;
-                        justify-content: flex-start;
-                        align-items: center;
-                        .item_mobile,
-                        li,
-                        li.item_mobile {
-                            width: auto;
-                            height: 20px;
-                            color: dodgerblue;
-                            font-weight: bolder;
-                            font-size: 1.1em;
-                            margin: 2px 0;
-                            display: flex;
-                            flex-flow: row nowrap;
-                            justify-content: center;
-                            align-items: center;
-                            padding: 2px 6px;
-                            border-radius: 5px;
-                        }
                     }
                 }
-            }
-            .config_mobile {
-                grid-row: 5;
-                display: grid;
-                grid-template-columns: 1fr;
-                grid-template-rows: 40px 40px 86px auto;
-                grid-gap: 5px;
-                padding: 5px 0;
-                background: #ccc;
-                border-radius: 5px;
-                .inputBox_mobile,
-                .selectBox_mobile {
-                    display: flex;
-                    flex-flow: column nowrap;
-                    justify-content: space-around;
-                    align-items: center;
-                }
-                .box_mobile {
-                    display: grid;
-                    grid-template-columns: 1fr;
-                    grid-template-rows: 1fr 1fr;
-                    grid-gap: 5px;
-                    padding: 0 5px;
-                    .scheduleCamp_mobile {
-                        display: grid;
-                        grid-template-columns: 75px 1fr 75px;
-                        grid-template-rows: 1fr;
-                        grid-gap: 5px;
-                        grid-column: 1;
-                        width: 92%;
-                        margin: auto;
-                        &:nth-child(1) {
-                            grid-row: 1;
-                        }
-                        &:nth-child(2) {
-                            grid-row: 2;
-                        }
-                        input,
-                        span {
-                            grid-row: 1;
-                        }
-                        input {
-                            display: block;
-                            grid-column: 2;
-                            padding: 0 15px;
-                            font-size: 1.1em;
-                            font-weight: bolder;
-                            border: none;
-                            background: #fff;
-                            border-radius: 5px;
-                            width: 100%;
-                            height: 90%;
-                            transition: background linear 250ms;
-                            &:focus {
-                                background: #333;
-                                color: #eee;
-                            }
-                        }
-                        span {
-                            grid-column: 1;
-                        }
-                        select {
-                            grid-column: 3;
-                            width: 100%;
-                            height: 100%;
-                            font-size: 1.1em;
-                            font-weight: bolder;
-                            border: none;
-                            background: #fff;
-                            color: #333;
-                            border-radius: 5px;
-                            &:hover {
-                                background: #fff;
-                                color: #333;
-                            }
-                        }
+                .image_mobile {
+                    animation: swipLeft 1500ms ease-in-out alternate;
+                    height: 100%;
+                    img {
+                        width: 100%;
                     }
                 }
                 .inputBox_mobile {
-                    grid-column: 1;
-                    &:nth-child(1) {
-                        grid-row: 1;
-                    }
-                    &:nth-child(2) {
-                        grid-row: 2;
-                    }
-                    &:nth-child(3) {
-                        grid-row: 3;
-                    }
+                    animation: swipRight 1400ms ease-in-out alternate;
                     input {
                         width: 90%;
                         height: 85%;
@@ -405,105 +235,265 @@
                         font-size: 1.1em;
                         font-weight: bolder;
                         border: none;
-                        background: #fff;
-                        color: #333;
+                        background: #ddd;
                         border-radius: 5px;
                         transition: background linear 250ms;
                         &:focus {
                             background: #333;
-                            color: #fff;
+                            color: #eee;
                         }
                     }
                 }
-                .selectBox_mobile {
-                    grid-column: 1;
-                    width: 90%;
-                    display: grid;
-                    grid-template-columns: 1fr;
-                    grid-template-rows: 1fr 1fr 1fr;
-                    grid-gap: 5px;
-                    margin: auto;
-                    > * {
-                        animation: swipRight 1500ms ease-in-out alternate;
+            }
+            .addButton_mobile {
+                animation: swipRight 1500ms ease-in-out alternate;
+                grid-column: 4;
+                grid-row: 1;
+                display: flex;
+                flex-flow: column nowrap;
+                justify-content: center;
+                align-items: center;
+                button {
+                    background: #888;
+                    border: 2px solid #666;
+                    color: #fff;
+                    border-radius: 5px;
+                    font-size: 1em;
+                    font-weight: bolder;
+                    width: 95%;
+                    height: 70%;
+                    transition: background 100ms linear;
+                    &:hover {
+                        background: #666;
+                        border: 2px solid #444;
                     }
+                }
+            }
+            .tagList_mobile {
+                grid-column: 1/5;
+                grid-row: 2;
+                background: #fff;
+                border-radius: 5px;
+                animation: swipDown 1500ms ease-in-out alternate;
+                .list_mobile {
+                    width: 100%;
+                    height: auto;
+                    display: flex;
+                    flex-flow: row wrap;
+                    justify-content: flex-start;
+                    align-items: center;
+                    .item_mobile,
+                    li,
+                    li.item_mobile {
+                        width: auto;
+                        height: 20px;
+                        color: dodgerblue;
+                        font-weight: bolder;
+                        font-size: 1.1em;
+                        margin: 2px 0;
+                        display: flex;
+                        flex-flow: row nowrap;
+                        justify-content: center;
+                        align-items: center;
+                        padding: 2px 6px;
+                        border-radius: 5px;
+                    }
+                }
+            }
+        }
+        .config_mobile {
+            grid-row: 5;
+            display: grid;
+            grid-template-columns: 1fr;
+            grid-template-rows: 40px 40px 86px auto;
+            grid-gap: 5px;
+            padding: 5px 0;
+            background: #ccc;
+            border-radius: 5px;
+            .inputBox_mobile,
+            .selectBox_mobile {
+                display: flex;
+                flex-flow: column nowrap;
+                justify-content: space-around;
+                align-items: center;
+            }
+            .box_mobile {
+                display: grid;
+                grid-template-columns: 1fr;
+                grid-template-rows: 1fr 1fr;
+                grid-gap: 5px;
+                padding: 0 5px;
+                .scheduleCamp_mobile {
+                    display: grid;
+                    grid-template-columns: 75px 1fr 75px;
+                    grid-template-rows: 1fr;
+                    grid-gap: 5px;
+                    grid-column: 1;
+                    width: 92%;
+                    margin: auto;
                     &:nth-child(1) {
-                        animation: swipRight 1600ms ease-in-out alternate;
                         grid-row: 1;
-                        grid-template-columns: 1fr;
-                        grid-template-rows: 1fr;
-                        select {
-                            width: 100%;
-                            height: 100%;
-                            padding: 0 15px;
-                            font-size: 1.1em;
-                            font-weight: bolder;
-                            border: none;
+                    }
+                    &:nth-child(2) {
+                        grid-row: 2;
+                    }
+                    input,
+                    span {
+                        grid-row: 1;
+                    }
+                    input {
+                        display: block;
+                        grid-column: 2;
+                        padding: 0 15px;
+                        font-size: 1.1em;
+                        font-weight: bolder;
+                        border: none;
+                        background: #fff;
+                        border-radius: 5px;
+                        width: 100%;
+                        height: 90%;
+                        transition: background linear 250ms;
+                        &:focus {
+                            background: #333;
+                            color: #eee;
+                        }
+                    }
+                    span {
+                        grid-column: 1;
+                    }
+                    select {
+                        grid-column: 3;
+                        width: 100%;
+                        height: 100%;
+                        font-size: 1.1em;
+                        font-weight: bolder;
+                        border: none;
+                        background: #fff;
+                        color: #333;
+                        border-radius: 5px;
+                        &:hover {
                             background: #fff;
                             color: #333;
-                            border-radius: 5px;
-                            display: block;
-                            &:hover {
-                                background: #fff;
-                                color: #333;
-                            }
-                            option {
-                                display: block;
-                                width: 100%;
-                                height: 100%;
-                            }
                         }
+                    }
+                }
+            }
+            .inputBox_mobile {
+                grid-column: 1;
+                &:nth-child(1) {
+                    grid-row: 1;
+                }
+                &:nth-child(2) {
+                    grid-row: 2;
+                }
+                &:nth-child(3) {
+                    grid-row: 3;
+                }
+                input {
+                    width: 90%;
+                    height: 85%;
+                    padding: 0 15px;
+                    font-size: 1.1em;
+                    font-weight: bolder;
+                    border: none;
+                    background: #fff;
+                    color: #333;
+                    border-radius: 5px;
+                    transition: background linear 250ms;
+                    &:focus {
+                        background: #333;
+                        color: #fff;
+                    }
+                }
+            }
+            .selectBox_mobile {
+                grid-column: 1;
+                width: 90%;
+                display: grid;
+                grid-template-columns: 1fr;
+                grid-template-rows: 1fr 1fr 1fr;
+                grid-gap: 5px;
+                margin: auto;
+                > * {
+                    animation: swipRight 1500ms ease-in-out alternate;
+                }
+                &:nth-child(1) {
+                    animation: swipRight 1600ms ease-in-out alternate;
+                    grid-row: 1;
+                    grid-template-columns: 1fr;
+                    grid-template-rows: 1fr;
+                    select {
+                        width: 100%;
+                        height: 100%;
+                        padding: 0 15px;
+                        font-size: 1.1em;
+                        font-weight: bolder;
+                        border: none;
+                        background: #fff;
+                        color: #333;
+                        border-radius: 5px;
+                        display: block;
+                        &:hover {
+                            background: #fff;
+                            color: #333;
+                        }
+                        option {
+                            display: block;
+                            width: 100%;
+                            height: 100%;
+                        }
+                    }
+                }
+                &:nth-child(3) {
+                    grid-row: 3;
+                }
+                .item_mobile {
+                    display: flex;
+                    flex-flow: column nowrap;
+                    justify-content: space-around;
+                    align-items: center;
+                    grid-column: 1;
+                    &:nth-child(1) {
+                        animation: swipRight 1500ms ease-in-out alternate;
+                        grid-row: 1;
+                    }
+                    &:nth-child(2) {
+                        animation: swipLeft 1500ms ease-in-out alternate;
+                        grid-row: 2;
                     }
                     &:nth-child(3) {
+                        animation: swipRight 1400ms ease-in-out alternate;
                         grid-row: 3;
                     }
-                    .item_mobile {
-                        display: flex;
-                        flex-flow: column nowrap;
-                        justify-content: space-around;
-                        align-items: center;
-                        grid-column: 1;
-                        &:nth-child(1) {
-                            animation: swipRight 1500ms ease-in-out alternate;
-                            grid-row: 1;
+                    input {
+                        width: 100%;
+                        height: 100%;
+                        padding: 0 15px;
+                        font-size: 1.1em;
+                        font-weight: bolder;
+                        border: none;
+                        background: #eee;
+                        border-radius: 5px;
+                        transition: background linear 250ms;
+                        &:focus {
+                            background: #333;
+                            color: #eee;
                         }
-                        &:nth-child(2) {
-                            animation: swipLeft 1500ms ease-in-out alternate;
-                            grid-row: 2;
-                        }
-                        &:nth-child(3) {
-                            animation: swipRight 1400ms ease-in-out alternate;
-                            grid-row: 3;
-                        }
-                        input {
-                            width: 100%;
-                            height: 100%;
-                            padding: 0 15px;
-                            font-size: 1.1em;
-                            font-weight: bolder;
-                            border: none;
-                            background: #eee;
-                            border-radius: 5px;
-                            transition: background linear 250ms;
-                            &:focus {
-                                background: #333;
-                                color: #eee;
-                            }
-                        }
-                        select {
-                            animation: swipRight 1500ms ease-in-out alternate;
-                            width: 100%;
-                            height: 100%;
-                            padding: 0 15px;
-                            font-size: 1.1em;
-                            font-weight: bolder;
-                            border: none;
+                    }
+                    select {
+                        animation: swipRight 1500ms ease-in-out alternate;
+                        width: 100%;
+                        height: 100%;
+                        padding: 0 15px;
+                        font-size: 1.1em;
+                        font-weight: bolder;
+                        border: none;
+                        background: #fff;
+                        color: #333;
+                        border-radius: 5px;
+                        &:hover {
                             background: #fff;
                             color: #333;
-                            border-radius: 5px;
-                            &:hover {
-                                background: #fff;
-                                color: #333;
-                            }
                         }
                     }
                 }
