@@ -90,8 +90,8 @@ class Service extends Component {
           background: "hsla(90, 75%, 50%, .2)"
         } : {
           zIndex: 0
-        }
-      }>
+        }}
+      >
         <div className={styles.image} style={style(service.img, 'image')} />
         <div className={styles.interactive}>
           <div className={styles.like} onClick={e => changeLike(e, service)}>
@@ -159,8 +159,8 @@ class Service extends Component {
               <button className={showRequirements(service)
                 ? styles.cls_button_not_comments
                 : styles.cls_button_comments
-              } onClick={showMeRequirements
-              }>{showRequirements(service)
+              } onClick={showMeRequirements}
+              >{showRequirements(service)
                   ? "Detalles"
                   : "Comentarios"
                 }</button>
