@@ -199,59 +199,61 @@
   "nickname": "Miyo",
   "phone": "+573192449398",
   "picture": "https://avatars0.githubusercontent.com/u/24364747?s=460&v=4",
+  "postulations": [],
   "profession": ["Web Developer"],
   "profile": {
-      "aplicated": 2000,
-      "completed": 456,
-      "editing": false,
-      "evaluated": 789,
-      "interested": 123,
-      "networks": [
-        {
-          "network": "facebook",
-          "url": "https://www.facebook.com/MiyoExcellent",
-          "user": "MiyoExcellent"
-        },
-        {
-          "network": "instagram",
-          "url": "https://www.instagram.com/miyo_excellent",
-          "user": "miyo_excellent"
-        },
-        {
-          "network": "twitter",
-          "url": "https://twitter.com/miyo_excellent",
-          "user": "miyo_excellent"
-        }
-      ]
-    },
-    "posts": {
-      "AddNewService": {
-        "address": {
-          "munincipality": "",
-          "province": ""
-        },
-        "category": "",
-        "description": "",
-        "direction": "",
-        "schedule": {
-          "from": {
-            "hour": 8,
-            "minutes": 30,
-            "system": "am"
-          },
-          "to": {
-            "hour": 5,
-            "minutes": 30,
-            "system": "pm"
-          }
-        },
-        "tags": [],
-        "title": "",
-        "value": 0
+    "aplicated": 2000,
+    "completed": 456,
+    "editing": false,
+    "evaluated": 789,
+    "interested": 123,
+    "networks": [
+      {
+        "network": "facebook",
+        "url": "https://www.facebook.com/MiyoExcellent",
+        "user": "MiyoExcellent"
       },
-      "editing": false,
-      "newServiceConfig": [],
-      "services": []
+      {
+        "network": "instagram",
+        "url": "https://www.instagram.com/miyo_excellent",
+        "user": "miyo_excellent"
+      },
+      {
+        "network": "twitter",
+        "url": "https://twitter.com/miyo_excellent",
+        "user": "miyo_excellent"
+      }
+    ]
+  },
+  "posts": {
+    "AddNewService": {
+      "address": {
+        "munincipality": "",
+        "province": ""
+      },
+      "category": "",
+      "description": "",
+      "direction": "",
+      "schedule": {
+        "from": {
+          "hour": 8,
+          "minutes": 30,
+          "system": "am"
+        },
+        "to": {
+          "hour": 5,
+          "minutes": 30,
+          "system": "pm"
+        }
+      },
+      "tags": [],
+      "title": "",
+      "value": 0
     },
-    "type": "people"
+    "editing": false,
+    "newServiceConfig": [],
+    "services": []
+  },
+  "requests": [],
+  "type": "people"
 }

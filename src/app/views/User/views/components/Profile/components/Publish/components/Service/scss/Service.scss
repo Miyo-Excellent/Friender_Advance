@@ -4,10 +4,38 @@ $service-offert-bg-color: rgb(228, 228, 228);
 $service-bg-color: hsl(0, 0%, 95%);
 $service-height: 100px;
 
-@import 'mobile';
-@import 'desktop';
+$cls_button_not-border-color: hsl(12, 77%, 50%);
+$cls_button_not-bg-color: hsl(12, 100%, 60%);
+$cls_button_not-border-color-active: hsl(12, 77%, 40%);
+$cls_button_not-bg-color-active: hsl(12, 100%, 50%);
+$cls_button_not-border-color-hover: hsl(10, 100%, 52%);
+$cls_button_not-bg-color-hover: hsl(10, 100%, 54%);
+
+$cls_button_postulate-border-color: hsl(210, 77%, 50%);
+$cls_button_postulate-bg-color: hsl(210, 100%, 60%);
+$cls_button_postulate-border-color-active: hsl(210, 77%, 40%);
+$cls_button_postulate-bg-color-active: hsl(210, 100%, 50%);
+$cls_button_postulate-border-color-hover: hsl(210, 77%, 50%);
+$cls_button_postulate-bg-color-hover: hsl(210, 100%, 57%);
+
+$cls_button-comments-border-color: hsl(130, 45%, 50%);
+$cls_button-comments-bg-color: hsl(130, 50%, 60%);
+$cls_button-comments-border-color-active: hsl(130, 80%, 30%);
+$cls_button-comments-bg-color-active: hsl(130, 80%, 35%);
+$cls_button-comments-border-color-hover: hsl(130, 90%, 45%);
+$cls_button-comments-bg-color-hover: hsl(130, 90%, 50%);
+
+$cls_button_not_comments-border-color: hsl(270, 45%, 50%);
+$cls_button_not_comments-bg-color: hsl(270, 50%, 60%);
+$cls_button_not_comments-border-color-active: hsl(270, 80%, 30%);
+$cls_button_not_comments-bg-color-active: hsl(270, 80%, 35%);
+$cls_button_not_comments-border-color-hover: hsl(270, 90%, 45%);
+$cls_button_not_comments-bg-color-hover: hsl(270, 90%, 50%);
+
+@import "mobile";
+@import "desktop";
 
 .service_mobile,
 .service {
-  border-radius: 5px;
+    border-radius: 5px;
 }

@@ -32,14 +32,16 @@ const initialState = options => {
     picture = "https://avatars0.githubusercontent.com/u/24364747?s=460&v=4",
     posts = {
       AddNewService: NEW_SERVICE_STATE,
-      editing: false, newServiceConfig: [], services: []
+      editing: false, newServiceConfig: [], services: [], servicesState: []
     },
+    postulations = [],
     profession = ["Web-Developer"],
     profile = {
       aplicated: 0, completed: 0,
       editing: false, evaluated: 0,
       interested: 0, networks: []
     },
+    request = [],
     type = "people", typeOfCompany = "headquarters"
   } = options;
 
@@ -48,8 +50,9 @@ const initialState = options => {
     header, connectors,
     name, nickname,
     phone, picture,
-    posts, profession,
-    profile, type
+    posts, postulations,
+    profession, profile,
+    request, type
   };
 
   if (type === "people") {
@@ -114,6 +117,13 @@ export default function homeReducer(state = initialState({}), action) {
       };
       break;
     }
+    case "ADD_POSTULATION": {
+      return {
+        ...state,
+        postulations: state.postulations.concat(action.postulation)
+      };
+      break;
+    }
     case "ADD_PROVINCE": {
       return {
         ...state, posts: {
@@ -123,6 +133,13 @@ export default function homeReducer(state = initialState({}), action) {
             }
           }
         }
+      };
+      break;
+    }
+    case "ADD_REQUEST": {
+      return {
+        ...state,
+        requests: state.requests.concat(action.request)
       };
       break;
     }
@@ -220,6 +237,13 @@ export default function homeReducer(state = initialState({}), action) {
       };
       break;
     }
+    case "ADD_NEW_SERVICE_STATE": {
+      return {
+        ...state,
+        requests: state.requests.concat(action.request)
+      };
+      break;
+    }
     case "ADD_TITLE": {
       return {
         ...state, posts: {
@@ -251,6 +275,24 @@ export default function homeReducer(state = initialState({}), action) {
     case "CHANGE_ALL_DATA_USER": {
       return {
         ...action.data
+      };
+      break;
+    }
+    case "CHANGE_THIS_SHOW_REQUIREMENTS_STATE": {
+      return {
+        ...state,
+        posts: {
+          ...state.posts,
+          services: state.posts.services.map(service => service._id === action._id
+            ? {
+              ...service,
+              state: {
+                ...service.state,
+                showRequirements: !service.state.showRequirements
+              }
+            } : service
+          )
+        }
       };
       break;
     }
@@ -306,6 +348,13 @@ export default function homeReducer(state = initialState({}), action) {
       return {
         ...state,
         favorites: state.favorites.filter(favorite => favorite._id !== action._id)
+      };
+      break;
+    }
+    case "REMOVE_POSTULATION": {
+      return {
+        ...state,
+        postulations: state.postulations.filter(postulation => postulation._id !== action._id)
       };
       break;
     }

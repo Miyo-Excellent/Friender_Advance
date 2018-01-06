@@ -32,7 +32,7 @@ class Publish extends Component {
 
   load() {
     const { services } = this.props;
-    return services.map((service, i) => <Service key={i} service={service} />);
+    return services.map((service, i) => <Service key={i} service={service} index={i} />);
   }
 
   Mobile() {

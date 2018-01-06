@@ -1,13 +1,13 @@
 .service {
     padding: 5px;
     background: $service-bg-color;
-    width: 291px;
-    //max-width: 395px;
+    min-width: 315px;
+    max-width: 315px;
     flex: 1 0 auto;
     align-self: stretch;
     display: grid;
-    grid: 305px auto / 100%;
-    margin: 5px;
+    grid: 315px 1fr auto/ 100%;
+    margin: 5px auto;
     overflow: hidden;
     > * {
         grid-column: 1;
@@ -28,16 +28,22 @@
 .like,
 .shapes {
     position: absolute;
-    width: 55px;
-    height: 55px;
+    width: 40px;
+    height: 40px;
     padding: 5px;
-    background: hsla(0, 0%, 95%, 1);
+    background: hsla(0, 0%, 90%, 1);
     display: flex;
     flex-flow: column nowrap;
     justify-content: center;
     align-items: center;
+    left: 5px;
+    opacity: .7;
+    &:active {
+        transform: scale(.85);
+    }
     &:hover {
-        background: hsla(0, 0%, 85%, 1);
+        opacity: 1;
+        background: hsla(0, 0%, 100%, 1);
     }
     img {
         width: 85%;
@@ -47,26 +53,29 @@
 }
 
 .like {
-    border-radius: 50% 0 50% 5px;
-    left: auto;
-    right: 0;
+    border-radius: 50%;
+    top: 10px;
+    &:active {
+    }
     img {
         transform: rotateY(180deg);
     }
 }
 .shapes {
-    left: -5px;
-    border-radius: 0 50% 5px 50%;
+    border-radius: 50%;
+    top: 55px;
+    &:active {
+        img {
+            transform: scale(.9);
+        }
+    }
 }
 
 .image {
     grid-row: 1;
     display: block;
-    background-size: contain !important;
-    border-radius: 5px;
-}
-@media all and (max-width: 990px) {
-
+    background-size: cover !important;
+    border-radius: 5px 5px 0 0;
 }
 .information {
     grid-row: 2;
@@ -126,7 +135,7 @@
     .info {
         grid-row: 2;
         display: grid;
-        grid: auto auto / 100%;
+        grid: auto 1fr / 100%;
         grid-gap: 5px;
         .title,
         .description {
@@ -183,8 +192,7 @@
                 flex: 1 1 auto;
                 > h5 {
                     font-weight: normal;
-                    font-size: 1rem;
-                    line-height: 1.05;
+                    font-size: .85rem;
                 }
             }
         }
@@ -194,6 +202,168 @@
             margin: 5px 0 0 0;
             border-radius: 5px;
             background: hsla(200, 10%, 90%, 1);
+            p {
+                font-size: .87rem;
+            }
+            .more_information {
+                width: 100%;
+                height: 100%;
+                border-radius: 5px;
+                display: grid;
+                grid: 100% / auto 1fr;
+            }
+            .comments {
+                border-radius: 5px;
+                grid-column: 2;
+                grid-row: 1;
+                display: flex;
+                flex-flow: column nowrap;
+                justify-content: flex-start;
+                align-items: stretch;
+                padding: 5px;
+                overflow: auto;
+                max-height: 150px;
+                z-index: 2;
+            }
+            .comment {
+                align-self: stretch;
+                width: calc(100% - 5px);
+                height: 55px !important;
+                min-height: 55px !important;
+                max-height: 55px !important;
+                border-radius: 5px;
+                background: hsla(0, 0%, 95%, 1);
+                margin: auto auto 5px auto;
+                display: grid;
+                grid: 100% / 45px 1fr;
+                grid-gap: 5px;
+                padding: 5px;
+                &:last-child {
+                    margin: auto;
+                }
+            }
+            .comment_user_photo {
+                background-size: contain !important;
+                grid-column: 1;
+                grid-row: 1;
+                display: block;
+                border-radius: 5px;
+            }
+            .content {
+            }
+            .meta_info {
+                grid-column: 2;
+                display: grid;
+                > p {
+                    font-size: .65rem;
+                }
+                > span {
+                    background: hsl(210, 100%, 60%);
+                    color: hsla(0, 0%, 95%, 1);
+                    border-radius: 2px;
+                    padding: 2px 0;
+                    display: flex;
+                    flex-flow: column nowrap;
+                    justify-content: center;
+                    align-items: center;
+                    text-align: center;
+                    font-weight: bolder;
+                    white-space: nowrap;
+                    font-size: .7rem;
+                }
+            }
         }
+    }
+    .controllers {
+        grid-row: 3;
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: space-evenly;
+        align-items: center;
+        > * {
+            width: 50%;
+            min-width: 50%;
+            max-width: 50%;
+        }
+        .postulate,
+        .comments {
+            flex: 0 0 auto;
+            display: flex;
+            flex-flow: column nowrap;
+            justify-content: center;
+            align-items: center;
+            .cls_button_not,
+            .cls_button_postulate,
+            .cls_button_comments {
+                color: hsla(0, 0%, 100%, 1);
+                border-radius: 5px;
+                height: 30px;
+                width: calc(100% - 5px);
+                font-size: 1.1rem;
+                z-index: 2;
+                transition: all linear 100ms;
+            }
+            .cls_button_not {
+                border: 2px solid $cls_button_not-border-color;
+                background: $cls_button_not-bg-color;
+                &:hover {
+                    border: 2px solid $cls_button_not-border-color-hover;
+                    background: $cls_button_not-bg-color-hover;
+                    &:active {
+                        border: 2px solid $cls_button_not-border-color-active;
+                        background: $cls_button_not-bg-color-active;
+                        transform: scale(.80);
+                    }
+                }
+            }
+            .cls_button_postulate {
+                border: 2px solid $cls_button_postulate-border-color;
+                background: $cls_button_postulate-bg-color;
+                &:hover {
+                    border: 2px solid $cls_button_postulate-border-color-hover;
+                    background: $cls_button_postulate-bg-color-hover;
+                    &:active {
+                        border: 2px solid $cls_button_postulate-border-color-active;
+                        background: $cls_button_postulate-bg-color-active;
+                        transform: scale(.80);
+                    }
+                }
+            }
+            .cls_button_comments {
+                border: 2px solid $cls_button_comments-border-color;
+                background: $cls_button_comments-bg-color;
+                &:hover {
+                    border: 2px solid $cls_button_comments-border-color-hover;
+                    background: $cls_button_comments-bg-color-hover;
+                    &:active {
+                        border: 2px solid $cls_button_comments-border-color-active;
+                        background: $cls_button_comments-bg-color-active;
+                        transform: scale(.80);
+                    }
+                }
+            }
+            .cls_button_not_comments {
+                color: hsla(0, 0%, 100%, 1);
+                border-radius: 5px;
+                height: 30px;
+                width: calc(100% - 5px);
+                font-size: 1.1rem;
+                z-index: 2;
+                transition: all linear 100ms;
+                border: 2px solid $cls_button_not_comments-border-color;
+                background: $cls_button_not_comments-bg-color;
+                &:hover {
+                    border: 2px solid $cls_button_not_comments-border-color-hover;
+                    background: $cls_button_not_comments-bg-color-hover;
+                    &:active {
+                        border: 2px solid $cls_button_not_comments-border-color-active;
+                        background: $cls_button_not_comments-bg-color-active;
+                        transform: scale(.80);
+                    }
+                }
+            }
+        }
+        .postulate {}
+        .comments {}
     }
 }
