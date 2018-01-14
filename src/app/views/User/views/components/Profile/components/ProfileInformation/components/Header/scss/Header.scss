@@ -1,19 +1,19 @@
 // Variables
-$picture-size: 150;
+$user_info_wrapper-height: 264px;
+$user_info_wrapper-width: 100%;
+$img-height: 100px;
+$img-width: 100px;
 .header{
-    border-radius: 10px;
-    background: hsl(0, 0%, 91%);
     grid-row: 1;
     display: grid;
     grid-template-columns: 100%;
     grid-auto-rows: auto;
-    grid-gap: 5px;
+    border-radius: 0 0 10px 10px;
+    //animation: photoAnimation 10s linear infinite alternate forwards;
     >*{
         grid-column: 1;
     }
     .information {
-        background: hsl(0, 0%, 85%);
-        border-radius: 0 0 10px 10px;
         grid-row: 2;
         display: grid;
         grid-template-columns: 100%;
@@ -57,47 +57,103 @@ $picture-size: 150;
                 }
             }
         }
-        .email,
-        .full_name {
-            &, >* {
-                display: flex;
-                flex-flow: column nowrap;
-                justify-content: center;
-                align-items: center;
-            }
-            >*{
-                text-align: center;
-                width: 100%;
-                height: 100%;
+    }
+    .header_whapper{
+        grid-row: 1;
+        height: $user_info_wrapper-height;
+        border-radius: 10px 10px 0 0;
+        background-size: cover !important;
+        display: flex;
+        flex-flow: column nowrap;
+        justify-content: flex-end;
+        align-items: center;
+    }
+    .user_info {
+        padding: 5px;
+        display: grid;
+        grid: $img-height 20px 20px / 100%;
+        background: hsla(0, 0%, 0%, .4);
+        &:hover {
+            background: hsla(0, 0%, 0%, .6);
+            .picture{
+                background: hsla(220, 100%, 55%, .6);
             }
         }
-        .email {
-            grid-row: 2;
-            >*{
-                font-size: .9em;
-            }
-        }
-        .full_name {
-            grid-row: 1;
-            > * {
-                font-size: 1.2em;
-            }
+        >*{
+            grid-column: 1;
         }
     }
-    .picture{
+    .picture {
         grid-row: 1;
-        margin: auto;
-        width: $picture-size + px;
-        height: $picture-size + px;
-        background: hsla(0, 0%, 0%, .4);
+        width: $img-width;
+        margin: 0 auto;
+        background: hsla(0, 0%, 0%, .5);
         border-radius: 50%;
         display: flex;
-        flex-flow: columnn nowrap;
+        flex-flow: column nowrap;
         justify-content: center;
         align-items: center;
         img {
-            border-radius: 50%;
             width: 90%;
+            height: 90%;
+            border-radius: 50%;
         }
+    }
+    .full_name,
+    .email {
+        > span {
+            width: 100%;
+            height: 100%;
+            word-wrap: break-word;
+            white-space: normal;
+            font-size: .9rem;
+            font-weight: bold;
+            color: hsl(0, 0%, 95%);
+            display: flex;
+            flex-flow: column nowrap;
+            align-items: center;
+            justify-content: center;
+        }
+    }
+    .full_name {
+        grid-row: 2;
+    }
+    .email {
+        grid-row: 3;
+    }
+}
+@keyframes photoAnimation {
+    0% {
+        background-position: 0 0;
+    }
+    10% {
+        background-position: 15% -25px;
+    }
+    20% {
+        background-position: 30% -50px;
+    }
+    30% {
+        background-position: 45% -75px;
+    }
+    40% {
+        background-position: 55% -100px;
+    }
+    50% {
+        background-position: 70% -50px;
+    }
+    60% {
+        background-position: 75% 0;
+    }
+    70% {
+        background-position: 85% -25px;
+    }
+    80% {
+        background-position: 100% -50%;
+    }
+    90% {
+        background-position: 85% -75px;
+    }
+    100% {
+        background-position: 75% -100px;
     }
 }

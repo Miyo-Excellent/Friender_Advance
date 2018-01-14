@@ -18,6 +18,7 @@
         "month": 8,
         "year": 1994
       },
+      "isConnected": false,
       "name": "Gerald",
       "lastname": "Excellent",
       "picture": "https://scontent.feoh4-2.fna.fbcdn.net/v/t1.0-1/p160x160/15941357_10206478357832854_63703251230346250_n.jpg?oh=fed271e655482a3ad4663316dad067ef&oe=5ABD5D66",
@@ -25,21 +26,22 @@
       "services": [1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1]
     },
     {
-        "address": {
-          "munincipality": "Medellin",
-          "province": "Antioquia"
-        },
-        "age": 20,
-        "born": {
-          "day": 16,
-          "month": 4,
-          "year": 1998
-        },
-        "name": "Grecia",
-        "lastname": "Marquez",
-        "picture": "https://scontent.feoh4-2.fna.fbcdn.net/v/t1.0-1/c1.0.160.160/p160x160/21617602_100746724009925_3760952964374959459_n.jpg?oh=e9059c1ce0e3629b52e7c1658ded8e19&oe=5AC3D27A",
-        "type": "people",
-        "services": [1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1]
+      "address": {
+        "munincipality": "Medellin",
+        "province": "Antioquia"
+      },
+      "age": 20,
+      "born": {
+        "day": 16,
+        "month": 4,
+        "year": 1998
+      },
+      "isConnected": true,
+      "name": "Grecia",
+      "lastname": "Marquez",
+      "picture": "https://scontent.feoh4-2.fna.fbcdn.net/v/t1.0-1/c1.0.160.160/p160x160/21617602_100746724009925_3760952964374959459_n.jpg?oh=e9059c1ce0e3629b52e7c1658ded8e19&oe=5AC3D27A",
+      "type": "people",
+      "services": [1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1]
     },
     {
       "address": {
@@ -52,6 +54,7 @@
         "month": 1,
         "year": 2018
       },
+      "isConnected": false,
       "name": "A.P.I",
       "nit": "000-000-000-F",
       "picture": "https://scontent.feoh4-2.fna.fbcdn.net/v/t1.0-1/p200x200/15894817_1180943885322700_1443412450469301850_n.png?oh=757b51757256dfa15176fac9effa4047&oe=5ACDF800",
@@ -69,6 +72,7 @@
           "month": 4,
           "year": 1998
         },
+        "isConnected": true,
         "name": "Andrea",
         "lastname": "Barudy",
         "picture": "https://scontent.feoh3-1.fna.fbcdn.net/v/t1.0-9/24131230_1766035976748142_1689745575765141138_n.jpg?oh=0368d51eedc963d12c1f08c3334957f3&oe=5ACD261B",
@@ -86,6 +90,7 @@
         "month": 4,
         "year": 1998
       },
+      "isConnected": false,
       "name": "Francisco Jesus",
       "lastname": "Aular Puente",
       "picture": "https://scontent.feoh3-1.fna.fbcdn.net/v/t1.0-9/19400006_1583127755032227_7786257448445106535_n.jpg?oh=f62c6b596806aff67439b67e1f687d24&oe=5ABC8755",
@@ -103,6 +108,7 @@
           "month": 4,
           "year": 1998
         },
+        "isConnected": true,
         "name": "Orlando",
         "lastname": "Galicia",
         "picture": "https://avatars1.githubusercontent.com/u/18502533?s=460&v=4",
@@ -120,9 +126,10 @@
         "month": 4,
         "year": 1998
       },
+      "isConnected": false,
       "name": "Alexander",
       "lastname": "Gutiérrez",
-      "picture": "https://scontent.feoh3-1.fna.fbcdn.net/v/t1.0-1/25594207_387356075019801_8524255070709250339_n.jpg?oh=47e287ed856fbbb44c20622c16be41a2&oe=5AB05318",
+      "picture": "https://scontent.feoh3-1.fna.fbcdn.net/v/t1.0-1/26169842_392163801205695_770092618791474235_n.jpg?oh=c40d20fdbc1e90e1f7d5014aa20e6d06&oe=5AF45D46",
       "type": "people",
       "services": [1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1]
     },
@@ -137,6 +144,7 @@
           "month": 1,
           "year": 2018
         },
+        "isConnected": true,
         "name": "AMAZON",
         "nit": "000-000-000-F",
         "picture": "https://scontent.feoh3-1.fna.fbcdn.net/v/t1.0-9/21616376_1551823798232593_5160854937695808942_n.png?oh=e4e04942c812782bc88707ec076d55da&oe=5ABC2018",
@@ -154,6 +162,7 @@
         "month": 4,
         "year": 1998
       },
+      "isConnected": false,
       "name": "Daniel",
       "lastname": "Londoño",
       "picture": "https://media-exp2.licdn.com/media/p/3/005/00c/3de/0389b50.jpg",
@@ -171,6 +180,7 @@
           "month": 1,
           "year": 2018
         },
+        "isConnected": true,
         "name": "Apple",
         "nit": "000-000-000-F",
         "picture": "https://media-exp2.licdn.com/mpr/mpr/shrink_200_200/AAIA_wDGAAAAAQAAAAAAAA2MAAAAJDEyYzgyM2Y1LTQ4ZDctNDhiNy04MzZiLWNkY2I3YzJiOGIwZQ.png",
@@ -188,6 +198,7 @@
         "month": 1,
         "year": 2018
       },
+      "isConnected": false,
       "name": "IBM",
       "nit": "000-000-000-F",
       "picture": "https://scontent.feoh3-1.fna.fbcdn.net/v/t1.0-9/23032762_1520125298077747_217885859434813187_n.png?oh=938a28a3037b940a85fe11c61701e581&oe=5ABDEF80",

@@ -36,7 +36,13 @@ div.editing {
 }
 
 .title {
-    grid-row: 1;
+    grid-row: 1;@media all and (max-width: 1280px) {
+    .add_service_container {
+        .editing {
+            grid: 45px minmax(155px, auto) 45px / minmax(110px, auto) 1fr;
+        }
+    }
+}
     display: flex;
     flex-flow: column nowrap;
     justify-content: center;
@@ -62,7 +68,7 @@ div.editing {
         border: none;
         border-radius: 5px;
         display: block;
-        font-size: 1.1em;
+        font-size: .9em;
         height: calc(100% - 10px);
         overflow: auto;
         padding: 0 10px;
@@ -100,7 +106,6 @@ div.editing {
     display: grid;
     grid: 100% / 50px 1fr;
     grid-gap: 5px;
-    padding: 5px;
 }
 
 .image,
@@ -271,20 +276,27 @@ div.editing {
     align-items: center;
     padding: 5px;
     border-radius: 5px;
+    max-width: 450px;
+    margin: auto;
     .selectBox,
     .inputBox {
+        margin: auto auto 5px auto;
         display: flex;
         flex-flow: column nowrap;
         align-items: center;
+        &:first-child {
+            margin: auto auto 5px auto;
+        }
+        &:last-child {
+            margin: auto;
+        }
     }
     > .selectBox {
         background: hsl(200, 55%, 90%);
-        max-width: 450px;
         border-radius: 5px;
         padding: 5px;
         justify-content: space-evenly;
         width: calc(100% - 10px);
-        //height: 45px;
         .item {
             display: flex;
             flex-flow: column nowrap;
@@ -298,7 +310,7 @@ div.editing {
                 display: block;
                 width: calc(100% - 10px);
                 height: calc(100% - 10px);
-                max-width: 225px;
+                min-height: 25px;
                 border: none;
                 border-radius: 5px;
                 padding: 0 10px;
@@ -320,7 +332,7 @@ div.editing {
         select {
             width: calc(100% - 10px);
             height: calc(100% - 10px);
-            max-width: 225px;
+            min-height: 25px;
             grid-column: 3;
             display: block;
             border: none;
@@ -330,16 +342,15 @@ div.editing {
     }
     .inputBox {
         background: hsl(200, 55%, 90%);
-        max-width: 450px;
         border-radius: 5px;
         width: calc(100% - 10px);
         justify-content: center;
         padding: 5px;
         > input {
+            min-height: 25px;
             display: block;
             width: calc(100% - 10px);
             height: calc(100% - 10px);
-            max-width: 225px;
             border: none;
             border-radius: 5px;
             padding: 0 10px;
@@ -352,7 +363,6 @@ div.editing {
     }
     .box {
         background: hsl(200, 55%, 90%);
-        max-width: 450px;
         border-radius: 5px;
         width: calc(100% - 10px);
         display: grid;
@@ -398,10 +408,10 @@ div.editing {
                 justify-content: center;
                 align-items: center;
                 > input {
+                    min-height: 25px;
                     display: block;
                     width: calc(100% - 10px);
                     height: calc(100% - 10px);
-                    max-width: 225px;
                     border: none;
                     border-radius: 5px;
                     padding: 0 10px;
@@ -418,6 +428,7 @@ div.editing {
                 border: none;
                 border-radius: 5px;
                 font-size: 1.1em;
+                min-height: 25px;
             }
         }
     }
@@ -473,5 +484,54 @@ div.editing {
     }
     100% {
         height: 700px;
+    }
+}
+@media all and (min-width: 1280px) {
+    .title {
+        grid-row: 1 !important;
+        grid-column: 1 / 4 !important;
+    }
+    .description {
+        grid-row: 2 / 4 !important;
+        grid-column: 1 / 2 !important;
+    }
+    .banner_tags {
+        grid-row: 2 !important;
+        grid-column: 2 / 4 !important;
+    }
+    .tags {
+        grid-row: 3 !important;
+        grid-column: 2 / 4 !important;
+    }
+    .config {
+        grid-row: 4 !important;
+        grid-column: 1 / 4 !important;
+        max-width: none;
+        display: grid;
+        grid: 1fr 1fr / 1fr 1fr;
+        > * {
+            min-height: calc(100% - 10px);
+            min-width: calc(100% - 10px);
+            &:nth-child(1) {
+                grid-row: 1;
+                grid-column: 1;
+            }
+            &:nth-child(2) {
+                grid-row: 1;
+                grid-column: 2;
+            }
+            &:nth-child(3) {
+                grid-row: 2;
+                grid-column: 1;
+            }
+            &:nth-child(4) {
+                grid-row: 2;
+                grid-column: 2;
+            }
+        }
+    }
+    .courier_box {
+        grid-row: 5 !important;
+        grid-column: 1 / 4 !important;
     }
 }

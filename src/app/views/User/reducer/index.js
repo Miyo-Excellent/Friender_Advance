@@ -105,6 +105,47 @@ export default function homeReducer(state = initialState({}), action) {
       };
       break;
     }
+    case "ADD_NEW_COMMIT": {
+      return {
+        ...state,
+        posts: {
+          ...state.posts,
+          services: state.posts.services.map(service => service._id === action._id
+            ? ({
+              ...service,
+              comments: service.comments.concat({
+                "_id": service.comments.length,
+                "comment": action.commit,
+                "date": {
+                  "day": new Date().getDate(),
+                  "month": new Date().getMonth(),
+                  "year": new Date().getFullYear(),
+                  "time": {
+                    "seconds": new Date().getSeconds(),
+                    "minutes": new Date().getMinutes(),
+                    "hour": new Date().getHours()
+                  }
+                },
+                "score": 2,
+                "user": {
+                  "address": state.address,
+                  "email": state.email,
+                  "name": state.name,
+                  "nickname": state.nickname,
+                  "phone": state.phone,
+                  "picture": state.picture,
+                  "professions": state.profession,
+                  "type": state.type
+                }
+              })
+            }) : ({
+              ...service
+            })
+          )
+        }
+      };
+      break;
+    }
     case "ADD_MUNINCIPALITY": {
       return {
         ...state, posts: {
@@ -278,7 +319,7 @@ export default function homeReducer(state = initialState({}), action) {
       };
       break;
     }
-    case "CHANGE_THIS_SHOW_REQUIREMENTS_STATE": {
+    case "CHANGE_THIS_SHOW_COMMITS_STATE": {
       return {
         ...state,
         posts: {
@@ -288,7 +329,27 @@ export default function homeReducer(state = initialState({}), action) {
               ...service,
               state: {
                 ...service.state,
-                showRequirements: !service.state.showRequirements
+                showCommits: !service.state.showCommits
+              }
+            } : {
+              ...service
+            }
+          )
+        }
+      };
+      break;
+    }
+    case "CHANGE_THIS_SHOW_FORM_NEW_COMMIT": {
+      return {
+        ...state,
+        posts: {
+          ...state.posts,
+          services: state.posts.services.map(service => service._id === action._id
+            ? {
+              ...service,
+              state: {
+                ...service.state,
+                formCommitActive: !service.state.formCommitActive
               }
             } : service
           )
@@ -370,6 +431,24 @@ export default function homeReducer(state = initialState({}), action) {
       return {
         ...state, userData: {
           ...state.userData, name: action.name
+        }
+      };
+      break;
+    }
+    case "SERVICE_ADD_NEW_COMMIT": {
+      return {
+        ...state,
+        posts: {
+          ...state.posts,
+          services: state.posts.services.map(service => service._id === action._id
+            ? {
+              ...service,
+              comments: service.comments.concat({
+                ...action.commit,
+                id: state.posts.services.length
+              })
+            } : service
+          )
         }
       };
       break;

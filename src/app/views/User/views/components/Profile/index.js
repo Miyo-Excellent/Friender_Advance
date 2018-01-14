@@ -9,6 +9,7 @@ import Summary from './components/Summary';
 import Publish from './components/Publish';
 import ProfileInformation from './components/ProfileInformation';
 import Connectors from './components/Connectors';
+import Chat from './components/Chat';
 
 // Styles
 import styles from "./scss/Profil.scss";
@@ -59,7 +60,10 @@ class Profil extends Component {
         <Publish />
       </section>
       <section className={styles.friends}>
-        <h1>All Friends</h1>
+        <div className={styles.friends_title}>
+          <h5>Conectados</h5>
+        </div>
+        <Chat />
       </section>
     </main>);
   }
@@ -93,6 +97,7 @@ const mapDispatchToProps = dispatch => ({
         type: "LOAD_SERVICES_POSTS",
         data: res.data
       }))
+      .then((data) => console.log(data))
       .catch(err => console.log(`No se pudieron solicitar los datos al servidor: Error: ${err}`)));
   },
   loadNewServicesConfig(type) {

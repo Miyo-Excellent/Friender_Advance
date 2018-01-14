@@ -80,9 +80,80 @@ class Service extends Component {
   }
   Desktop() {
     const { changeLike, changeShapes, style } = this;
-    const { addPostulation, changeThisShowRequirementsState, isPostulated, service, showRequirements, removePostulation } = this.props;
+    const {
+      addNewCommit,
+      addPostulation,
+      changeThisShowFormNewCommit,
+      changeThisShowRequirementsState,
+      isPostulated,
+      service,
+      showCommits,
+      showFormNewCommit,
+      removePostulation
+    } = this.props;
 
-    const showMeRequirements = () => changeThisShowRequirementsState(service);
+    const changeToFormNewCommit = () =>
+      changeThisShowFormNewCommit(service);
+
+    const cancelNewCommit = (e) => {
+      e.preventDefault();
+
+      document.querySelector('#new_commit_form_commit_text').value = '';
+
+      changeServiceView('commits');
+    };
+
+    const changeServiceView = (type) => {
+      switch (type) {
+        case 'back_to_details': {
+          if (showCommits(service)) {
+            showMeCommits();
+          }
+          if (showFormNewCommit(service)) {
+            changeToFormNewCommit();
+          }
+          break;
+        }
+        case 'commits': {
+          if (showFormNewCommit(service)) {
+            changeToFormNewCommit();
+          }
+          if (!showCommits(service)) {
+            showMeCommits();
+          }
+          break;
+        }
+        case 'new_commit': {
+          if (!showFormNewCommit(service)) {
+            changeToFormNewCommit();
+          }
+          break;
+        }
+        case 'set_new_commit': {
+          setNewCommit();
+          break;
+        }
+        default: {
+          return undefined;
+          break;
+        }
+      }
+    };
+
+    const showMeCommits = () =>
+      changeThisShowRequirementsState(service);
+
+    const setNewCommit = (e) => {
+      e.preventDefault();
+
+      const text = document.querySelector('#new_commit_form_commit_text').value;
+
+      addNewCommit(service._id, text);
+
+      document.querySelector('#new_commit_form_commit_text').value = '';
+
+      changeServiceView('commits');
+    };
 
     return (
       <article className={styles.service} style={!isPostulated(service)
@@ -118,24 +189,43 @@ class Service extends Component {
                 <h5>{service.about.slice(0, 45)}</h5>
               </div>
             </div>
-            <div className={styles.description}>{showRequirements(service)
-              ? (
-                <section className={styles.more_information}>
-                  <ul className={styles.comments}>{service.comments.map((comment, index, arr) =>
-                    <li className={styles.comment} key={index}>
-                      <div className={styles.comment_user_photo} style={style(comment.user.picture, 'image')}/>
-                      <div className={styles.content}>
-                        <div className={styles.meta_info}>
-                          <span>{`${comment.user.name} | @${comment.user.nickname}`}</span>
-                          <p>{comment.comment.slice(0, 79)}</p>
+            <div className={styles.description}>{!showFormNewCommit(service)
+              ? showCommits(service)
+                ? (
+                  <section className={styles.more_information}>
+                    <ul className={styles.comments}>{service.comments.map((comment, index, arr) =>
+                      <li className={styles.comment} key={index}>
+                        <div className={styles.comment_user_photo} style={style(comment.user.picture, 'image')}/>
+                        <div className={styles.content}>
+                          <div className={styles.meta_info}>
+                            <span>{`${comment.user.name} | @${comment.user.nickname}`}</span>
+                            <p>{comment.comment.slice(0, 65)}</p>
+                          </div>
                         </div>
-                      </div>
-                    </li>
-                  )}</ul>
-                </section>
-              ) : (
-                <p>{service.description.slice(0, 326)}</p>
-              )
+                      </li>
+                    )}</ul>
+                  </section>
+                ) : (
+                  <p>{service.description.slice(0, 339)}</p>
+                )
+              : <section className={styles.new_commit}>
+                <form className={styles.new_commit_form}>
+                  <div className={styles.new_commit_form_title}>
+                    <h5>Nuevo Comentario</h5>
+                  </div>
+                  <div className={styles.new_commit_form_commit}>
+                    <textarea name="commit" id="new_commit_form_commit_text" placeholder="Escribe aqui tu nuevo comentario" />
+                  </div>
+                  <div className={styles.new_commit_form_controls}>
+                    <div className={styles.new_commit_form_set_commit}>
+                      <button onClick={setNewCommit}>Enviar</button>
+                    </div>
+                    <div className={styles.new_commit_form_cancel_commit}>
+                      <button onClick={cancelNewCommit}>Cancelar</button>
+                    </div>
+                  </div>
+                </form>
+              </section>
             }</div>
           </div>
           <div className={styles.controllers}>
@@ -155,16 +245,31 @@ class Service extends Component {
                   : "Postulado"
                 }</button>
             </div>
-            <div className={styles.comments}>
-              <button className={showRequirements(service)
-                ? styles.cls_button_not_comments
-                : styles.cls_button_comments
-              } onClick={showMeRequirements}
-              >{showRequirements(service)
-                  ? "Detalles"
-                  : "Comentarios"
-                }</button>
-            </div>
+            {!showCommits(service)
+              ? (
+                <div className={styles.comments}>
+                  <button className={showCommits(service)
+                    ? styles.cls_button_not_comments
+                    : styles.cls_button_comments
+                  } onClick={() => changeServiceView('commits')}
+                  >Comentarios</button>
+                </div>
+              ) : (
+                <div className={styles.comments}>
+                  {!showFormNewCommit(service)
+                    ? (
+                      <button
+                        className={styles.new_commit}
+                        onClick={() => changeServiceView('new_commit')}
+                      >Comenta</button>
+                    ) : null
+                  }
+                  <button
+                    className={styles.back_to_description}
+                    onClick={() => changeServiceView('back_to_details')}
+                  >Volver</button>
+                </div>
+              )}
           </div>
         </div>
       </article>
@@ -197,10 +302,21 @@ class Service extends Component {
 const mapStateToProps = state => ({
   devices: state.devices,
   favorites: state.user.favorites,
-  isPostulated: (service) => state.user.postulations.filter(postulation => postulation._id === service._id).length < 1,
-  showRequirements: (Newservice) => state.user.posts.services.filter(service => service._id === Newservice._id)[0].state.showRequirements
+  isPostulated: (service) =>
+    state.user.postulations.filter(postulation => postulation._id === service._id).length < 1,
+  showCommits: (Newservice) =>
+    state.user.posts.services.filter(service => service._id === Newservice._id)[0].state.showCommits,
+  showFormNewCommit: (Newservice) =>
+    state.user.posts.services.filter(service => service._id === Newservice._id)[0].state.formCommitActive
 });
 const mapDispatchToProps = dispatch => ({
+  addNewCommit(_id, commit) {
+    dispatch({
+      type: 'ADD_NEW_COMMIT',
+      commit,
+      _id
+    });
+  },
   addFavorite(favorite) {
     dispatch({
       type: 'ADD_FAVORITE',
@@ -217,13 +333,19 @@ const mapDispatchToProps = dispatch => ({
     dispatch({
       type: 'ADD_NEW_SERVICE_STATE',
       state: {
-        showRequirements: false
+        showCommits: false
       }
     });
   },
   changeThisShowRequirementsState(service) {
     dispatch({
-      type: "CHANGE_THIS_SHOW_REQUIREMENTS_STATE",
+      type: "CHANGE_THIS_SHOW_COMMITS_STATE",
+      _id: service._id
+    });
+  },
+  changeThisShowFormNewCommit(service) {
+    dispatch({
+      type: "CHANGE_THIS_SHOW_FORM_NEW_COMMIT",
       _id: service._id
     });
   },

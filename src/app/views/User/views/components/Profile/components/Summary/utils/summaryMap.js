@@ -8,7 +8,7 @@ import evaluatedIMG from "../assets/img/023-curriculum-1.svg";
 import completedIMG from "../assets/img/015-car.svg";
 
 export default function summaryMap(styles, user, isMobile) {
-  const { profile } = user;
+  const { profile, postulations } = user;
   return isMobile
     ? ( <div className={styles.info_mobile}>
       <div className={styles.Aplicated_mobile}>
@@ -39,9 +39,9 @@ export default function summaryMap(styles, user, isMobile) {
     ) : ( <div className={styles.info}>
       <div className={styles.Aplicated}>
         <div className={styles.image}>
-          <img src={aplicatedIMG} alt={`Aplicaste a ${ profile.aplicated } ofertas`} />
+          <img src={aplicatedIMG} alt={`Aplicaste a ${ postulations.length } ofertas`} />
         </div>
-        <span> Aplicaste a <strong>{ profile.aplicated }</strong> ofertas </span>
+        <span> Aplicaste a <strong>{ postulations.length }</strong> ofertas </span>
       </div>
       <div className={styles.interested}>
         <div className={styles.image}>

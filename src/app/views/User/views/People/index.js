@@ -20,7 +20,6 @@ const People = ({ devices }) => {
 
   const Desktop = () => (
     <section className={styles.user_desktop}>
-      <Nav />
       <Profil />
     </section>
   );

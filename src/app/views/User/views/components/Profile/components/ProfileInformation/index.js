@@ -18,17 +18,20 @@ class ProfileInformation extends Component {
   view() {
     const { devices, user } = this.props;
     return devices.isMobile
-      ? (<article className={styles.profile_information_mobile}>
-        <header className={styles.header_mobile}>
-          <div className={styles.picture_mobile}>
-            <img src={user.picture_mobile} alt={`Foto de perfil de ${user.name} ${user.lastname}`} />
-          </div>
-        </header>
-      </article>)
-      : (<article className={styles.profile_information}>
-        <Header />
-        <Networks />
-      </article>);
+      ? (
+        <article className={styles.profile_information_mobile}>
+          <header className={styles.header_mobile}>
+            <div className={styles.picture_mobile}>
+              <img src={user.picture_mobile} alt={`Foto de perfil de ${user.name} ${user.lastname}`} />
+            </div>
+          </header>
+        </article>
+      ) : (
+        <article className={styles.profile_information}>
+          <Header />
+          <Networks />
+        </article>
+      );
   }
 
   render() {

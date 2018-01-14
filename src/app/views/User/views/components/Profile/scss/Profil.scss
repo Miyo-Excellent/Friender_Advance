@@ -15,7 +15,7 @@ $friends-bg-color: hsla(60, 0%, 98%, 1);
     width: 100%;
     height: 100%;
     display: grid;
-    grid: 1fr / 250px minmax(320px, auto) 100px;
+    grid: 1fr / 250px minmax(320px, auto) 85px;
     grid-gap: 5px;
     padding: 5px;
     .information_desktop,
@@ -52,6 +52,17 @@ $friends-bg-color: hsla(60, 0%, 98%, 1);
     }
     .friends {
         background: $friends-bg-color;
+        display: grid;
+        grid: 20px 1fr / 100%;
+        >*{
+            grid-column: 1;
+        }
+        &_title {
+            grid-row: 1;
+            h5 {
+                font-size: .75rem;
+            }
+        }
     }
 }
 .profil_mobile {

@@ -1,8 +1,12 @@
 .courier_box {
     display: grid;
-    grid: 100% / 1fr 1fr;
+    grid: 100% / minmax(175px, auto) minmax(175px, auto);
+    grid-gap: 5px;
+    max-width: 450px;
+    margin: 0 auto;
     .add,
     .cancel {
+        grid-row: 1;
         display: flex;
         flex-flow: column nowrap;
         justify-content: center;
@@ -15,10 +19,11 @@
             width: calc(100% - 10px);
             height: calc(100% - 10px);
             border-radius: 5px;
-            padding: 5px;
+            padding: 0;
         }
     }
     .add {
+        grid-column: 1;
         > button {
             background: $currier-box-btn-add-bg-color;
             border: 2px solid $currier-box-btn-add-border-color;
@@ -33,6 +38,7 @@
         }
     }
     .cancel {
+        grid-column: 2;
         > button {
             background: $currier-box-btn-cancel-bg-color;
             border: 2px solid $currier-box-btn-cancel-border-color;

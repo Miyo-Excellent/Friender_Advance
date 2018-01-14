@@ -113,7 +113,7 @@ $tags-list-item-border-color-hover: hsla(200, 90%, 55%, 1);
     .editing {
         padding: 5px;
         display: grid;
-        grid: 45px 140px 45px minmax(110px, auto) 1fr auto / 100%;
+        grid: 45px minmax(155px, auto) 45px minmax(110px, auto) 1fr 45px / 100%;
         grid-gap: 5px;
         > * {
             grid-column: 1;
@@ -162,5 +162,12 @@ $tags-list-item-border-color-hover: hsla(200, 90%, 55%, 1);
     }
     100% {
         opacity: 1;
+    }
+}
+@media all and (min-width: 1280px) {
+    .add_service_container {
+        .editing {
+            grid: 45px 45px minmax(155px, auto) minmax(110px, auto) 45px / 1fr 1fr 1fr;
+        }
     }
 }

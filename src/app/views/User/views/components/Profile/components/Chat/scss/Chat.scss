@@ -1,0 +1,60 @@
+.chat {
+    grid-row: 2;
+    min-width: 100%;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: flex-start;
+    align-items: center;
+}
+.connector {
+    width: 100%;
+    margin: 0 auto 10px auto;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+}
+.connector_photo {
+    height: 50px;
+    width: 50px;
+    min-height: 50px;
+    min-width: 50px;
+    background-size: contain;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+    &,
+    img {
+        transition: all linear 150ms;
+    }
+    &::before {
+        content: "";
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        background: hsl(210, 100%, 50%);
+        border-radius: 50%;
+        z-index: 0;
+    }
+    &:hover {
+        transform: scale(1.13);
+        &::before {
+            background: hsl(100, 60%, 50%);
+        }
+        &:active {
+            &::before {
+                background: hsl(100, 100%, 50%);
+            }
+            img {
+                width: 75%;
+            }
+        }
+    }
+    img {
+        cursor: pointer;
+        display: block;
+        width: 88%;
+        border-radius: 50%;
+    }
+}
