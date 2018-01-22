@@ -1,53 +1,40 @@
-// Dependencies
-import bodyParser from 'body-parser';
-import cookieParser from 'cookie-parser';
-import express from 'express';
-import { isDesktop, isBot, isCurl, isMobile, isPlayStation } from "../shared/utils/device";
-import morgan from 'morgan';
+////////////////////////////////////////////////////////////////////////////////////////////////////
+/***************************************Dependencies**********************************************/
+import mongoose from 'mongoose';
 // import open from 'open';
-import path from 'path';
-//import pm2 from 'pm2';
-import pmx from 'pmx';
-import serveFavicon from 'serve-favicon';
-import remotedev from 'remotedev-server';
-import webpack from 'webpack';
-import webpackDevMiddleware from 'webpack-dev-middleware';
-import webpackHotMiddleware from 'webpack-hot-middleware';
-import webpackHotServerMiddleware from 'webpack-hot-server-middleware';
 
-// Router
+/***************************************Middlewares**********************************************/
+
+/****************************************Webpack***********************************************/
+
+/***************************************Express app*******************************************/
+import app from './serverAPP';
+
+/******************************************Routes*********************************************/
 // import routes from './routes';
 
-// API
-import api from './api';
+/******************************************API************************************************/
 
-// Webpack Configuration
-import webpackConfig from '../../webpack.config';
+/**************************************Client Render******************************************/
 
-// Client Render
-import clientRender from './clientRender';
+/**********************************Server Configuration***************************************/
+import DBConfig from './config';
 
-// Environment
-const isDevelopment = process.env.NODE_ENV !== 'production';
+/*****************************************Utils***********************************************/
+
+////////////////////////////////////////////////////////////////////////////////////////////////////
+/**********************************Variables de Entorno*******************************************/
+
 // Deployment
 const isDeployment = process.env.DEPLOYMENT === 'true';
+
 // Analyzer
 const isAnalyzer = process.env.ANALIZER === 'true';
 
-// Express app
-const app = express();
-// Webpack Compiler
-const compiler = webpack(webpackConfig);
 // Server Port
 const port = isDeployment ? 80 : process.env.NODE_PORT || 3000;
 
-const probe = pmx.probe();
-
-const meter = probe.meter({
-  name      : 'req/sec',
-  samples   : 1,
-  timeframe : 60
-});
+////////////////////////////////////////////////////////////////////////////////////////////////////
 
 // Causes problems with REACT-REDUX. only use for files that do not use REACT-REDUX.
 // GZip Compression just for Production
@@ -59,81 +46,28 @@ const meter = probe.meter({
 //   });
 // }
 
-remotedev({ // Remote Redux Dev Tools
-  hostname: 'localhost',
-  port: 8000
-});
+////////////////////////////////////////////////////////////////////////////////////////////////////
 
-pmx.init({
-  http          : true, // HTTP routes logging (default: true)
-  ignore_routes : [], // Ignore http routes with this pattern (Default: [])
-  errors        : true, // Exceptions logging (default: true)
-  custom_probes : true, // Auto expose JS Loop Latency and HTTP req/s as custom metrics
-  network       : true, // Network monitoring at the application level
-  ports         : true // Shows which ports your app is listening on (default: false)
-});
-
-app
-  // Favicon Middlewares
-  .use(serveFavicon(path.join(__dirname, '../../public/images/logo/logo.ico')))
-  // Headers & Bodies Parsers Middlewares
-  .use(bodyParser.urlencoded({ extended: false })) // parse application/x-www-form-urlencoded
-  .use(bodyParser.json()) // parse application/json
-  // Morgan Middlewares
-  .use(morgan('dev'))
-  // Cookies Middlewares
-  .use(cookieParser())
-  // Public Static
-  .use(express.static(path.join(__dirname, '../../public')))
-
-  .use('/', (req, res, next) => {
-    meter.mark();
-    // Bots Detection
-    req.isBot = isBot(req.headers["user-agent"]);
-    // Curl Detection
-    req.isCurl = isCurl(req.headers["user-agent"]);
-    // Device Detection
-    req.isMobile = isMobile(req.headers["user-agent"]);
-    // Desktop Detection
-    req.isDesktop = isDesktop(req.headers["user-agent"]);
-    // Desktop Detection
-    req.isPlayStation = isPlayStation(req.headers["user-agent"]);
-    return next(); // Next Middleware
-  })
-
-  // Run API
-  .use('/api', api);
-
-if (isDevelopment) {// Only Middlewares for Development Mode
-  app
-    // Hot Module Replacement
-    .use(webpackDevMiddleware(compiler))
-    .use(webpackHotMiddleware(compiler.compilers.find(compiler => compiler.name === 'client')));
-}
-// Client Side Rendering
-app.use(clientRender()); // If a robot makes the request, the clientRender () function will return the next () method.
-
-if (!isDevelopment) { // Only Middlewares for Production Mode
-  try { // Server Side Rendering
-    const serverRender = require('../../dist/server.js').default;
-    app.use(serverRender());
-  } catch (err) {
-    throw err;
+// Data Base Connection
+mongoose.connect(DBConfig.db, err => {
+  if (err) {
+    // manda a imprimir en consola
+    console.log(`Error al conectar a la base de datos ${err}`);
   }
-}
 
-app
-  // For Server Side Rendering on Developmnent Mode
-  .use(webpackHotServerMiddleware(compiler));
+  app.listen(port, err => { // Listening
+    if (!err && !isAnalyzer) {
 
-app.listen(port, err => { // Listening
-  if (!err && !isAnalyzer) {
-    // open(`http://localhost:${port}`);
-    console.log(`
-    ============================================================================================================================
-    |·─··─··─··─··─··─··─··─··─··─··─··─··─··─··─··─··─··─··─··─··─··─··─··─··─··─··─··─··─··─··─··─··─··─··─··─··─··─·─··─··─·|
-    |·─ Aplicación corriendo en: ==>  http://localhost:${port}  <== Abrir enlace con (Ctrl + Clic) en Windows, Linux, MAC ─··─·|
-    |·─··─··─··─··─··─··─··─··─··─··─··─··─··─··─··─··─··─··─··─··─··─··─··─··─··─··─··─··─··─··─··─··─··─··─··─··─··─·─··─··─·|
-    ============================================================================================================================`);
-  }
+      // open(`http://localhost:${port}`);
+
+      console.log(`
+      ============================================================================================================================
+      |·─··─··─··─··─··─··─··─··─··─··─··─··─··─··─··─··─··─··─··─··─··─··─··─··─··─··─··─··─··─··─··─··─··─··─··─··─··─·─··─··─·|
+      |·─ Aplicación corriendo en: ==>  http://localhost:${port}  <== Abrir enlace con (Ctrl + Clic) en Windows, Linux, MAC ─··─·|
+      |·─··─··─··─··─··─··─··─··─··─··─··─··─··─··─··─··─··─··─··─··─··─··─··─··─··─··─··─··─··─··─··─··─··─··─··─··─··─·─··─··─·|
+      ============================================================================================================================
+      `);
+    }
+  });
 });
+
